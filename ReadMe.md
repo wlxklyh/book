@@ -22,12 +22,13 @@
 ### C++
 - Volatile作用
 类型修饰符 没有使用这个声明的 可能直接从CPU的寄存器里面直接取值 下面b=i的汇编会直接从寄存器里面读取值
-int i=10;
-int a=i;
-int b=i;
-
+变量i 没有关键字Volatile 那么是有编译器优化 1BDh直接把这个值算好在汇编里面
+![](Img/2020-05-20-08-14-56.png)
+变量i 有关键字Volatile 那么是无编译器优化 
+![](Img/2020-05-20-08-16-41.png)
 - 虚函数
 
+- 智能指针
 
 
 
@@ -50,4 +51,3 @@ int b=i;
 ### GC回收
 
 #### [《垃圾回收的算法和实现》](https://github.com/wlxklyh/book/blob/master/Book/neiwork/Study.md)
-
