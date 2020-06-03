@@ -4,4 +4,6 @@
 ## 环境
 https://github.com/Polytonic/Glitter
 
-## 概念
+## 摄像机
+
+## 颜色

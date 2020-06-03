@@ -1,4 +1,7 @@
 
 
-Book/Shader/UnrealShader/UnrealShader/.vs/*.*
-Book/Shader/UnrealShader/UnrealShader/Intermediate/*.*
+Book/Shader/UnrealShader/UnrealShader/.vs/
+Book/Shader/UnrealShader/UnrealShader/Intermediate/
+Book/Shader/UnrealShader/UnrealShader/Binaries/
+Book/Shader/UnrealShader/UnrealShader/Saved/
+Book/Shader/UnrealShader/UnrealShader/UnrealShader.sln
