@@ -69,3 +69,22 @@ mono:游戏的数据
 （4）个人统计 天天炫斗的时候 分类：纹理、db、
 
 ![](Img/2020-05-29-09-28-11.png)
+
+## 4、项目
+AssetBundle是将资源使用Unity提供的一种用于存储资源的压缩格式打包后的集合，它可以存储任何一种Unity可以识别的资源，如模型，纹理图，音频，场景等资源。
+这个bunlde的使用路径是 构建分包 更新下载 本地加载卸载管理
+
+
+## 5、Qzone热更新原理
+classloader会双亲委托 最终是有个dex列表 前面的先加载  热更就是把新的dex插入到最前面
+问题1：class调用关系在一个dex里面 会标记CLASS_ISPREVERIFIED 后面如果到新的dex 则会异常
+解决：构造函数调用一个XXX.dex的XXX类  然后这样就不会被标记CLASS_ISPREVERIFIED
+
+问题2：流程
+1. 获取当前应用的ClassLoader 即为BaseDexClassloader
+2. 反射获取DexPathList pathlist
+3. 反射获取pathList 的dexElements方法 把path.dex转成Element[]
+4. 合并两个Element[] path.dex放到最前面
+
+
+## 6、Tinker热更新原理

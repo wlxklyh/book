@@ -1,0 +1,47 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.25807.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Engine", "Engine", "{6940955B-6673-4010-B592-ACC25B9E0273}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Games", "Games", "{68683AF0-9699-4C3A-BBD8-6A6CE3512E62}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UE4", "Intermediate\ProjectFiles\UE4.vcxproj", "{C42FDA0A-11B7-4381-A446-93F136C5AD21}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Graphic", "Intermediate\ProjectFiles\Graphic.vcxproj", "{D469428B-22BA-4E36-BC1C-12C7714EC6DE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Visualizers", "Visualizers", "{14DF5AD4-D5D9-4814-8F4B-E05516238838}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\..\..\..\Clash\Engine2\Windows\Engine\Extras\VisualStudioDebugging\UE4.natvis = ..\..\..\..\..\..\Clash\Engine2\Windows\Engine\Extras\VisualStudioDebugging\UE4.natvis
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		DebugGame Editor|Win64 = DebugGame Editor|Win64
+		DebugGame|Win64 = DebugGame|Win64
+		Development Editor|Win64 = Development Editor|Win64
+		Development|Win64 = Development|Win64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C42FDA0A-11B7-4381-A446-93F136C5AD21}.DebugGame Editor|Win64.ActiveCfg = BuiltWithUnrealBuildTool|Win32
+		{C42FDA0A-11B7-4381-A446-93F136C5AD21}.DebugGame|Win64.ActiveCfg = BuiltWithUnrealBuildTool|Win32
+		{C42FDA0A-11B7-4381-A446-93F136C5AD21}.Development Editor|Win64.ActiveCfg = BuiltWithUnrealBuildTool|Win32
+		{C42FDA0A-11B7-4381-A446-93F136C5AD21}.Development|Win64.ActiveCfg = BuiltWithUnrealBuildTool|Win32
+		{D469428B-22BA-4E36-BC1C-12C7714EC6DE}.DebugGame Editor|Win64.ActiveCfg = DebugGame_Editor|x64
+		{D469428B-22BA-4E36-BC1C-12C7714EC6DE}.DebugGame Editor|Win64.Build.0 = DebugGame_Editor|x64
+		{D469428B-22BA-4E36-BC1C-12C7714EC6DE}.DebugGame|Win64.ActiveCfg = DebugGame|x64
+		{D469428B-22BA-4E36-BC1C-12C7714EC6DE}.DebugGame|Win64.Build.0 = DebugGame|x64
+		{D469428B-22BA-4E36-BC1C-12C7714EC6DE}.Development Editor|Win64.ActiveCfg = Development_Editor|x64
+		{D469428B-22BA-4E36-BC1C-12C7714EC6DE}.Development Editor|Win64.Build.0 = Development_Editor|x64
+		{D469428B-22BA-4E36-BC1C-12C7714EC6DE}.Development|Win64.ActiveCfg = Development|x64
+		{D469428B-22BA-4E36-BC1C-12C7714EC6DE}.Development|Win64.Build.0 = Development|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C42FDA0A-11B7-4381-A446-93F136C5AD21} = {6940955B-6673-4010-B592-ACC25B9E0273}
+		{D469428B-22BA-4E36-BC1C-12C7714EC6DE} = {68683AF0-9699-4C3A-BBD8-6A6CE3512E62}
+	EndGlobalSection
+EndGlobal
