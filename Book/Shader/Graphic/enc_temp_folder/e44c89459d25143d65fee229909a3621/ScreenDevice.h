@@ -4,8 +4,6 @@
 #include <math.h>
 //参考：https://github.com/skywind3000/mini3d
 
-
-
 //=================数学工具 Begin===================
 //插值函数   t为[0,1]之间 
 template<typename T>
@@ -15,6 +13,7 @@ T Interp(T x1, T x2, T t) { return x1 + (x2 - x1) * t; }
 template<typename T>
 T Clamp(T x, T min, T max) { return (x < min) ? min : ((x > max) ? max : x); }
 //=================数学工具 End=====================
+
 
 
 //形状基类
@@ -158,6 +157,9 @@ public:
 HScreenDevice* HScreenDevice::DeviceInstance = NULL;
 
 
+
+
+
 //H只是个前缀就跟OpenGL的GL一样
 class HMatrix
 {
@@ -284,7 +286,6 @@ public:
 	}
 };
 
-//向量或者是点都是这个类便是
 class HVector
 {
 public:
@@ -531,7 +532,6 @@ static HMatrix GetLookAtMat(HVector& camera, HVector& at, HVector& up)
 	return matRet;
 }
 
-//获取投影矩阵 乘以这个矩阵之后得到的是相机空间的坐标
 static HMatrix GetPerspectiveMat(float fovy, float aspect, float zn, float zf) 
 {
 	float fax = 1.0f / (float)tan(fovy * 0.5f);
@@ -545,7 +545,7 @@ static HMatrix GetPerspectiveMat(float fovy, float aspect, float zn, float zf)
 	return matRet;
 }
 
-//描述一个模型的空间坐标转换的过程的类
+
 class HTransform
 {
 public:
@@ -612,14 +612,13 @@ public:
 	}
 };
 
-//颜色 RGBA
+
 class HColor
 {
 public:
 	float r, g, b, a;
 };
 
-//纹理坐标 uc
 class HTexcoord
 {
 public:
@@ -706,7 +705,6 @@ public:
 	}
 };
 
-//边 线段
 class HEdge
 {
 public:
@@ -1019,6 +1017,7 @@ public:
 	}
 
 };
+
 
 
 //=====实例代码

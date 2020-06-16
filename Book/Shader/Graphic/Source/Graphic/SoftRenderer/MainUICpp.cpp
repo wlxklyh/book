@@ -4,6 +4,8 @@
 #include "MainUICpp.h"
 #include "ImageUtils.h"
 #include "Engine/Texture2DDynamic.h"
+#include "Engine/Engine.h"
+#include "ClothingSystemEditor/Private/ClothingSystemEditorPrivatePCH.h"
 
 static UTexture2D* CreateTextureFromBGRA(unsigned char* data, int width, int height)
 {
@@ -18,9 +20,16 @@ void UMainUICpp::NativeConstruct()
 		MainImage = img;
 	}
 
+	//获取设备宽高 然后初始化
+	float X = GSystemResolution.ResX;
+	float Y = GSystemResolution.ResY;
+	HScreenDevice::GetInstance()->Init(X,Y);
+
+	//初始化过程变量
 	MainTexture = UTexture2D::CreateTransient(HScreenDevice::GetInstance()->ScreenWidth, HScreenDevice::GetInstance()->ScreenHeight, PF_B8G8R8A8);
 	MainColors = new FColor[HScreenDevice::GetInstance()->ScreenWidth *  HScreenDevice::GetInstance()->ScreenHeight];
 
+	//设置绘制一个Cube
 	HScreenDevice::GetInstance()->shape = new HCube();
 
 }
