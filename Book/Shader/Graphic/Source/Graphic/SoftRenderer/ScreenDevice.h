@@ -60,6 +60,8 @@ public:
 
 	void Init()
 	{
+		TextureW = 256;
+		TextureH = 256;
 		//屏幕像素分辨率
 		ScreenWidth = 1024;
 		ScreenHeight = 1024;
@@ -75,7 +77,7 @@ public:
 		for (j = 0; j < 256; j++) {
 			for (i = 0; i < 256; i++) {
 				int x = i / 32, y = j / 32;
-				Texture[j][i] = ((x + y) & 1) ? 0xffffff : 0x3fbcef;
+				Texture[j][i] = ((x + y) & 1) ? 0xffffffff : 0x3fbcefff;
 			}
 		}
 	}
@@ -284,6 +286,16 @@ public:
 class HVector
 {
 public:
+	HVector()
+	{
+		w = 1;
+	}
+	HVector(float xp, float yp, float zp, float wp): x(xp), y(yp), z(zp), w(wp)
+	{
+		
+	}
+
+
 	//表示向量时w无用
 	float x, y, z, w;
 
@@ -486,7 +498,7 @@ static HMatrix GetRotateMat(float x, float y, float z)
 // Rx Ry Rz 0
 // Ux Uy Uz 0
 // Dx Dy Dz 0
-// 0  0  0  1
+// 0  0  0  1 相机空间是左手系 
 static HMatrix GetLookAtMat(HVector& camera, HVector& at, HVector& up)
 {
 	HMatrix matRet;
@@ -494,7 +506,7 @@ static HMatrix GetLookAtMat(HVector& camera, HVector& at, HVector& up)
 	CameraZAxis = at.Sub(camera);
 	CameraZAxis = CameraZAxis.Normalize();
 	CameraYAxis = up.Normalize();
-	CameraXAxis = CameraYAxis.CrossProduct(CameraYAxis);
+	CameraXAxis = CameraZAxis.CrossProduct(CameraYAxis);
 	CameraXAxis = CameraXAxis.Normalize();
 
 	matRet.m[0][0] = CameraXAxis.x;
@@ -536,26 +548,19 @@ class HTransform
 public:
 	HTransform()
 	{
-		
-	}
-	HTransform(int w, int h)
-	{
-		ScreenWidth = w;
-		ScreenHeight = h;
 		Init();
 	}
+
 	//Unity 里面就是 Position Rotation Scale来构建这个矩阵 后面这里可以拆分下更好理解
 	// ModelMatrix，就是将模型坐标变换到WorldMatrix的Matrix，WorldMatrix = Mt * Mr * Ms  ModleMatrix =  Mt * Mr * Ms
 	HMatrix ModleMat;
-	//世界坐标转到视锥体 转成相机坐标 View矩阵做转换
+	// 世界坐标转到视锥体 转成相机坐标 View矩阵做转换
 	HMatrix ViewMat;
 	// 投影矩阵 视锥体坐标乘以这个投影矩阵 就得到屏幕坐标
 	HMatrix ProjectionMat;
 	//MVP 矩阵就是 ModleMat *  ViewMat * ProjectionMat
 	HMatrix MVPMat;
-	// 
-	int ScreenWidth;
-	int ScreenHeight;
+
 
 	// 更新投影矩阵
 	void UpdateMVPMat()
@@ -565,8 +570,17 @@ public:
 
 	void Init()
 	{
+		int ScreenWidth = HScreenDevice::GetInstance()->ScreenWidth;
+		int ScreenHeight = HScreenDevice::GetInstance()->ScreenHeight;
 		ModleMat = GetIdentityMat();
-		ViewMat = GetIdentityMat();
+		HVector camera(5, 0, 0, 1);
+		HVector at(0, 0, 0, 1);
+		HVector up(0, 1, 0, 1);
+		ViewMat = GetLookAtMat(
+			camera,
+			at,
+			up
+		);
 		// fov = 90度 0.5pai
 		ProjectionMat = GetPerspectiveMat(3.1415926f * 0.5f,(float) ScreenWidth / (float)ScreenHeight,1.0f,500.0f);
 		UpdateMVPMat();
@@ -583,6 +597,8 @@ public:
 	//高↓
 	HVector HomogenizeToScreenCoord(HVector& Origin)
 	{
+		int ScreenWidth = HScreenDevice::GetInstance()->ScreenWidth;
+		int ScreenHeight = HScreenDevice::GetInstance()->ScreenHeight;
 		float rhw = 1.0f / Origin.w;
 		HVector vecRet;
 		vecRet.x = (Origin.x * rhw + 1.0f) * ScreenWidth * 0.5f;
@@ -861,22 +877,23 @@ public:
 		float *zbuffer = ScreenDevice->DepthBuff;
 
 		int x = scanline.x;
+		int y = scanline.y;
 		int scanlineWidth = scanline.width;
 		int ScreenWidth = ScreenDevice->ScreenWidth;
-		
+		int ScreenHeight = ScreenDevice->ScreenHeight;
 
 		for (; scanlineWidth > 0; x++, scanlineWidth--) {
 			if (x >= 0 && x < ScreenWidth) {
 				float rhw = scanline.v.rhw;
 				if (rhw >= zbuffer[x]) {
 					float w = 1.0f / rhw;
-					zbuffer[x] = rhw;
+					zbuffer[x+y* ScreenWidth] = rhw;
 				
 					float u = scanline.v.uv.u * w;
 					float v = scanline.v.uv.v * w;
 
 					uint32 color = ScreenDevice->RreadTexture(u, v);
-					framebuffer[x] = color;
+					framebuffer[x + y * ScreenWidth] = color;
 				}
 			}
 			scanline.v = scanline.v.Add(scanline.step);
@@ -904,7 +921,7 @@ public:
 	//画三角形 传入的
 	void DrawTriangle(HTriangle Triangle)
 	{
-		HMatrix mat = GetRotateMat(-1, -0.5, 1);
+		HMatrix mat = GetRotateMat(0, 0.8, 0.8);
 		Transform.ModleMat = mat;
 		Transform.UpdateMVPMat();
 
