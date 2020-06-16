@@ -6,38 +6,50 @@
 //mini3d笔记：https://zhuanlan.zhihu.com/p/74510058
 //图形学流水线文章：https://positiveczp.github.io/%E7%BB%86%E8%AF%B4%E5%9B%BE%E5%BD%A2%E5%AD%A6%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF.pdf
 
-/*	
+/*
  *  1、最简单的渲染流水线:
  *	   分成CPU阶段和GPU阶段
- *      +--------------+     +-------------+ 
- *      |              |     |             |  
+ *      +--------------+     +-------------+
+ *      |              |     |             |
  *      |     CPU      +----->     GPU     +
- *      |              |     |             |  
- *      +--------------+     +-------------+ 
- *      
+ *      |              |     |             |
+ *      +--------------+     +-------------+
+ *
  *	2、其中CPU阶段就是Application 应用阶段  GPU阶段包括了几何阶段和光栅化阶段
- *      +--------------+     +-----------------+  +------------------+   +----------------+
- *      |              |     |                 |  |                  |   |                |
- *      | Application  +----->     Geometry    +--> Rasterization    +--->Pixel Process   |
- *      |              |     |                 |  |                  |   |                |
- *      +--------------+     +-----------------+  +------------------+   +----------------+
- *      
- *  3、几何几段： 
- *		
- *		+--------------+     +-----------------+  +------------------+   +----------------+
- *      |              |     |                 |  |                  |   |                |
- *      |VertexShading +----->     Geometry    +--> Rasterization    +--->Pixel Process   |
- *      |              |     |                 |  |                  |   |                |
- *      +--------------+     +-----------------+  +------------------+   +----------------+
- *      
- *      
- *      
+ *      +--------------+     +-----------------+  +----------------+   +----------------+
+ *      |              |     |                 |  |                |   |                |
+ *      |   应用阶段   +----->     几何阶段    +-->      光栅化    +--->     像素处理   |
+ *      |              |     |                 |  |                |   |                |
+ *      +--------------+     +-----------------+  +----------------+   +----------------+
+ *
+ *  3、几何阶段：
+ *
+ *		+--------------+     +-----------------+  +------------------+   +-------------+  +-------------+
+ *      |              |     |                 |  |                  |   |             |  |             |
+ *      |  顶点着色器  +-----> 曲面细分着色器  +-->   几何着色器     +--->    裁剪     |-->  屏幕投射   |
+ *      |              |     |                 |  |                  |   |             |  |             |
+ *      +--------------+     +-----------------+  +------------------+   +-------------+  +-------------+
+ *
+ *  4、光栅化阶段：
+ *
+ *		+--------------+     +--------------+  +------------------+
+ *      |              |     |              |  |                  |
+ *      |  三角形遍历  +----->  三角形设置  +-->   片元着色器     +
+ *      |              |     |              |  |                  |
+ *      +--------------+     +--------------+  +------------------+
+ *
+ *  5、像素处理阶段：
+ *		深度测试ZTest
+ *		颜色混合
+ *      模板测试（模板缓冲）
+ *
+ *	【说明】：下面的代码根据上面的流水线来讲解和划分
 */
 
 
 
 
-//=================数学工具 Begin===================
+//===========================数学工具 Begin=============================
 //插值函数   t为[0,1]之间 
 template<typename T>
 T Interp(T x1, T x2, T t) { return x1 + (x2 - x1) * t; }
@@ -45,7 +57,7 @@ T Interp(T x1, T x2, T t) { return x1 + (x2 - x1) * t; }
 //Clamp函数 Value
 template<typename T>
 T Clamp(T x, T min, T max) { return (x < min) ? min : ((x > max) ? max : x); }
-//=================数学工具 End=====================
+//===========================数学工具 End===============================
 
 
 //形状基类
@@ -54,12 +66,19 @@ class HShape
 public:
 	virtual void Draw() = 0;
 };
+class HTexture
+{
+public:
 
+	//全局纹理（纹理应该跟Shape走 这里先放在这里了）
+	int TextureW, TextureH;
+	int Texture[256][256];
+};
 //渲染设备
 class  HScreenDevice
 {
 public:
-	//============单例============
+	//============单例 Begin============
 	static HScreenDevice *DeviceInstance;
 	static HScreenDevice *GetInstance()
 	{
@@ -69,7 +88,7 @@ public:
 		}
 		return DeviceInstance;
 	}
-	//============单例============
+	//============单例 End============
 
 	//渲染的形状
 	HShape *shape;
@@ -79,7 +98,6 @@ public:
 	};
 	~HScreenDevice()
 	{
-
 	};
 	//屏幕分辨率宽
 	int ScreenWidth;
@@ -89,23 +107,21 @@ public:
 	unsigned char* FrameBuff;
 	//深度缓冲 绘制过程ZTest ZWrite
 	float* DepthBuff;
-	//全局纹理
-	int TextureW, TextureH;
-	int Texture[256][256];
 
-	void Init(int width,int height)
+
+	void Init(int width, int height)
 	{
-		//屏幕像素分辨率
+		//1、屏幕像素分辨率
 		ScreenWidth = width;
 		ScreenHeight = height;
 
 
-		//屏幕缓冲  每个像素是RGBA 所以4字节
+		//2、屏幕缓冲和深度缓冲 
 		FrameBuff = (unsigned char*)malloc(ScreenWidth * ScreenHeight * 4);
 		DepthBuff = (float*)malloc(ScreenWidth * ScreenHeight * 4);
 
 
-		//初始化纹理
+		//3、初始化纹理
 		TextureW = 256;
 		TextureH = 256;
 		int i, j;
@@ -188,7 +204,7 @@ public:
 };
 HScreenDevice* HScreenDevice::DeviceInstance = NULL;
 
-//=================几何工具 Begin===================
+//===========================几何阶段 Begin=============================
 //H只是个前缀就跟OpenGL的GL一样
 class HMatrix
 {
@@ -213,7 +229,7 @@ public:
 	{
 		HMatrix matRet;
 		int i, j;
-		for (i = 0; i < 4; i++) 
+		for (i = 0; i < 4; i++)
 		{
 			for (j = 0; j < 4; j++)
 			{
@@ -237,18 +253,18 @@ public:
 		return matRet;
 	}
 	//矩阵乘法
-	HMatrix Mul(const HMatrix& mat) 
+	HMatrix Mul(const HMatrix& mat)
 	{
 		HMatrix matRet;
 		int i, j;
-		for (i = 0; i < 4; i++) 
+		for (i = 0; i < 4; i++)
 		{
-			for (j = 0; j < 4; j++) 
+			for (j = 0; j < 4; j++)
 			{
-				matRet.m[i][j] =	(m[i][0] * mat.m[0][j]) +
-									(m[i][1] * mat.m[1][j]) +
-									(m[i][2] * mat.m[2][j]) +
-									(m[i][3] * mat.m[3][j]);
+				matRet.m[i][j] = (m[i][0] * mat.m[0][j]) +
+					(m[i][1] * mat.m[1][j]) +
+					(m[i][2] * mat.m[2][j]) +
+					(m[i][3] * mat.m[3][j]);
 			}
 		}
 		return matRet;
@@ -258,7 +274,7 @@ public:
 	{
 		HMatrix matRet;
 		int i, j;
-		for (i = 0; i < 4; i++) 
+		for (i = 0; i < 4; i++)
 		{
 			for (j = 0; j < 4; j++)
 			{
@@ -270,11 +286,11 @@ public:
 
 	bool operator==(const HMatrix& mat)
 	{
-		for(int i = 0;i < 4; i++)
+		for (int i = 0; i < 4; i++)
 		{
 			for (int j = 0; j < 4; j++)
 			{
-				if(m[i][j] != mat.m[i][j])
+				if (m[i][j] != mat.m[i][j])
 				{
 					return false;
 				}
@@ -297,7 +313,7 @@ public:
 		}
 		return false;
 	}
-	
+
 	//补充单元测试
 	bool UnitTest()
 	{
@@ -307,7 +323,7 @@ public:
 		mat1.m[0][2] = 0; mat1.m[1][2] = 0; mat1.m[2][2] = 0; mat1.m[3][2] = 0;
 		mat1.m[0][3] = 0; mat1.m[1][3] = 0; mat1.m[2][3] = 0; mat1.m[3][3] = 0;
 
-		if(mat1.Add(mat2) != mat3)
+		if (mat1.Add(mat2) != mat3)
 		{
 			return false;
 		}
@@ -323,9 +339,9 @@ public:
 	{
 		w = 1;
 	}
-	HVector(float xp, float yp, float zp, float wp): x(xp), y(yp), z(zp), w(wp)
+	HVector(float xp, float yp, float zp, float wp) : x(xp), y(yp), z(zp), w(wp)
 	{
-		
+
 	}
 
 
@@ -333,8 +349,8 @@ public:
 	float x, y, z, w;
 
 	//向量长度
-	float Length() { return sqrt( x * x + y * y + z * z); }
-	
+	float Length() { return sqrt(x * x + y * y + z * z); }
+
 	//向量加法
 	HVector Add(const HVector& vec)
 	{
@@ -379,7 +395,7 @@ public:
 	}
 
 	//向量插值
-	HVector InterpVec(const HVector& vec,float t)
+	HVector InterpVec(const HVector& vec, float t)
 	{
 		HVector vecRet;
 		vecRet.x = Interp(x, vec.x, t);
@@ -394,7 +410,7 @@ public:
 	{
 		HVector vecRet;
 		float len = Length();
-		if(len != 0.0f)
+		if (len != 0.0f)
 		{
 			vecRet.x = x / len;
 			vecRet.y = y / len;
@@ -402,7 +418,7 @@ public:
 		}
 		return vecRet;
 	}
-	 
+
 	//向量乘矩阵
 	HVector MulMat(const HMatrix& mat)
 	{
@@ -425,9 +441,9 @@ public:
 		if (x > w) check |= 8;
 		if (y < -w) check |= 16;
 		if (y > w) check |= 32;
-		return check==0;
+		return check == 0;
 	}
-	
+
 
 };
 
@@ -563,7 +579,7 @@ static HMatrix GetLookAtMat(HVector& camera, HVector& at, HVector& up)
 }
 
 //获取投影矩阵 乘以这个矩阵之后得到的是相机空间的坐标
-static HMatrix GetPerspectiveMat(float fovy, float aspect, float zn, float zf) 
+static HMatrix GetPerspectiveMat(float fovy, float aspect, float zn, float zf)
 {
 	float fax = 1.0f / (float)tan(fovy * 0.5f);
 
@@ -616,7 +632,7 @@ public:
 			up
 		);
 		// fov = 90度 0.5pai
-		ProjectionMat = GetPerspectiveMat(3.1415926f * 0.5f,(float) ScreenWidth / (float)ScreenHeight,1.0f,500.0f);
+		ProjectionMat = GetPerspectiveMat(3.1415926f * 0.5f, (float)ScreenWidth / (float)ScreenHeight, 1.0f, 500.0f);
 		UpdateMVPMat();
 	}
 
@@ -642,11 +658,11 @@ public:
 		return vecRet;
 	}
 };
-//=================几何工具 End===================
+//===========================几何工具 End=============================
 
 
 
-//=================光栅化工具 Begin===================
+//===========================光栅化工具 Begin=============================
 //颜色 RGBA
 class HColor
 {
@@ -658,7 +674,7 @@ public:
 class HTexcoord
 {
 public:
-	float u,v;
+	float u, v;
 };
 
 //顶点信息
@@ -685,10 +701,10 @@ public:
 	}
 
 	//插值屏幕坐标的顶点信息
-	HVertex InterpVertex(HVertex vertex,float t)
+	HVertex InterpVertex(HVertex vertex, float t)
 	{
 		HVertex HVertexRet;
-		HVertexRet.pos = pos.InterpVec(vertex.pos,t);
+		HVertexRet.pos = pos.InterpVec(vertex.pos, t);
 		HVertexRet.uv.u = Interp(uv.u, vertex.uv.u, t);
 		HVertexRet.uv.v = Interp(uv.v, vertex.uv.v, t);
 		HVertexRet.color.r = Interp(color.r, vertex.color.r, t);
@@ -702,11 +718,11 @@ public:
 	HVertex Step(HVertex vertex, float d)
 	{
 		HVertex HVertexRet;
-		if(d==0.0f)
+		if (d == 0.0f)
 		{
 			HVertexRet;
 		}
-		
+
 		float inv = 1.0f / d;
 		HVertexRet.pos.x = (vertex.pos.x - pos.x) * inv;
 		HVertexRet.pos.y = (vertex.pos.y - pos.y) * inv;
@@ -762,10 +778,10 @@ public:
 		float s2 = right.v2.pos.y - right.v1.pos.y;
 		float t1 = (y - left.v1.pos.y) / s1;
 		float t2 = (y - right.v1.pos.y) / s2;
-		left.v = left.v1.InterpVertex(left.v2,t1);
+		left.v = left.v1.InterpVertex(left.v2, t1);
 		right.v = right.v1.InterpVertex(right.v2, t1);
 	}
-	void EdgeInterp( float y) {
+	void EdgeInterp(float y) {
 		float s1 = left.v2.pos.y - left.v1.pos.y;
 		float s2 = right.v2.pos.y - right.v1.pos.y;
 		float t1 = (y - left.v1.pos.y) / s1;
@@ -781,13 +797,13 @@ public:
 		 *
 		 */
 
-		//根据Y坐标 得到左右两边的点
+		 //根据Y坐标 得到左右两边的点
 		left.v = left.v1.InterpVertex(left.v2, t1);
 		right.v = right.v1.InterpVertex(right.v2, t2);
 	}
 
 
-	
+
 };
 
 //光栅化的时候 三角形遍历的时候去生成图元的过程 用扫描线
@@ -802,7 +818,7 @@ public:
 class HTriangle
 {
 public:
-	HTriangle(){}
+	HTriangle() {}
 	HVertex p1, p2, p3;
 	int CalculateTrap(HTrapezoid* trapezoid)
 	{
@@ -871,7 +887,7 @@ public:
 };
 
 //立方体
-class HCube:public HShape
+class HCube :public HShape
 {
 public:
 	HCube() {};
@@ -890,7 +906,7 @@ public:
 		{ { -1,  1, -1, 1 }, { 1, 0 }, { 0.2f, 1.0f, 0.3f }, 1 },
 	};
 	// 根据左右两边的端点，初始化计算出扫描线的起点和步长
-	HScanline GetScanline(HTrapezoid trap,int y) {
+	HScanline GetScanline(HTrapezoid trap, int y) {
 		HScanline scanlineRet;
 		// 左右两点的 宽度
 		float width = trap.right.v.pos.x - trap.left.v.pos.x;
@@ -927,8 +943,8 @@ public:
 				float rhw = scanline.v.rhw;
 				if (rhw >= zbuffer[x + y * ScreenWidth]) {
 					float w = 1.0f / rhw;
-					zbuffer[x+y* ScreenWidth] = rhw;
-				
+					zbuffer[x + y * ScreenWidth] = rhw;
+
 					float u = scanline.v.uv.u * w;
 					float v = scanline.v.uv.v * w;
 
@@ -1054,7 +1070,7 @@ public:
 	}
 
 };
-//=================光栅化工具 End===================
+//===========================光栅化工具 End=============================
 
 //=====实例代码
 //1、初始化加一个立方体 HScreenDevice::GetInstance()->shape = new HCube();

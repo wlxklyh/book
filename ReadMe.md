@@ -23,9 +23,15 @@
 
 ## 零
 - 软渲染器
-正六边形
+1. UE4工程 给UE Programmer或者C++ Programmer
+渲染一个正方体的效果
 ![](Img/2020-06-16-18-02-06.png)
+UE4工程：https://github.com/wlxklyh/book/tree/master/Book/Shader/Graphic
+主代码和注释：https://github.com/wlxklyh/book/blob/master/Book/Shader/Graphic/Source/Graphic/SoftRenderer/ScreenDevice.h
 
+
+
+2. Unity工程 给Unity Programmer或者C# Programmer【TODO】
 
 ## 一、知识
 
