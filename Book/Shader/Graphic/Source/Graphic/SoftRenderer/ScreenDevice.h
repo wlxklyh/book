@@ -2,7 +2,38 @@
 
 #pragma once
 #include <math.h>
-//参考：https://github.com/skywind3000/mini3d
+//软渲染器参考：https://github.com/skywind3000/mini3d  
+//mini3d笔记：https://zhuanlan.zhihu.com/p/74510058
+//图形学流水线文章：https://positiveczp.github.io/%E7%BB%86%E8%AF%B4%E5%9B%BE%E5%BD%A2%E5%AD%A6%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF.pdf
+
+/*	
+ *  1、最简单的渲染流水线:
+ *	   分成CPU阶段和GPU阶段
+ *      +--------------+     +-------------+ 
+ *      |              |     |             |  
+ *      |     CPU      +----->     GPU     +
+ *      |              |     |             |  
+ *      +--------------+     +-------------+ 
+ *      
+ *	2、其中CPU阶段就是Application 应用阶段  GPU阶段包括了几何阶段和光栅化阶段
+ *      +--------------+     +-----------------+  +------------------+   +----------------+
+ *      |              |     |                 |  |                  |   |                |
+ *      | Application  +----->     Geometry    +--> Rasterization    +--->Pixel Process   |
+ *      |              |     |                 |  |                  |   |                |
+ *      +--------------+     +-----------------+  +------------------+   +----------------+
+ *      
+ *  3、几何几段： 
+ *		
+ *		+--------------+     +-----------------+  +------------------+   +----------------+
+ *      |              |     |                 |  |                  |   |                |
+ *      |VertexShading +----->     Geometry    +--> Rasterization    +--->Pixel Process   |
+ *      |              |     |                 |  |                  |   |                |
+ *      +--------------+     +-----------------+  +------------------+   +----------------+
+ *      
+ *      
+ *      
+*/
+
 
 
 
@@ -157,7 +188,7 @@ public:
 };
 HScreenDevice* HScreenDevice::DeviceInstance = NULL;
 
-
+//=================几何工具 Begin===================
 //H只是个前缀就跟OpenGL的GL一样
 class HMatrix
 {
@@ -611,7 +642,11 @@ public:
 		return vecRet;
 	}
 };
+//=================几何工具 End===================
 
+
+
+//=================光栅化工具 Begin===================
 //颜色 RGBA
 class HColor
 {
@@ -1019,7 +1054,7 @@ public:
 	}
 
 };
-
+//=================光栅化工具 End===================
 
 //=====实例代码
 //1、初始化加一个立方体 HScreenDevice::GetInstance()->shape = new HCube();
