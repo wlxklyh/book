@@ -5,32 +5,10 @@
 #include "ImageUtils.h"
 #include "Engine/Texture2DDynamic.h"
 
-void UMainUICpp::WriteRawToTexture_RenderThread_My(FTexture2DDynamicResource* TextureResource, const TArray<uint8>& RawData, bool bUseSRGB )
+static UTexture2D* CreateTextureFromBGRA(unsigned char* data, int width, int height)
 {
-	FTexture2DRHIParamRef TextureRHI = TextureResource->GetTexture2DRHI();
+	
 
-	int32 Width = TextureRHI->GetSizeX();
-	int32 Height = TextureRHI->GetSizeY();
-
-	uint32 DestStride = 0;
-	uint8* DestData = reinterpret_cast<uint8*>(RHILockTexture2D(TextureRHI, 0, RLM_WriteOnly, DestStride, false, false));
-
-	for (int32 y = 0; y < Height; y++)
-	{
-		uint8* DestPtr = &DestData[(Height - 1 - y) * DestStride];
-
-		const FColor* SrcPtr = &((FColor*)(RawData.GetData()))[(Height - 1 - y) * Width];
-		for (int32 x = 0; x < Width; x++)
-		{
-			*DestPtr++ = SrcPtr->B;
-			*DestPtr++ = SrcPtr->G;
-			*DestPtr++ = SrcPtr->R;
-			*DestPtr++ = SrcPtr->A;
-			SrcPtr++;
-		}
-	}
-
-	RHIUnlockTexture2D(TextureRHI, 0, false, false);
 }
 
 void UMainUICpp::NativeConstruct()
@@ -40,53 +18,46 @@ void UMainUICpp::NativeConstruct()
 		MainImage = img;
 	}
 
-	MainTexture = UTexture2DDynamic::Create(1024, 1024, FTexture2DDynamicCreateInfo());
+	MainTexture = UTexture2D::CreateTransient(HScreenDevice::GetInstance()->ScreenWidth, HScreenDevice::GetInstance()->ScreenHeight, PF_B8G8R8A8);
+	MainColors = new FColor[HScreenDevice::GetInstance()->ScreenWidth *  HScreenDevice::GetInstance()->ScreenHeight];
+
+	HScreenDevice::GetInstance()->shape = new HCube();
 
 }
 
 void UMainUICpp::Update(float InDeltaTime)
 {
-	TArray<uint8> SrcData;
-	for (int i = Device.ScreenHeight; i >= 0; i--)
+	//1、绘制
+	HScreenDevice::GetInstance()->Draw();
+	//2、帧缓冲显示到屏幕（下面是把FrameBuffer 拷贝到一张纹理MainTexture 然后现在到UE的UImage上面）
+	for (int i = 0; i < HScreenDevice::GetInstance()->ScreenHeight; i++)
 	{
-		for (int j = Device.ScreenWidth; j >= 0; j--)
+		for (int j = 0; j < HScreenDevice::GetInstance()->ScreenWidth; j++)
 		{
-			SrcData[i * Device.ScreenWidth + j + 0] = Device.FrameBuff[i * Device.ScreenWidth + j + 0];
-			SrcData[i * Device.ScreenWidth + j + 1] = Device.FrameBuff[i * Device.ScreenWidth + j + 1];
-			SrcData[i * Device.ScreenWidth + j + 2] = Device.FrameBuff[i * Device.ScreenWidth + j + 2];
-			SrcData[i * Device.ScreenWidth + j + 3] = Device.FrameBuff[i * Device.ScreenWidth + j + 3];
+			MainColors[i * HScreenDevice::GetInstance()->ScreenWidth + j].R = HScreenDevice::GetInstance()->FrameBuff[(i * HScreenDevice::GetInstance()->ScreenWidth + j) * 4 + 0];
+			MainColors[i * HScreenDevice::GetInstance()->ScreenWidth + j].G = HScreenDevice::GetInstance()->FrameBuff[(i * HScreenDevice::GetInstance()->ScreenWidth + j) * 4 + 1];
+			MainColors[i * HScreenDevice::GetInstance()->ScreenWidth + j].B = HScreenDevice::GetInstance()->FrameBuff[(i * HScreenDevice::GetInstance()->ScreenWidth + j) * 4 + 2];
+			MainColors[i * HScreenDevice::GetInstance()->ScreenWidth + j].A = HScreenDevice::GetInstance()->FrameBuff[(i * HScreenDevice::GetInstance()->ScreenWidth + j) * 4 + 3];
 		}
 	}
 
-	//UTexture2D* texture2d = FImageUtils::CreateTexture2D(1024, 1024, SrcData, this, "TextureMain",
-	//	EObjectFlags::RF_ArchetypeObject, FCreateTexture2DParameters());
-	
-	//int32 Width = TextureRHI->GetSizeX();
-	//int32 Height = TextureRHI->GetSizeY();
+#if WITH_EDITORONLY_DATA
+	MainTexture->MipGenSettings = TMGS_NoMipmaps;
+#endif
+	MainTexture->NeverStream = true;
 
-	//uint32 DestStride = 0;
-	//uint8* DestData = reinterpret_cast<uint8*>(RHILockTexture2D(TextureRHI, 0, RLM_WriteOnly, DestStride, false, false));
+	MainTexture->SRGB = 0;
 
-	//for (int32 y = 0; y < Height; y++)
-	//{
-	//	uint8* DestPtr = &DestData[(Height - 1 - y) * DestStride];
-	//	const FColor* SrcPtr = &(SrcData[(Height - 1 - y) * Width]);
-	//	for (int32 x = 0; x < Width; x++)
-	//	{
-	//		*DestPtr++ = SrcPtr->B;
-	//		*DestPtr++ = SrcPtr->G;
-	//		*DestPtr++ = SrcPtr->R;
-	//		*DestPtr++ = SrcPtr->A;
-	//		SrcPtr++;
-	//	}
-	//}
+	FTexture2DMipMap& Mip = MainTexture->PlatformData->Mips[0];
+	void* Data = Mip.BulkData.Lock(LOCK_READ_WRITE);
 
-	//RHIUnlockTexture2D(TextureRHI, 0, false, false);
+	FMemory::Memcpy(Data, MainColors, HScreenDevice::GetInstance()->ScreenWidth *  HScreenDevice::GetInstance()->ScreenHeight * 4);
+	Mip.BulkData.Unlock();
+	MainTexture->UpdateResource();
 
-	//WriteRawToTexture_RenderThread_My(new FTexture2DDynamicResource(MainTexture), SrcData);
-	//if (MainImage && MainTexture)
-	//{
-	//	MainImage->SetBrushFromTextureDynamic(MainTexture);
-	//}
+	if(MainImage)
+	{
+		MainImage->SetBrushFromTexture(MainTexture );
+	}
 }
 

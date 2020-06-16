@@ -29,10 +29,8 @@ private:
 	// Image控件 相当于屏幕
 	UImage* MainImage;
 	// Image每帧绘制的纹理 会从软渲染器ScreenDevice中取出 FrameBuffer 填充到这个MainTexture
-	UTexture2DDynamic* MainTexture;
-
-	void WriteRawToTexture_RenderThread_My(FTexture2DDynamicResource* TextureResource, const TArray<uint8>& RawData, bool bUseSRGB = true);
-	//设备
-	ScreenDevice Device;
+	UTexture2D* MainTexture;
+	//把HScreenDevice里面的FrameBuffer转成MainColors先再转Texture
+	FColor* MainColors ;
 
 };

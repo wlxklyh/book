@@ -16,6 +16,7 @@ SingleTask 根据taskAffinity查找是否存在对应名字的任务栈 不存�
 SingleInstance 具备SingleTask特性 
 
 
+
 ### Service生命周期
 StartService 启动服务
 StopService 关闭服务
