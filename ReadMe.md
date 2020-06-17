@@ -3,7 +3,7 @@
 <!-- TOC -->
 
 - [目录](#%E7%9B%AE%E5%BD%95)
-    - [零](#%E9%9B%B6)
+    - [零、开源项目](#%E9%9B%B6%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE)
     - [一、知识](#%E4%B8%80%E7%9F%A5%E8%AF%86)
         - [C++](#c)
         - [算法](#%E7%AE%97%E6%B3%95)
@@ -21,17 +21,17 @@
 
 <!-- /TOC -->
 
-## 零
+## 零、开源项目
 - 软渲染器
-1. UE4工程 给UE Programmer或者C++ Programmer
+1. UE4工程 给UE Programmer或者C++ Programmer 想了解图形学、渲染管线的coder【TODO】
 渲染一个正方体的效果
 ![](Img/2020-06-16-18-02-06.png)
 UE4工程：https://github.com/wlxklyh/book/tree/master/Book/Shader/Graphic
 主代码和注释：https://github.com/wlxklyh/book/blob/master/Book/Shader/Graphic/Source/Graphic/SoftRenderer/ScreenDevice.h
 
 
-
-2. Unity工程 给Unity Programmer或者C# Programmer【TODO】
+2. Unity工程 给Unity Programmer或者C# Programmer 想了解图形学、渲染管线的coder【TODO】
+3. Android工程 给Android Programmer或者Java Programmer 想了解图形学、渲染管线的coder【TODO】
 
 ## 一、知识
 

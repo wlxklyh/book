@@ -11,7 +11,7 @@
  *	   分成CPU阶段和GPU阶段
  *      +--------------+     +-------------+
  *      |              |     |             |
- *      |     CPU      +----->     GPU     +
+ *      |     CPU      +----->     GPU     |
  *      |              |     |             |
  *      +--------------+     +-------------+
  *
@@ -34,7 +34,7 @@
  *
  *		+--------------+     +--------------+  +------------------+
  *      |              |     |              |  |                  |
- *      |  三角形遍历  +----->  三角形设置  +-->   片元着色器     +
+ *      |  三角形遍历  +----->  三角形设置  +-->   片元着色器     |
  *      |              |     |              |  |                  |
  *      +--------------+     +--------------+  +------------------+
  *
@@ -59,20 +59,47 @@ template<typename T>
 T Clamp(T x, T min, T max) { return (x < min) ? min : ((x > max) ? max : x); }
 //===========================数学工具 End===============================
 
-
 //形状基类
 class HShape
 {
 public:
+
 	virtual void Draw() = 0;
 };
+
+//纹理  这里没有去读文件 直接在代码里面赋值了
 class HTexture
 {
 public:
+	HTexture()
+	{
+		//初始化纹理
+		TextureW = 256;
+		TextureH = 256;
+		int i, j;
+		for (j = 0; j < TextureH; j++) {
+			for (i = 0; i < TextureW; i++) {
+				int x = i / 32, y = j / 32;
+				Texture[j][i] = ((x + y) & 1) ? 0xffffffff : 0x3fbcefff;
+			}
+		}
+	}
 
-	//全局纹理（纹理应该跟Shape走 这里先放在这里了）
 	int TextureW, TextureH;
 	int Texture[256][256];
+
+	//纹理采样：参考https://gameinstitute.qq.com/community/detail/115739
+	//1、这里可以实现：最近点采样、Bilinear 4个点取均值、Trilinear加了MipMap这个维度
+	int RreadTexture(float u, float v) {
+		int x, y;
+		u = u * TextureW;
+		v = v * TextureH;
+		x = (int)(u + 0.5f);
+		y = (int)(v + 0.5f);
+		x = Clamp(x, 0, TextureW - 1);
+		y = Clamp(y, 0, TextureH - 1);
+		return Texture[y][x];
+	}
 };
 //渲染设备
 class  HScreenDevice
@@ -119,32 +146,10 @@ public:
 		//2、屏幕缓冲和深度缓冲 
 		FrameBuff = (unsigned char*)malloc(ScreenWidth * ScreenHeight * 4);
 		DepthBuff = (float*)malloc(ScreenWidth * ScreenHeight * 4);
-
-
-		//3、初始化纹理
-		TextureW = 256;
-		TextureH = 256;
-		int i, j;
-		for (j = 0; j < TextureH; j++) {
-			for (i = 0; i < TextureW; i++) {
-				int x = i / 32, y = j / 32;
-				Texture[j][i] = ((x + y) & 1) ? 0xffffffff : 0x3fbcefff;
-			}
-		}
 	}
 
-	int RreadTexture(float u, float v) {
-		int x, y;
-		u = u * TextureW;
-		v = v * TextureH;
-		x = (int)(u + 0.5f);
-		y = (int)(v + 0.5f);
-		x = Clamp(x, 0, TextureW - 1);
-		y = Clamp(y, 0, TextureH - 1);
-		return Texture[y][x];
-	}
 	//=====================================================================
-	// 主绘制函数
+	// 清理屏幕
 	//=====================================================================
 	void ClearScreen()
 	{
@@ -160,7 +165,6 @@ public:
 				FrameBuff[(i * ScreenWidth + j) * 4 + 2] = 0x0;
 				//A
 				FrameBuff[(i * ScreenWidth + j) * 4 + 3] = 0x0;
-
 				//Z buffer 清0
 				DepthBuff[i * ScreenWidth + j] = 0.0f;
 			}
@@ -658,11 +662,11 @@ public:
 		return vecRet;
 	}
 };
-//===========================几何工具 End=============================
+//===========================几何阶段 End=============================
 
 
 
-//===========================光栅化工具 Begin=============================
+//===========================光栅化阶段 Begin=============================
 //颜色 RGBA
 class HColor
 {
@@ -794,7 +798,7 @@ public:
 		 *     y------------y
 		 *    /              \
 		 *   /----------------\
-		 *
+		 *   
 		 */
 
 		 //根据Y坐标 得到左右两边的点
@@ -893,6 +897,8 @@ public:
 	HCube() {};
 	//坐标变换
 	HTransform Transform;
+	//纹理
+	HTexture Texture;
 	//mesh
 	//8个顶点  前面4个顶点是正方体的前面  后面4个顶点是正方体的后面
 	HVertex mesh[8] = {
@@ -948,7 +954,7 @@ public:
 					float u = scanline.v.uv.u * w;
 					float v = scanline.v.uv.v * w;
 
-					uint32 color = ScreenDevice->RreadTexture(u, v);
+					uint32 color = Texture.RreadTexture(u, v);
 					framebuffer[x + y * ScreenWidth] = color;
 				}
 			}
@@ -1070,7 +1076,7 @@ public:
 	}
 
 };
-//===========================光栅化工具 End=============================
+//===========================光栅化阶段 End=============================
 
 //=====实例代码
 //1、初始化加一个立方体 HScreenDevice::GetInstance()->shape = new HCube();
