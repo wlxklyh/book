@@ -2,9 +2,14 @@
 
 #pragma once
 #include <math.h>
-//软渲染器参考：https://github.com/skywind3000/mini3d  
+//软渲染器参考copy：https://github.com/skywind3000/mini3d  
 //mini3d笔记：https://zhuanlan.zhihu.com/p/74510058
 //图形学流水线文章：https://positiveczp.github.io/%E7%BB%86%E8%AF%B4%E5%9B%BE%E5%BD%A2%E5%AD%A6%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF.pdf
+//意图：
+//1、增加了注释为了更好的理解  mini3d  写的很精简 看懂了之后对渲染流水线更加深刻了
+//2、同是对图形学感兴趣的朋友看了可以更好的理解，刚开始看图形学 没有代码总感觉很虚。
+//备注：
+//C++代码大部分是值传递 没有使用指针 纯为了展示mini3d的过程 
 
 /*
  *  1、最简单的渲染流水线:
@@ -23,7 +28,6 @@
  *      +--------------+     +-----------------+  +----------------+   +----------------+
  *
  *  3、几何阶段：
- *
  *		+--------------+     +-----------------+  +------------------+   +-------------+  +-------------+
  *      |              |     |                 |  |                  |   |             |  |             |
  *      |  顶点着色器  +-----> 曲面细分着色器  +-->   几何着色器     +--->    裁剪     |-->  屏幕投射   |
@@ -31,7 +35,6 @@
  *      +--------------+     +-----------------+  +------------------+   +-------------+  +-------------+
  *
  *  4、光栅化阶段：
- *
  *		+--------------+     +--------------+  +------------------+
  *      |              |     |              |  |                  |
  *      |  三角形遍历  +----->  三角形设置  +-->   片元着色器     |
@@ -44,7 +47,24 @@
  *      模板测试（模板缓冲）
  *
  *	【说明】：下面的代码根据上面的流水线来讲解和划分
-*/
+ *	绘制调用堆栈：
+ *		HScreenDevice::Draw					
+ *			HScreenDevice::ClearScreen
+ *			HCube::Draw
+ *				HCube::DrawBox
+ *					HCube::DrawPlane
+ *						HCube::DrawTriangle
+ *							HCube::UpdateMVPMat()
+ *							HCube.HTransformMulMVPMat
+ *							CheckInCVV
+ *							HomogenizeToScreenCoord
+ *							Initrhw
+ *							CalculateTrap
+ *							DrawTrap
+ *							  HCube::DrawScanline
+ *						
+ *						
+*/						
 
 
 
@@ -148,9 +168,7 @@ public:
 		DepthBuff = (float*)malloc(ScreenWidth * ScreenHeight * 4);
 	}
 
-	//=====================================================================
 	// 清理屏幕
-	//=====================================================================
 	void ClearScreen()
 	{
 		for (int i = 0; i < ScreenHeight; i++)
@@ -793,6 +811,7 @@ public:
 
 		/*
 		 *  根据y值左边两个点left v1 v2 插值得到left v  同理right
+		 *  
 		 *       /--------\
 		 *      /          \
 		 *     y------------y
@@ -823,71 +842,98 @@ class HTriangle
 {
 public:
 	HTriangle() {}
-	HVertex p1, p2, p3;
+	//三个顶点的数据
+	HVertex p1InObjectSpace, p2InObjectSpace, p3InObjectSpace;
+
+	//中间忽略了世界坐标、相机坐标 直接乘MVP就得到ClipSpace坐标
+
+	//三个顶点坐标转化的裁剪空间的坐标
+	HVertex p1InClipSpace, p2InClipSpace, p3InClipSpace;
+
+	//三个顶点坐标转化的屏幕空间的坐标
+	HVertex p1InScreenSpace, p2InScreenSpace, p3InScreenSpace;
 	int CalculateTrap(HTrapezoid* trapezoid)
 	{
 		HVertex p;
 		float k, x;
 
 		//顶点排序
-		if (p1.pos.y > p2.pos.y) p = p1, p1 = p2, p2 = p;
-		if (p1.pos.y > p3.pos.y) p = p1, p1 = p3, p3 = p;
-		if (p2.pos.y > p3.pos.y) p = p2, p2 = p3, p3 = p;
-		if (p1.pos.y == p2.pos.y && p1.pos.y == p3.pos.y) return 0;
-		if (p1.pos.x == p2.pos.x && p1.pos.x == p3.pos.x) return 0;
+		if (p1InScreenSpace.pos.y > p2InScreenSpace.pos.y) p = p1InScreenSpace, p1InScreenSpace = p2InScreenSpace, p2InScreenSpace = p;
+		if (p1InScreenSpace.pos.y > p3InScreenSpace.pos.y) p = p1InScreenSpace, p1InScreenSpace = p3InScreenSpace, p3InScreenSpace = p;
+		if (p2InScreenSpace.pos.y > p3InScreenSpace.pos.y) p = p2InScreenSpace, p2InScreenSpace = p3InScreenSpace, p3InScreenSpace = p;
+		if (p1InScreenSpace.pos.y == p2InScreenSpace.pos.y && p1InScreenSpace.pos.y == p3InScreenSpace.pos.y) return 0;
+		if (p1InScreenSpace.pos.x == p2InScreenSpace.pos.x && p1InScreenSpace.pos.x == p3InScreenSpace.pos.x) return 0;
 
-		if (p1.pos.y == p2.pos.y) {	// triangle down
-			if (p1.pos.x > p2.pos.x) p = p1, p1 = p2, p2 = p;
-			trapezoid[0].top = p1.pos.y;
-			trapezoid[0].bottom = p3.pos.y;
-			trapezoid[0].left.v1 = p1;
-			trapezoid[0].left.v2 = p3;
-			trapezoid[0].right.v1 = p2;
-			trapezoid[0].right.v2 = p3;
+		if (p1InScreenSpace.pos.y == p2InScreenSpace.pos.y) {	// triangle down
+			if (p1InScreenSpace.pos.x > p2InScreenSpace.pos.x) p = p1InScreenSpace, p1InScreenSpace = p2InScreenSpace, p2InScreenSpace = p;
+			trapezoid[0].top = p1InScreenSpace.pos.y;
+			trapezoid[0].bottom = p3InScreenSpace.pos.y;
+			trapezoid[0].left.v1 = p1InScreenSpace;
+			trapezoid[0].left.v2 = p3InScreenSpace;
+			trapezoid[0].right.v1 = p2InScreenSpace;
+			trapezoid[0].right.v2 = p3InScreenSpace;
 			return (trapezoid[0].top < trapezoid[0].bottom) ? 1 : 0;
 		}
 
-		if (p2.pos.y == p3.pos.y) {	// triangle up
-			if (p2.pos.x > p3.pos.x) p = p2, p2 = p3, p3 = p;
-			trapezoid[0].top = p1.pos.y;
-			trapezoid[0].bottom = p3.pos.y;
-			trapezoid[0].left.v1 = p1;
-			trapezoid[0].left.v2 = p2;
-			trapezoid[0].right.v1 = p1;
-			trapezoid[0].right.v2 = p3;
+		if (p2InScreenSpace.pos.y == p3InScreenSpace.pos.y) {	// triangle up
+			if (p2InScreenSpace.pos.x > p3InScreenSpace.pos.x) p = p2InScreenSpace, p2InScreenSpace = p3InScreenSpace, p3InScreenSpace = p;
+			trapezoid[0].top = p1InScreenSpace.pos.y;
+			trapezoid[0].bottom = p3InScreenSpace.pos.y;
+			trapezoid[0].left.v1 = p1InScreenSpace;
+			trapezoid[0].left.v2 = p2InScreenSpace;
+			trapezoid[0].right.v1 = p1InScreenSpace;
+			trapezoid[0].right.v2 = p3InScreenSpace;
 			return (trapezoid[0].top < trapezoid[0].bottom) ? 1 : 0;
 		}
 
-		trapezoid[0].top = p1.pos.y;
-		trapezoid[0].bottom = p2.pos.y;
-		trapezoid[1].top = p2.pos.y;
-		trapezoid[1].bottom = p3.pos.y;
+		trapezoid[0].top = p1InScreenSpace.pos.y;
+		trapezoid[0].bottom = p2InScreenSpace.pos.y;
+		trapezoid[1].top = p2InScreenSpace.pos.y;
+		trapezoid[1].bottom = p3InScreenSpace.pos.y;
 
-		k = (p3.pos.y - p1.pos.y) / (p2.pos.y - p1.pos.y);
-		x = p1.pos.x + (p2.pos.x - p1.pos.x) * k;
+		k = (p3InScreenSpace.pos.y - p1InScreenSpace.pos.y) / (p2InScreenSpace.pos.y - p1InScreenSpace.pos.y);
+		x = p1InScreenSpace.pos.x + (p2InScreenSpace.pos.x - p1InScreenSpace.pos.x) * k;
 
-		if (x <= p3.pos.x) {		// triangle left
-			trapezoid[0].left.v1 = p1;
-			trapezoid[0].left.v2 = p2;
-			trapezoid[0].right.v1 = p1;
-			trapezoid[0].right.v2 = p3;
-			trapezoid[1].left.v1 = p2;
-			trapezoid[1].left.v2 = p3;
-			trapezoid[1].right.v1 = p1;
-			trapezoid[1].right.v2 = p3;
+		if (x <= p3InScreenSpace.pos.x) {		// triangle left
+			trapezoid[0].left.v1 = p1InScreenSpace;
+			trapezoid[0].left.v2 = p2InScreenSpace;
+			trapezoid[0].right.v1 = p1InScreenSpace;
+			trapezoid[0].right.v2 = p3InScreenSpace;
+			trapezoid[1].left.v1 = p2InScreenSpace;
+			trapezoid[1].left.v2 = p3InScreenSpace;
+			trapezoid[1].right.v1 = p1InScreenSpace;
+			trapezoid[1].right.v2 = p3InScreenSpace;
 		}
 		else {					// triangle right
-			trapezoid[0].left.v1 = p1;
-			trapezoid[0].left.v2 = p3;
-			trapezoid[0].right.v1 = p1;
-			trapezoid[0].right.v2 = p2;
-			trapezoid[1].left.v1 = p1;
-			trapezoid[1].left.v2 = p3;
-			trapezoid[1].right.v1 = p2;
-			trapezoid[1].right.v2 = p3;
+			trapezoid[0].left.v1 = p1InScreenSpace;
+			trapezoid[0].left.v2 = p3InScreenSpace;
+			trapezoid[0].right.v1 = p1InScreenSpace;
+			trapezoid[0].right.v2 = p2InScreenSpace;
+			trapezoid[1].left.v1 = p1InScreenSpace;
+			trapezoid[1].left.v2 = p3InScreenSpace;
+			trapezoid[1].right.v1 = p2InScreenSpace;
+			trapezoid[1].right.v2 = p3InScreenSpace;
 		}
 		return 2;
 	}
+};
+
+struct a2v
+{
+	a2v(HVector posPara)
+	{
+		pos = posPara;
+	}
+	HVector pos;		//模型坐标
+	HVector normal;		//法线坐标
+	HTexcoord uv;		//uv坐标
+	HColor color;		//顶点颜色
+};
+
+struct v2f
+{
+	HVector pos;		//模型坐标
+	HTexcoord uv;		//uv坐标
 };
 
 //立方体
@@ -980,48 +1026,99 @@ public:
 		}
 	}
 
-	//画三角形 传入的
-	void DrawTriangle(HTriangle Triangle)
+	//更新MVP矩阵
+	void UpdateMVPMat()
 	{
 		HMatrix mat = GetRotateMat(0, 0.8, 0.8);
 		Transform.ModleMat = mat;
 		Transform.UpdateMVPMat();
+	}
 
-		//三角形的坐标乘以MVP矩阵 得到投影坐标（相机空间）
-		HVector ProjectP1 = Transform.MulMVPMat(Triangle.p1.pos);
-		HVector ProjectP2 = Transform.MulMVPMat(Triangle.p2.pos);
-		HVector ProjectP3 = Transform.MulMVPMat(Triangle.p3.pos);
-		float w1 = ProjectP1.w;
-		float w2 = ProjectP2.w;
-		float w3 = ProjectP3.w;
-		//裁剪
-		if (ProjectP1.CheckInCVV() == false)return;
-		if (ProjectP2.CheckInCVV() == false)return;
-		if (ProjectP3.CheckInCVV() == false)return;
+	//计算三角形三个顶点的裁剪空间的坐标
+	void InitTriangleClipSpacePos(HTriangle &Triangle)
+	{
+		//三角形的模型坐标乘以MVP矩阵 得到投影坐标（相机空间）
+		Triangle.p1InClipSpace = Triangle.p1InObjectSpace;
+		Triangle.p2InClipSpace = Triangle.p2InObjectSpace;
+		Triangle.p3InClipSpace = Triangle.p3InObjectSpace;
 
-		//归一化 且得到屏幕坐标
-		ProjectP1 = Transform.HomogenizeToScreenCoord(ProjectP1);
-		ProjectP2 = Transform.HomogenizeToScreenCoord(ProjectP2);
-		ProjectP3 = Transform.HomogenizeToScreenCoord(ProjectP3);
 
-		//三角形坐标转换成屏幕坐标
-		Triangle.p1.pos = ProjectP1;
-		Triangle.p2.pos = ProjectP2;
-		Triangle.p3.pos = ProjectP3;
-		Triangle.p1.pos.w = w1;
-		Triangle.p2.pos.w = w2;
-		Triangle.p3.pos.w = w3;
+	}
 
-		//插值初始化
-		Triangle.p1.Initrhw();
-		Triangle.p2.Initrhw();
-		Triangle.p3.Initrhw();
+	//计算三角形三个顶点的裁剪空间的坐标
+	void CalTriangleScreenSpacePos(HTriangle &Triangle)
+	{
+		//顶点的其他数据
+		Triangle.p1InScreenSpace = Triangle.p1InObjectSpace;
+		Triangle.p2InScreenSpace = Triangle.p2InObjectSpace;
+		Triangle.p3InScreenSpace = Triangle.p3InObjectSpace;
+		//归一化然后乘宽高
+		Triangle.p1InScreenSpace.pos = Transform.HomogenizeToScreenCoord(Triangle.p1InClipSpace.pos);
+		Triangle.p2InScreenSpace.pos = Transform.HomogenizeToScreenCoord(Triangle.p2InClipSpace.pos);
+		Triangle.p3InScreenSpace.pos = Transform.HomogenizeToScreenCoord(Triangle.p3InClipSpace.pos);
+		//保存Z信息
+		Triangle.p1InScreenSpace.pos.w = Triangle.p1InClipSpace.pos.w;
+		Triangle.p2InScreenSpace.pos.w = Triangle.p2InClipSpace.pos.w;
+		Triangle.p3InScreenSpace.pos.w = Triangle.p3InClipSpace.pos.w;
+	}
 
-		// 拆分三角形为0-2个梯形，并且返回可用梯形数量
+
+	//检查三角形是否在裁剪
+	bool CheckTriangleInCVV(HTriangle &Triangle)
+	{
+		if (Triangle.p1InClipSpace.pos.CheckInCVV() == false)return false;
+		if (Triangle.p2InClipSpace.pos.CheckInCVV() == false)return false;
+		if (Triangle.p3InClipSpace.pos.CheckInCVV() == false)return false;
+		return true;
+	}
+
+	//深度Z初始化顶点插值信息
+	void InitTriangleInterpn(HTriangle &Triangle)
+	{
+		Triangle.p1InScreenSpace.Initrhw();
+		Triangle.p2InScreenSpace.Initrhw();
+		Triangle.p3InScreenSpace.Initrhw();
+	}
+
+	//简单的顶点着色器
+	v2f vert(a2v v)
+	{
+		v2f output;
+		output.pos = Transform.MulMVPMat(v.pos);
+		return output;
+	}
+		
+
+	//画三角形 传入的
+	void DrawTriangle(HTriangle Triangle)
+	{
+		//1、更新立方体的MVP矩阵
+		UpdateMVPMat();
+	
+		//2.1、初始化裁剪空间坐标
+		InitTriangleClipSpacePos(Triangle);
+
+		//2.2、 顶点着色器
+		Triangle.p1InClipSpace.pos = vert(a2v(Triangle.p1InObjectSpace.pos)).pos;
+		Triangle.p2InClipSpace.pos = vert(a2v(Triangle.p2InObjectSpace.pos)).pos;
+		Triangle.p3InClipSpace.pos = vert(a2v(Triangle.p3InObjectSpace.pos)).pos;
+		//曲面细分着色器【TODO】
+		//几何着色器【TODO】
+
+		//3、用裁剪空间裁剪三角形（这里比较暴力  一个点不在CVV则剔除）
+		if (CheckTriangleInCVV(Triangle) == false)return;
+
+		//4、归一化然后计算得到屏幕坐标
+		CalTriangleScreenSpacePos(Triangle);
+
+		//5、插值初始化
+		InitTriangleInterpn(Triangle);
+
+		//6、屏幕坐标的三角形拆分三角形为0-2个梯形，并且返回可用梯形数量
 		HTrapezoid traps[2];
 		int n = Triangle.CalculateTrap(traps);
 
-		//梯形扫描
+		//7、梯形扫描 绘制梯形
 		if (n >= 1) DrawTrap(traps[0]);
 		if (n >= 2) DrawTrap(traps[1]);
 	}
@@ -1047,14 +1144,14 @@ public:
 		p4.uv.u = 1;
 		p4.uv.v = 0;
 		HTriangle T1;
-		T1.p1 = p1;
-		T1.p2 = p2;
-		T1.p3 = p3;
+		T1.p1InObjectSpace = p1;
+		T1.p2InObjectSpace = p2;
+		T1.p3InObjectSpace = p3;
 
 		HTriangle T2;
-		T2.p1 = p3;
-		T2.p2 = p4;
-		T2.p3 = p1;
+		T2.p1InObjectSpace = p3;
+		T2.p2InObjectSpace = p4;
+		T2.p3InObjectSpace = p1;
 		DrawTriangle(T1);
 		DrawTriangle(T2);
 	}
@@ -1062,12 +1159,12 @@ public:
 	//画立方体
 	void DrawBox()
 	{
-		DrawPlane(0, 1, 2, 3);//front
-		DrawPlane(7, 6, 5, 4);//behind
-		DrawPlane(0, 4, 5, 1);//bottom
-		DrawPlane(1, 5, 6, 2);//right
-		DrawPlane(2, 6, 7, 3);//top
-		DrawPlane(3, 7, 4, 0);//left
+		DrawPlane(0, 1, 2, 3);//前面
+		DrawPlane(7, 6, 5, 4);//后面
+		DrawPlane(0, 4, 5, 1);//下面
+		DrawPlane(1, 5, 6, 2);//右面
+		DrawPlane(2, 6, 7, 3);//上面
+		DrawPlane(3, 7, 4, 0);//左面
 	}
 
 	void Draw()
