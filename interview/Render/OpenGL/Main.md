@@ -15,8 +15,27 @@ System:对Componet集中进行逻辑处理
 
 Unity是未脱离OOP的Entity Component模式
 
+## 如何渲染一帧 https://zhuanlan.zhihu.com/p/108640545
+![](Img/2020-06-22-15-18-41.png)
+- ParticlSumulation 
+RGBA32 存储位置数据
+RGBA16 存储
 
-引擎pipeline多pass ( 不透明渲染排序 - 半透明 - 后处理）  https://zhuanlan.zhihu.com/p/120185185
+- Z-Prepass
+把不透明的数据渲染到R24G8的深度缓冲区
+近裁剪面是1 远裁剪面是0
+
+- Testing for occlusion
+1. 我们把所有的物体都当成是遮挡物 把他们渲染到一个深度缓冲区上去
+2. 创建一个遮挡查询 
+3. 查询结果返回CPU 根据渲染出来的像素数量 决定是否要渲染
+
+
+
+
+- shadowmap rendering
+
+## 引擎pipeline多pass ( 不透明渲染排序 - 半透明 - 后处理）  https://zhuanlan.zhihu.com/p/120185185
 
 
 一些常用实现：描边实现  https://zhuanlan.zhihu.com/p/26409746
