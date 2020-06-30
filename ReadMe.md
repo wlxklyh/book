@@ -1,37 +1,53 @@
 # 目录
 
-
-
 <!-- TOC -->
 
 - [目录](#目录)
-    - [零、开源项目](#零开源项目)
-    - [一、知识](#一知识)
-        - [C++](#c)
-        - [内存池](#内存池)
-    - [最简单的对象池内存池](#最简单的对象池内存池)
+  - [零、开源项目](#零开源项目)
+    - [软渲染器](#软渲染器)
+      - [1 UE4工程](#1-ue4工程)
+      - [2 Unity工程](#2-unity工程)
+      - [3 Android工程 【TODO】](#3-android工程-todo)
+  - [一、知识](#一知识)
+    - [C++](#c)
+    - [内存池](#内存池)
+    - [算法](#算法)
+    - [设计模式](#设计模式)
+    - [安卓](#安卓)
+    - [SQLite](#sqlite)
+    - [](#)
+    - [计算机网络](#计算机网络)
+    - [项目经历](#项目经历)
+  - [二、书籍](#二书籍)
+    - [计算机网络](#计算机网络-1)
+      - [《图解http》](#图解http)
+    - [GC回收](#gc回收)
+      - [《垃圾回收的算法和实现》](#垃圾回收的算法和实现)
 
 <!-- /TOC -->
 
 ## 零、开源项目
-- 软渲染器
-1. UE4工程 给UE Programmer或者C++ Programmer 想了解图形学、渲染管线的coder
+### 软渲染器 
+#### 1 UE4工程 
+给UE Programmer或者C++ Programmer 想了解图形学、渲染管线的coder
 渲染一个正方体的效果
 ![](Img/2020-06-16-18-02-06.png)
 UE4工程：https://github.com/wlxklyh/SoftRenderer/tree/master/Unreal
 主代码和注释：https://github.com/wlxklyh/SoftRenderer/blob/master/Unreal/Source/Graphic/SoftRenderer/ScreenDevice.h
 
 
-2. Unity工程 给Unity Programmer或者C# Programmer 想了解图形学、渲染管线的coder
+#### 2 Unity工程 
+给Unity Programmer或者C# Programmer 想了解图形学、渲染管线的coder
 渲染一个正方体的效果
 ![](Img/2020-06-24-09-38-53.png)
 工程：https://github.com/wlxklyh/SoftRenderer/tree/master/Unity
 主代码和注释：https://github.com/wlxklyh/SoftRenderer/blob/master/Unity/Assets/MainCode.cs
 
 
-3. Android工程 给Android Programmer或者Java Programmer 想了解图形学、渲染管线的coder【TODO】
+#### 3 Android工程 【TODO】
+给Android Programmer或者Java Programmer 想了解图形学、渲染管线的coder
 
-## 一、知识
+##  一、知识
 
 ### C++
 - Volatile作用
@@ -82,11 +98,12 @@ sizeof(B) = 4 为什么呢？
 - 智能指针
  
 ### 内存池
+[链接](https://github.com/wlxklyh/book/blob/master/interview/%E5%86%85%E5%AD%98%E6%B1%A0/Main.md)
 1. 见过的方式
 - 对象的内存池：下面的例子，重载new 和 delete 对象池的内存池
 - 内存块的内存池：自己定义PoolMalloc 和 PollFree函数 业务用这两个接口
 
-## 最简单的对象池内存池
+2. 最简单的对象池内存池
 ```cpp
 #include <iostream>
 using namespace std;
@@ -113,7 +130,7 @@ using namespace std;
 //          |  FreeNode8    |     |  FreeNode5   |	   |  FreeNode2   |
 //          +               |     |              |	   |              |
 //          +---------------+     +--------------+	   +--------------+
-
+```
 ### 算法
 
 ### 设计模式
