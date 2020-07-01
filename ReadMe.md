@@ -151,7 +151,14 @@ https://www.zhihu.com/market/pub/119564625/manuscript/1102535948868382720
 - 23设计模式
 1. 工厂模式：
 ### 安卓
-- 双亲委托
+- 双亲委托 
+ClassLoader会向上找加载  如果父类可以加载则加载了 不行再子类加载
+
+- 四种热更新方案：
+1. 阿里AndFix：基于native hook在java虚拟机层面hook函数
+2. 美团Robust：基于插桩 编译的时候会加入插桩代码
+3. tinker:dex差异合并
+4. QQ空间：反射得到dexElements 然后插入下发的修复dex （某个类的调用都在dex则会有个标记 使用的时候校验如果调用了其他dex则异常 解决就是单独的hack.dex 其他dex都去调用下）
 
 ### SQLite
 
