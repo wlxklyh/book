@@ -160,8 +160,14 @@ ClassLoader会向上找加载  如果父类可以加载则加载了 不行再子
 3. tinker:dex差异合并
 4. QQ空间：反射得到dexElements 然后插入下发的修复dex （某个类的调用都在dex则会有个标记 使用的时候校验如果调用了其他dex则异常 解决就是单独的hack.dex 其他dex都去调用下）
 
-### SQLite
+- activity的四种启动方式
+1. standard 每次新增
+2. singleTop 清理栈顶 
+3. singleTask 
+4. SingleInstance
 
+### SQLite
+- SQLite底层使用B+tree
 ###  
 
 
