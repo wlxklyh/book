@@ -9,13 +9,14 @@
       - [2 Unity工程](#2-unity工程)
       - [3 Android工程 【TODO】](#3-android工程-todo)
   - [一、知识](#一知识)
+    - [js](#js)
     - [C++](#c)
     - [内存池](#内存池)
     - [算法](#算法)
     - [设计模式](#设计模式)
     - [安卓](#安卓)
     - [SQLite](#sqlite)
-    - [](#)
+    - [图形学](#图形学)
     - [计算机网络](#计算机网络)
     - [项目经历](#项目经历)
   - [二、书籍](#二书籍)
@@ -48,6 +49,7 @@ UE4工程：https://github.com/wlxklyh/SoftRenderer/tree/master/Unreal
 给Android Programmer或者Java Programmer 想了解图形学、渲染管线的coder
 
 ##  一、知识
+### js
 
 ### C++
 - Volatile作用
@@ -168,8 +170,13 @@ ClassLoader会向上找加载  如果父类可以加载则加载了 不行再子
 
 ### SQLite
 - SQLite底层使用B+tree
-###  
-
+  
+### 图形学
+AO贴图：烘焙的方法、也有实时的SSAO根据深度来 这个就是一些角落屏蔽环境光  这样会更加现实细节
+法线贴图：
+Shadowmap:
+mipmip
+lightingmap:
 
 ### [计算机网络](https://github.com/wlxklyh/book/blob/master/interview/neiwork/Main.md)
 
