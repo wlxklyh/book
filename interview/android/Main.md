@@ -1,5 +1,9 @@
 # android
 
+## 0、
+差异不大、捉妖项目结束、做更大的挑战、尝试下
+
+
 ## 1、生命周期
 ### Activity的生命周期
 OnCreate
@@ -11,7 +15,7 @@ OnDestroy
 
 启动方式
 Standard 每次都创建一个新实例
-SingleTop （1）位于栈顶 复用栈顶 调用OnNewIntent （2）不在栈顶 跟Standard一样创建新的  （3）不在栈中 跟Standard一样
+SingleTop （1）位于栈顶 复用栈顶 调用OnNewIntent （2）不在栈顶 跟Standard一样创建新的 
 SingleTask 根据taskAffinity查找是否存在对应名字的任务栈 不存在则创建一个新的Task 入栈到Task  存在则上面的activity实例出栈 调用OnNewIntent
 SingleInstance 具备SingleTask特性 
 
@@ -46,7 +50,6 @@ contentprovider 进程通信 数据交互
 2、内存分类
 App分类：
 Pss 
-
 
 游戏分类
 Unity资源
@@ -89,3 +92,6 @@ classloader会双亲委托 最终是有个dex列表 前面的先加载  热更�
 
 
 ## 6、Tinker热更新原理
+
+## kd 移动端
+
