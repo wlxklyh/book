@@ -10,6 +10,7 @@
       - [3 Android工程 【TODO】](#3-android工程-todo)
   - [一、知识](#一知识)
     - [js](#js)
+    - [Lua](#lua)
     - [C++](#c)
     - [内存池](#内存池)
     - [算法](#算法)
@@ -19,11 +20,15 @@
     - [图形学](#图形学)
     - [计算机网络](#计算机网络)
     - [项目经历](#项目经历)
+    - [编程](#编程)
   - [二、书籍](#二书籍)
     - [计算机网络](#计算机网络-1)
       - [《图解http》](#图解http)
     - [GC回收](#gc回收)
       - [《垃圾回收的算法和实现》](#垃圾回收的算法和实现)
+  - [三、面试总结](#三面试总结)
+    - [对项目框架的认识 总体把握](#对项目框架的认识-总体把握)
+    - [对问的问题可以提出疑问 有什么限定有什么场景](#对问的问题可以提出疑问-有什么限定有什么场景)
 
 <!-- /TOC -->
 
@@ -51,7 +56,23 @@ UE4工程：https://github.com/wlxklyh/SoftRenderer/tree/master/Unreal
 ##  一、知识
 ### js
 
+### Lua
+- OOP
+  C#中GetLuaFileTable（Dostring luafile） 然后这个就是metaTable
+  C#中获取metaTable的New函数（new函数是由 Class(className, classTable, baseClass)里面添加的）
+  通过New函数得到lua的新对象
+  看下New函数会闯入C#里面的对象 
+  简单的继承方法：Shape:new(o)是基类 里面是o = o or {} 子类：o = o or Shape:new(o) 子类的对象内存空间来自父类的new函数的{}
+  
+
 ### C++
+
+- 规范问题
+  char* strcat(char* A,char* B)
+
+- C++序列化问题
+程序数据转化成能被存储并传输的格式称为 序列化
+
 - Volatile作用
 类型修饰符 没有使用这个声明的 可能直接从CPU的寄存器里面直接取值 下面b=i的汇编会直接从寄存器里面读取值
 
@@ -182,6 +203,12 @@ lightingmap:
 
 ### 项目经历
 
+### 编程
+- 设计一个MyString
+  
+
+- 
+
 ## 二、书籍
 
 ### 计算机网络
@@ -191,3 +218,10 @@ lightingmap:
 ### GC回收
 
 #### [《垃圾回收的算法和实现》](https://github.com/wlxklyh/book/blob/master/Book/neiwork/Study.md)
+
+## 三、面试总结
+### 对项目框架的认识 总体把握
+### 对问的问题可以提出疑问 有什么限定有什么场景
+
+
+微软
