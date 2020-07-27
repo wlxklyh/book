@@ -8,6 +8,8 @@
       - [1 UE4工程](#1-ue4工程)
       - [2 Unity工程](#2-unity工程)
       - [3 Android工程 【TODO】](#3-android工程-todo)
+    - [软渲染器渲染引擎（TODO）](#软渲染器渲染引擎todo)
+    - [Opengl Glitter开源学习（TODO）](#opengl-glitter开源学习todo)
   - [一、知识](#一知识)
     - [js](#js)
     - [Lua](#lua)
@@ -53,6 +55,12 @@ UE4工程：https://github.com/wlxklyh/SoftRenderer/tree/master/Unreal
 
 #### 3 Android工程 【TODO】
 给Android Programmer或者Java Programmer 想了解图形学、渲染管线的coder
+
+
+
+### 软渲染器渲染引擎（TODO）
+
+### Opengl Glitter开源学习（TODO）
 
 ##  一、知识
 ### js
@@ -208,7 +216,7 @@ ClassLoader会向上找加载  如果父类可以加载则加载了 不行再子
 - lightingmap:
 
 ### 音视频流
-- 视频流格式 
+- [视频数据处理](https://github.com/wlxklyh/book/blob/master/interview/%E9%9F%B3%E8%A7%86%E9%A2%91%E6%B5%81/Main.md)
 
 ### [计算机网络](https://github.com/wlxklyh/book/blob/master/interview/neiwork/Main.md)
 
@@ -216,7 +224,6 @@ ClassLoader会向上找加载  如果父类可以加载则加载了 不行再子
 
 ### 编程
 - 设计一个MyString
-  
 
 - 最长公共子序列
 【子序列是不需要连续的】
