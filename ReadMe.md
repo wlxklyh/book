@@ -18,6 +18,7 @@
     - [安卓](#安卓)
     - [SQLite](#sqlite)
     - [图形学](#图形学)
+    - [音视频流](#音视频流)
     - [计算机网络](#计算机网络)
     - [项目经历](#项目经历)
     - [编程](#编程)
@@ -193,11 +194,21 @@ ClassLoader会向上找加载  如果父类可以加载则加载了 不行再子
 - SQLite底层使用B+tree
   
 ### 图形学
-AO贴图：烘焙的方法、也有实时的SSAO根据深度来 这个就是一些角落屏蔽环境光  这样会更加现实细节
-法线贴图：
-Shadowmap:
-mipmip
-lightingmap:
+- Unity渲染管线：
+1. Build-in 渲染管线
+2. SRP：可编程渲染管线
+3. LWRP：轻量渲染管线
+4. HDRP：高分辨率渲染管线
+5. Unity渲染管线：depth处理
+
+
+- AO贴图：烘焙的方法、也有实时的SSAO根据深度来 这个就是一些角落屏蔽环境光  这样会更加现实细节
+- Shadowmap:
+- mipmip
+- lightingmap:
+
+### 音视频流
+- 视频流格式 
 
 ### [计算机网络](https://github.com/wlxklyh/book/blob/master/interview/neiwork/Main.md)
 
@@ -207,7 +218,56 @@ lightingmap:
 - 设计一个MyString
   
 
-- 
+- 最长公共子序列
+【子序列是不需要连续的】
+$$ dp[i][j] = 
+  \begin{cases}
+  dp[i-1][j-1]+1              & (if A[i]==B[j]) \\
+  max(dp[i-1][j],dp[i][j-1])  & (if A[i]!=B[j]) \\
+  dp[i-1][j-1]+1              & (if A[i]==B[j]) 
+\end{cases}
+$$
+- 最长公共子串
+【子串是需要连续的】
+
+- 快排（第k大）
+``` cpp
+int partition(vector<int>vecValues, int start, int end)
+{
+	int compareValue = vecValues[start];
+	while(start < end)
+	{
+		while(start < end && vecValues[end] > compareValue)
+		{
+			end--;
+		}
+		if (start < end)
+		{
+			vecValues[start] = vecValues[end];
+		}
+		while (start < end && vecValues[start] < compareValue)
+		{
+			start++;
+		}
+		if (start < end)
+		{
+			vecValues[end] = vecValues[start];
+		}
+	}
+	vecValues[start] = compareValue;
+	return start;
+}
+void qsort(vector<int>vecValues,int start,int end)
+{
+	if(end<=start)
+	{
+		return;
+	}
+	int index = partition(vecValues, start, end);
+	qsort(vecValues,start, index-1);
+	qsort(vecValues, index+1, end);
+}
+```
 
 ## 二、书籍
 
