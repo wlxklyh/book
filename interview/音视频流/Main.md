@@ -131,7 +131,13 @@ https://download.csdn.net/detail/leixiaohua1020/5122959
   profile:ACC  MPEG2 H.264
 
 - AVIOContext 管理输入输出的结构体
+   缓存开始位置
+   缓存大小（默认32768）
+   当前指针读取到的位置
+   opaque：URLContext
 
+- AVCodec
+  
 ### 3、FFmpeg库的使用：音频播放器
 ### 4、FFmpeg —— ffplay
 ### 5、FFmpeg：编码
