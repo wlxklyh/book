@@ -75,7 +75,16 @@ FLV是由一个FLV Header和 一个一个Tag组成
 
 ## 二、FFMpeg
 ### 1、FFmpeg程序的使用
+ffmpeg.exe 用于转码的程序 
+例子：ffmpeg -i input.avi -b:v 640k output.ts
+ffplay.exe 用于播放的程序
+例子：ffplay test.avi
+ffprobe 用于查看文件格式的程序
+
 ### 2、FFmpeg库的使用：视频播放器
+2.1 ffmpeg 库的配置 demo工程
+https://download.csdn.net/detail/leixiaohua1020/5122959
+
 ### 3、FFmpeg库的使用：音频播放器
 ### 4、FFmpeg —— ffplay
 ### 5、FFmpeg：编码
