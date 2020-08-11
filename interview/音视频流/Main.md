@@ -84,6 +84,53 @@ ffprobe 用于查看文件格式的程序
 ### 2、FFmpeg库的使用：视频播放器
 2.1 ffmpeg 库的配置 demo工程
 https://download.csdn.net/detail/leixiaohua1020/5122959
+使用了libavformat libavcodec 实际只使用libavcodec就可以完成解码
+
+2.2 介绍下ffmpeg的一些函数
+- avcodec_init()
+引入头文件 libavcodec/avcodec.h
+一般在程序启动或模块初始化时调用 
+- av_register_all()
+注册多种音频视频格式的解码器 并注册各种文件的解码复用器
+- avformat_alloc_context()
+
+2.3 相关结构体的研究
+- AVFrame 包含码流参数较多的结构体 在avcodec.h
+  AVFrame 存储原始数据 非压缩数据 视频就是YUV RGB 音频就是PCM 
+  data：解码后的原始数据
+  linesize:一行的大小 未必就是图像的宽 一般大于图像宽
+  width、height: 视频帧宽高 1920x1080 1280x720
+  nb_samples: 一个AVFrame可能包含多个音频帧 这里标记为几个
+  format:解码后的格式类型 YUV420 YUV422 RGB24
+  key_frame:是否是关键帧
+  enum AVPictrureType pic_type 帧类型 I B P
+  AVRational sample_aspect_ratio:宽高比
+  pts:时间戳
+  coded_picture_number:编码帧序号
+  dispaly_picture_numer:显示帧序号
+  QP表
+
+- AVFormatContext 包含码流数据较多的
+  输入数据的缓存
+  文件名
+  时长
+  比特率
+  元数据 
+
+- AVCodeContext
+  codec_type:编码器类型  VIDEO  AUDIO DATA SUBTITLE ATTACHMENT NB
+  codec：才有的解码器 
+  bit_rate:平均比特率
+  extradata:特定编码器包含的附加信息 
+  time_base:
+  width、height
+  refs 运动参考帧的个数
+  sample_rate:采样率 音频
+  channels:声道数
+  sample_fmt：采样格式
+  profile:ACC  MPEG2 H.264
+
+- AVIOContext 管理输入输出的结构体
 
 ### 3、FFmpeg库的使用：音频播放器
 ### 4、FFmpeg —— ffplay
