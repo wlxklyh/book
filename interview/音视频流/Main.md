@@ -79,7 +79,7 @@ ffmpeg.exe 用于转码的程序
 例子：ffmpeg -i input.avi -b:v 640k output.ts
 ffplay.exe 用于播放的程序
 例子：ffplay test.avi
-ffprobe 用于查看文件格式的程序
+ffprobe 用于查看文件格式的程序 
 
 ### 2、FFmpeg库的使用：视频播放器
 2.1 ffmpeg 库的配置 demo工程
@@ -94,7 +94,7 @@ https://download.csdn.net/detail/leixiaohua1020/5122959
 注册多种音频视频格式的解码器 并注册各种文件的解码复用器
 - avformat_alloc_context()
 
-2.3 相关结构体的研究
+2.3 相关结构体的研究 
 - AVFrame 包含码流参数较多的结构体 在avcodec.h
   AVFrame 存储原始数据 非压缩数据 视频就是YUV RGB 音频就是PCM 
   data：解码后的原始数据
@@ -137,8 +137,24 @@ https://download.csdn.net/detail/leixiaohua1020/5122959
    opaque：URLContext
 
 - AVCodec
-  
+
+- AVStream
+  index
+  codec
+  time_base
+  AVPacket attached_pic Mp3附带图片
+
+- AVPacket 存储压缩编码数据相关信息
+  压缩编码的数据 H.264 1个AVPacket的data对应一个NAL
+  size data的大小
+  pts 时间戳
+  dts 解码时间戳
+
+
 ### 3、FFmpeg库的使用：音频播放器
+学习最简单的播放器
+https://blog.csdn.net/leixiaohua1020/article/details/10528443
+
 ### 4、FFmpeg —— ffplay
 ### 5、FFmpeg：编码
 ### 6、ffmpeg源代码分析
