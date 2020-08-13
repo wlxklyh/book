@@ -270,6 +270,45 @@ VR陀螺仪流程：开始初始化的时候把相机角度置为原点 然后�
   - 轮廓：绘制一遍写入模板1 绘制第二遍放大绘制 然后模板测试 关闭深度测试深度写入 如果被遮挡的显示 那么开启深度测试但是深度greator 写
   - 描边 深度差值  发现点乘 cos
 
+- Android Opengles
+  1. MainActivity 
+    ```java
+    MainActivity:onCreate()
+    {
+      OpenGlRenderer renderer = new OpenGlRenderer(this);
+      GLSurfaceView view = new GLSurfaceView(this);
+      setContentView(view);
+    }
+    ```
+  2. OpenGlRenderer
+    ```java
+    onDrawFrame(GL10 gl)
+    {
+        xxxImg.Draw()
+    }
+    ```
+  3. Image
+     ```java
+    onDrawFrame(GL10 gl)
+    {
+        gl.glPushMatrix();
+        gl.glTranslatef( x, y, z );
+        gl.glEnable( GL10.GL_TEXTURE_2D );
+        gl.glEnable( GL10.GL_ALPHA_TEST );
+        gl.glAlphaFunc( GL10.GL_GREATER, 0.5f );
+        gl.glEnable( GL10.GL_CULL_FACE );//根据函数glCullFace要求启用隐藏图形材料的面。
+        gl.glBindTexture( GL10.GL_TEXTURE_2D, textureId );
+        gl.glEnableClientState( GL10.GL_VERTEX_ARRAY );
+        gl.glEnableClientState( GL10.GL_TEXTURE_COORD_ARRAY );
+        gl.glVertexPointer( 2, GL10.GL_FLOAT, 0, vb );
+        gl.glTexCoordPointer( 2, GL10.GL_FLOAT, 0, tb );
+        gl.glDrawArrays( GL10.GL_TRIANGLE_STRIP, 0, 4 );
+        gl.glDisableClientState( GL10.GL_VERTEX_ARRAY );
+        gl.glDisableClientState( GL10.GL_TEXTURE_COORD_ARRAY );
+        gl.glPopMatrix();
+    }
+    ```
+    
 ### 音视频流
 ![](Img/2020-08-06-09-25-01.png)
 - [1、互联网视频文件](https://github.com/wlxklyh/book/blob/master/interview/%E9%9F%B3%E8%A7%86%E9%A2%91%E6%B5%81/Main.md)
