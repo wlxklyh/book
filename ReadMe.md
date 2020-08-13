@@ -5,6 +5,7 @@
 - [目录](#目录)
   - [零、开源项目](#零开源项目)
     - [软渲染器](#软渲染器)
+      - [0、说明](#0说明)
       - [1 UE4工程](#1-ue4工程)
       - [2 Unity工程](#2-unity工程)
       - [3 Android工程 【TODO】](#3-android工程-todo)
@@ -37,6 +38,31 @@
 
 ## 零、开源项目
 ### 软渲染器 
+#### 0、说明
+如果将一个正方体Mesh8顶点（每个顶点包含顶点坐标、UV坐标、color）转换成一个正方体显示的图片的过程。
+步骤：
+1. 一个立方体分解为画8个面：索引的知识  用索引节省内存 内存和显存
+2. 一个面分解为2个三角形：每个三角形初始化的是模型空间的坐标
+3. 一个三角形绘制前要更新MVP矩阵：
+   1. Transform的旋转矩阵 等于X Y Z旋转矩阵乘法（用四元素效果更高）Transform的位移矩阵、缩放矩阵scale
+   2. View矩阵：GetLookAtMat(camera相机位置,at相机看的位置,up)
+      // Rx Ry Rz 0
+      // Ux Uy Uz 0
+      // Dx Dy Dz 0
+      // 0  0  0  1 
+   3. Projection矩阵：GetPerspectiveMat(fov,aspect宽高比,zn,zf)
+4. 顶点着色器：顶点着色器返回的是裁剪空间的坐标
+5. 裁剪 会拆分三角形 这个时候裁剪空间是 [-w,-w,-w] 到 [w,w,w]
+6. 归一化 除以w 
+7. 屏幕投射
+8. 插值初始化 （特别是在纹理采样做透视校正使用 有深度透视的采样）
+9. 光栅化的插值三角形设置之插值 
+   1.  扫描拆分梯形 拆成0-2个梯形  扫描这两个梯形
+   2.  包围盒方法 包围盒扫描，判断点是否在三角形中  
+10. 扫描梯形方法 会得到扫描线 然后绘制扫描线
+11. 绘制片元 逐像素过程：深度测试 这个时候要取出深度缓冲 和 framebuffer 同时也要写入
+12. 片元绘制 会有片元着色器的过程
+    
 #### 1 UE4工程 
 给UE Programmer或者C++ Programmer 想了解图形学、渲染管线的coder
 渲染一个正方体的效果
@@ -291,17 +317,22 @@ VR陀螺仪流程：开始初始化的时候把相机角度置为原点 然后�
     ```java
     onDrawFrame(GL10 gl)
     {
+        //（1）glPopMatrix会把glPushMatrix调用之后的移动回退 恢复移动操作
         gl.glPushMatrix();
         gl.glTranslatef( x, y, z );
+        // (2)设置状态 纹理绘制 和 alpha test
         gl.glEnable( GL10.GL_TEXTURE_2D );
         gl.glEnable( GL10.GL_ALPHA_TEST );
         gl.glAlphaFunc( GL10.GL_GREATER, 0.5f );
         gl.glEnable( GL10.GL_CULL_FACE );//根据函数glCullFace要求启用隐藏图形材料的面。
+        //（3）设置绑定纹理 也属于渲染状态
         gl.glBindTexture( GL10.GL_TEXTURE_2D, textureId );
         gl.glEnableClientState( GL10.GL_VERTEX_ARRAY );
         gl.glEnableClientState( GL10.GL_TEXTURE_COORD_ARRAY );
+        //（4）vbbuffer
         gl.glVertexPointer( 2, GL10.GL_FLOAT, 0, vb );
         gl.glTexCoordPointer( 2, GL10.GL_FLOAT, 0, tb );
+        //（5）绘制数组
         gl.glDrawArrays( GL10.GL_TRIANGLE_STRIP, 0, 4 );
         gl.glDisableClientState( GL10.GL_VERTEX_ARRAY );
         gl.glDisableClientState( GL10.GL_TEXTURE_COORD_ARRAY );
