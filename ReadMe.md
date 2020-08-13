@@ -339,7 +339,12 @@ VR陀螺仪流程：开始初始化的时候把相机角度置为原点 然后�
         gl.glPopMatrix();
     }
     ```
-    
+- TBR
+  因为功耗问题，gpu渲染过程中，对功耗影响最大的就是带宽，对FrameBuffer（DRAM、test、blend、msaa、overdraw）的访问。通常gpu的SRAM很小 访问较快，所以先到(Tile)SRAM 再到FrameBuffer(DRAM)
+![](Img/2020-08-13-19-15-37.png)
+  - 优化1：放弃渲染clear 可以清楚FrameData 避免延迟渲染
+  - 优化2：每帧之前clear 不然tile会去拷贝framebuffer
+  - 优化3：pc上顶点多 dc多影响不大 但是tbr架构 如果framedata存放不下放去其他地方 会导致访问速度减慢
 ### 音视频流
 ![](Img/2020-08-06-09-25-01.png)
 - [1、互联网视频文件](https://github.com/wlxklyh/book/blob/master/interview/%E9%9F%B3%E8%A7%86%E9%A2%91%E6%B5%81/Main.md)
