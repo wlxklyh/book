@@ -205,22 +205,70 @@ ClassLoader会向上找加载  如果父类可以加载则加载了 不行再子
 - SQLite底层使用B+tree
   
 ### 图形学
+- 轻度渲染库
+  filament
+  fixi
+  bgfx
+  GCanvas（阿里巴巴）
+- 物理引擎
+  bullet
+  box2d
+  
 - Unity渲染管线：
-1. Build-in 渲染管线
-2. SRP：可编程渲染管线
-3. LWRP：轻量渲染管线
-4. HDRP：高分辨率渲染管线
-5. Unity渲染管线：depth处理
-6. unity 渲染顺序 相机 深度  剔除  透明和不透明的排序 特效渲染 和 UI渲染  Render texture自定义格式
-7. Unreal 和 Unity 渲染管线哪些不同：多线程不同 mesh对象数据流整体都不一样
-8. 多线程渲染
+  1. Unity有Build-in 渲染管线 SRP渲染管线 LWRP轻量渲染管线 HDRP高分辨率渲染管线
+  2. Unity渲染管线之渲染顺序：
+     1. 相机深度
+     2. 透明和不透明（先不透明的在透明）RenderQueue 2500
+     3. Sorting Layer:越低越先绘制 捉妖大部分是Default
+     4. Order in Layer：Render里面设置
+     5. RenderQueue：RenderQueure是Material
+     6. 深度排序 按照包围盒中心 不透明从近到远  透明的从远到近
+      ![](Img/2020-08-13-10-59-02.png)
+  3. Unity渲染管线之相机：
+     1. Clear Flags(Depth only、Color、skybox、Dont Clear)
+     2. Culling Mask：UI相机就只看到UI Flag的
+     3. Projecttion:正交和透视
+     4. FOV设置（Near Far）
+     5. MSAA
+     6. Depth
+  4. UnityHDRP渲染管线
+     1. 检查场景中的物体是否要渲染 剔除
+     2. 收集并排序所有要渲染的物体相关信息并整理为dc 一个dc包括了网格 渲染数据 纹理信息 材质信息 合并dc
+     3. 创建batch
+        1. 修改渲染状态 setpass call
+        2. 发送dc
+     4. Unity渲染线程
+        1. mainthread
+        2. render thread
+        3. worker thread
 
+- Untiy AR
+有陀螺仪、罗盘、AREngine(华为)、ARkit(苹果)、ArCore(google)、ArUnit（商汤）
+AR流程：当前ARFrame 这一帧的中心发出射线 返回到平面的hitret 从碰撞点钟选点 低于相机0.1米 相机位置在（0,0,0） 距离在Min 0.1 Max 2米为合适
+选完点之后这个点的平面就是放置妖精的平面  选完点之后不断有个update去获取相机的position和角度 FOV等 然后不断的更新相机的投影矩阵 然后同步到场景相机的投影矩阵去
+
+VR陀螺仪流程：开始初始化的时候把相机角度置为原点 然后妖精放在中间 陀螺仪可以计算相机的旋转角度 从而同步到场景相机中 这样妖精就跟随着移动
+
+- Unreal渲染管线
+1. Unreal 和 Unity 渲染管线哪些不同：多线程不同 mesh对象数据流整体都不一样
+2. 多线程渲染
+
+- BRDF
+    自发光 + 高光反射 + 漫反射 + 环境光
+    Cm + Cspec + Cdiffuce + Ca
+    环境光等于一个值（或者用AO贴图）
 
 
 - AO贴图：烘焙的方法、也有实时的SSAO根据深度来 这个就是一些角落屏蔽环境光  这样会更加现实细节
-- Shadowmap:
-- mipmip
+- Shadowmap: 光照方向的深度图 在渲染某个点的时候 计算这个点在光照方向空间的位置 然后跟这个shadowmap做对比 大于深度 则是在阴影中
+  
+- mipmip 贴图的格式有多张贴图组成远的用小图 近用大图 远处采样用大图会导致渐变发差大效果不好 
+  
 - lightingmap:
+
+- 效果实现
+  - 轮廓：绘制一遍写入模板1 绘制第二遍放大绘制 然后模板测试 关闭深度测试深度写入 如果被遮挡的显示 那么开启深度测试但是深度greator 写
+  - 描边 深度差值  发现点乘 cos
 
 ### 音视频流
 ![](Img/2020-08-06-09-25-01.png)
