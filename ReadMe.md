@@ -10,6 +10,7 @@
       - [1 UE4工程](#1-ue4工程)
       - [2 Unity工程](#2-unity工程)
       - [3 Android工程 【TODO】](#3-android工程-todo)
+    - [FFMpeg入门教程](#ffmpeg入门教程)
     - [软渲染器渲染引擎（TODO）](#软渲染器渲染引擎todo)
     - [Opengl Glitter开源学习（TODO）](#opengl-glitter开源学习todo)
   - [一、知识](#一知识)
@@ -39,8 +40,10 @@
 
 ## 零、开源项目
 ### 欢迎star的项目
+- [个人知识脉络](https://github.com/wlxklyh/book)
 - [一个cpp文件就可以理解的渲染管线,1000行代码深刻理解渲染管线](https://github.com/wlxklyh/SoftRenderer)
 - [最快入门的FFmpeg教程 下载即可运行的八个demo](https://github.com/wlxklyh/FFMpegStudy)
+
 
 ### 软渲染器 
 #### 0、说明
@@ -87,7 +90,9 @@ UE4工程：https://github.com/wlxklyh/SoftRenderer/tree/master/Unreal
 #### 3 Android工程 【TODO】
 给Android Programmer或者Java Programmer 想了解图形学、渲染管线的coder
 
+### FFMpeg入门教程
 
+https://github.com/wlxklyh/FFMpegStudy
 
 ### 软渲染器渲染引擎（TODO）
 
