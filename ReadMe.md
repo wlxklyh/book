@@ -39,6 +39,11 @@
 
 <!-- /TOC -->
 
+## 当前计划
+1. 《Object-C基础教程》50%
+2. 《从0开发一款iOS App》15%
+3. 《https://www.runoob.com/swift/swift-tutorial.html》
+
 ## 零、开源项目
 ### 欢迎star的项目
 - [个人知识脉络](https://github.com/wlxklyh/book)
@@ -90,6 +95,10 @@ UE4工程：https://github.com/wlxklyh/SoftRenderer/tree/master/Unreal
 
 #### 3 Android工程 【TODO】
 给Android Programmer或者Java Programmer 想了解图形学、渲染管线的coder
+
+#### 4 iOS工程 【TODO】
+给iOS Programmer或者oc Programmer 想了解图形学、渲染管线的coder
+
 
 ### FFMpeg入门教程
 
