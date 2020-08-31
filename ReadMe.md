@@ -17,6 +17,7 @@
     - [js](#js)
     - [Lua](#lua)
     - [C++](#c)
+    - [Object-c](#object-c)
     - [内存池](#内存池)
     - [设计模式](#设计模式)
     - [安卓](#安卓)
@@ -169,6 +170,25 @@ sizeof(B) = 4 为什么呢？
 
 - 智能指针
  
+
+### Object-c
+- 内存管理
+1. 管理方法：垃圾回收（MacOS）、MRC（手动Retain和Release）、ARC（自动一样计数 swift也在使用、现在默认工程都用这个）
+2. Build phases 里面可以针对文件标记编译参数，-fno-objc-arc 去调ARC
+3. ARC下存在的问题
+   1. 无法解决循环引用问题 造成内存泄露：相互引用了对方作为自己的成员变量
+      1. 解决方法：主动断开循环引用，业务逻辑将互相引用断开 赋值nil
+      2. 解决方法：弱引用，原理系统维护一个弱引用对象的表 当一个对象引用计数为0 通过这张表将所有弱引用指针置为nil 
+      3. 调试方法：xcode里面可以检测循环引用，Product->Profile Leaks profile
+   ![弱引用](Img/2020-08-31-16-01-19.png)
+   2. Core Foundation对象需要手工管理它们的引用计数
+      1. Core Foundation 对象 创建时大多以CTFontRef fontRef = CTFontCreateWithName((CFStringRef)@"ArialMT", fontSize, NULL);
+      2. 引用计数加 1 CFRetain(fontRef);
+      3. 引用计数减 1 CFRelease(fontRef);
+   3. Core Foundation对象转换Object-C对象
+      1. __bridge:只做类型转换 不修改相关对象引用计数 不用时 CFRelease来释放
+      2. __bridge_retained:类似转换后 将相关对象引用计数+1   不用时 CFRelease来释放
+      3. __bridge_transfer:类型转换后 交给ARC管理  不用时 不需要调用CFRelease释放
 ### 内存池
 [链接](https://github.com/wlxklyh/book/blob/master/interview/%E5%86%85%E5%AD%98%E6%B1%A0/Main.md)
 1. 见过的方式
