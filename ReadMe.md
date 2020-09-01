@@ -58,9 +58,9 @@
 ## 零、开源项目
 |序号|项目名字|简介|github链接|
 |-|-|-|-|
-|1|个人知识脉络|**记录了看过的书、开源的项目、计算机知识脉络。**| [![](https://img.shields.io/github/stars/wlxklyh/Book?style=social)]((https://github.com/wlxklyh/book)) [![](https://img.shields.io/github/forks/wlxklyh/Book?style=social)]((https://github.com/wlxklyh/book))|
-|2|各平台软渲染器|**零基础入门渲染管线（android开发者、ios开发者、Unity开发者、UE开发者）**|[![](https://img.shields.io/github/stars/wlxklyh/SoftRenderer?style=social)]((https://github.com/wlxklyh/SoftRenderer)) [![](https://img.shields.io/github/forks/wlxklyh/SoftRenderer?style=social)]((https://github.com/wlxklyh/SoftRenderer))|
-|3|FFMpeg入门教程|**零基础入门FFmpeg（懂C++即可，下载可运行）**|[![](https://img.shields.io/github/stars/wlxklyh/FFMpegStudy?style=social)]((https://github.com/wlxklyh/FFMpegStudy)) [![](https://img.shields.io/github/forks/wlxklyh/FFMpegStudy?style=social)]((https://github.com/wlxklyh/FFMpegStudy))|
+|1|个人知识脉络|**记录了看过的书、开源的项目、计算机知识脉络。**| [![](https://img.shields.io/github/stars/wlxklyh/Book?style=social)](https://github.com/wlxklyh/book) [![](https://img.shields.io/github/forks/wlxklyh/Book?style=social)](https://github.com/wlxklyh/book)|
+|2|各平台软渲染器|**零基础入门渲染管线（android开发者、ios开发者、Unity开发者、UE开发者）**|[![](https://img.shields.io/github/stars/wlxklyh/SoftRenderer?style=social)](https://github.com/wlxklyh/SoftRenderer) [![](https://img.shields.io/github/forks/wlxklyh/SoftRenderer?style=social)](https://github.com/wlxklyh/SoftRenderer)|
+|3|FFMpeg入门教程|**零基础入门FFmpeg（懂C++即可，下载可运行）**|[![](https://img.shields.io/github/stars/wlxklyh/FFMpegStudy?style=social)](https://github.com/wlxklyh/FFMpegStudy) [![](https://img.shields.io/github/forks/wlxklyh/FFMpegStudy?style=social)](https://github.com/wlxklyh/FFMpegStudy)|
 
 
 
