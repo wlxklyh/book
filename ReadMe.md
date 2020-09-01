@@ -55,6 +55,10 @@
 |7|《LearnOpengl》|![0%](https://progress-bar.dev/0)||
 |8|重温《垃圾回收的算法和实现》|![0%](https://progress-bar.dev/0)||
 
+|序号|计划名字|当前进度|资源链接|
+|-|-|-|-|
+|1|多平台同步博客|![0%](https://progress-bar.dev/0)|[工具](https://www.wechatsync.com/#faq)|
+
 ## 零、开源项目
 |序号|项目名字|简介|github链接|
 |-|-|-|-|
