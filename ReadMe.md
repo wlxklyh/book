@@ -1,16 +1,18 @@
 # 目录
-
+![](https://img.shields.io/badge/language-C++-brightgreen.svg?style=plastic)  ![](https://img.shields.io/badge/language-ObjectiveC-brightgreen.svg?style=plastic) ![](https://img.shields.io/badge/language-Java-brightgreen.svg?style=plastic) 
 <!-- TOC -->
 
 - [目录](#目录)
+  - [当前计划](#当前计划)
   - [零、开源项目](#零开源项目)
     - [欢迎star的项目](#欢迎star的项目)
-    - [软渲染器](#软渲染器)
-      - [0、说明](#0说明)
-      - [1 UE4工程](#1-ue4工程)
-      - [2 Unity工程](#2-unity工程)
-      - [3 Android工程 【TODO】](#3-android工程-todo)
-    - [FFMpeg入门教程](#ffmpeg入门教程)
+    - [1、软渲染器](#1软渲染器)
+      - [1.0、说明](#10说明)
+      - [1.1 UE4工程](#11-ue4工程)
+      - [1.2 Unity工程](#12-unity工程)
+      - [1.3 Android工程 【TODO】](#13-android工程-todo)
+      - [1.4 iOS工程 【TODO】](#14-ios工程-todo)
+    - [2. FFMpeg入门教程](#2-ffmpeg入门教程)
     - [软渲染器渲染引擎（TODO）](#软渲染器渲染引擎todo)
     - [Opengl Glitter开源学习（TODO）](#opengl-glitter开源学习todo)
   - [一、知识](#一知识)
@@ -36,23 +38,34 @@
     - [对项目框架的认识 总体把握](#对项目框架的认识-总体把握)
     - [对问的问题可以提出疑问 有什么限定有什么场景](#对问的问题可以提出疑问-有什么限定有什么场景)
     - [wshr](#wshr)
+  - [四、其他](#四其他)
+    - [Markdown](#markdown)
 
 <!-- /TOC -->
 
+
 ## 当前计划
-1. 《Object-C基础教程》50%
-2. 《从0开发一款iOS App》15%
-3. 《https://www.runoob.com/swift/swift-tutorial.html》
+|序号|计划名字|当前进度|资源链接|
+|-|-|-|-|
+|1|《Object-C基础教程》|![70%](https://progress-bar.dev/70)|[pdf](https://github.com/wlxklyh/book/blob/master/Book/ObjectC/Objective-C%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B.pdf)|
+|2|《从0开发一款iOS App》|![16%](https://progress-bar.dev/16)|[付费视频](https://time.geekbang.org/course/detail/100025901-93482)|
+|3|《Runoob——Swift 教程》|![0%](https://progress-bar.dev/0)|[博客教程](https://www.runoob.com/swift/swift-tutorial.html)|
+
+
 
 ## 零、开源项目
 ### 欢迎star的项目
-- [个人知识脉络](https://github.com/wlxklyh/book)
-- [一个cpp文件就可以理解的渲染管线,1000行代码深刻理解渲染管线](https://github.com/wlxklyh/SoftRenderer)
-- [最快入门的FFmpeg教程 下载即可运行的八个demo](https://github.com/wlxklyh/FFMpegStudy)
+
+|序号|项目名字|简介|github链接|
+|-|-|-|-|-|
+|1|个人知识脉络|**记录了看过的书、开源的项目、计算机知识脉络。**|[![](https://img.shields.io/badge/GitHub--yellow.svg?style=social&logo=github)](https://github.com/wlxklyh/book)|
+|2|各平台软渲染器|**零基础入门渲染管线（android开发者、ios开发者、Unity开发者、UE开发者）**|[![](https://img.shields.io/badge/GitHub--yellow.svg?style=social&logo=github)](https://github.com/wlxklyh/SoftRenderer)|
+|3|FFMpeg入门教程|**零基础入门FFmpeg（懂C++即可，下载可运行）**|[![](https://img.shields.io/badge/GitHub--yellow.svg?style=social&logo=github)](https://github.com/wlxklyh/FFMpegStudy)|
 
 
-### 软渲染器 
-#### 0、说明
+
+### 1、软渲染器 
+#### 1.0、说明
 如果将一个正方体Mesh8顶点（每个顶点包含顶点坐标、UV坐标、color）转换成一个正方体显示的图片的过程。
 步骤：
 1. 一个立方体分解为画8个面：索引的知识  用索引节省内存 内存和显存
@@ -77,7 +90,7 @@
 11. 绘制片元 逐像素过程：深度测试 这个时候要取出深度缓冲 和 framebuffer 同时也要写入
 12. 片元绘制 会有片元着色器的过程
     
-#### 1 UE4工程 
+#### 1.1 UE4工程 
 给UE Programmer或者C++ Programmer 想了解图形学、渲染管线的coder
 渲染一个正方体的效果
 ![](Img/2020-06-16-18-02-06.png)
@@ -85,7 +98,7 @@ UE4工程：https://github.com/wlxklyh/SoftRenderer/tree/master/Unreal
 主代码和注释：https://github.com/wlxklyh/SoftRenderer/blob/master/Unreal/Source/Graphic/SoftRenderer/ScreenDevice.h
 
 
-#### 2 Unity工程 
+#### 1.2 Unity工程 
 给Unity Programmer或者C# Programmer 想了解图形学、渲染管线的coder
 渲染一个正方体的效果
 ![](Img/2020-06-24-09-38-53.png)
@@ -93,14 +106,14 @@ UE4工程：https://github.com/wlxklyh/SoftRenderer/tree/master/Unreal
 主代码和注释：https://github.com/wlxklyh/SoftRenderer/blob/master/Unity/Assets/MainCode.cs
 
 
-#### 3 Android工程 【TODO】
+#### 1.3 Android工程 【TODO】
 给Android Programmer或者Java Programmer 想了解图形学、渲染管线的coder
 
-#### 4 iOS工程 【TODO】
+#### 1.4 iOS工程 【TODO】
 给iOS Programmer或者oc Programmer 想了解图形学、渲染管线的coder
 
 
-### FFMpeg入门教程
+### 2. FFMpeg入门教程
 
 https://github.com/wlxklyh/FFMpegStudy
 
@@ -488,3 +501,6 @@ void qsort(vector<int>vecValues,int start,int end)
 - 怎么带人的
 - 跟周围同事领导相处
 - 了解前沿的知识
+
+## 四、其他
+### Markdown
