@@ -5,11 +5,10 @@
 - [目录](#目录)
   - [当前计划](#当前计划)
   - [零、开源项目](#零开源项目)
-    - [欢迎star的项目](#欢迎star的项目)
     - [1、软渲染器](#1软渲染器)
-      - [1.0、说明](#10说明)
-      - [1.1 UE4工程](#11-ue4工程)
-      - [1.2 Unity工程](#12-unity工程)
+      - [1.0. 说明](#10-说明)
+      - [1.1 UE4 下载即可运行的工程](#11-ue4-下载即可运行的工程)
+      - [1.2 Unity 下载即可运行的工程](#12-unity-下载即可运行的工程)
       - [1.3 Android工程 【TODO】](#13-android工程-todo)
       - [1.4 iOS工程 【TODO】](#14-ios工程-todo)
     - [2. FFMpeg入门教程](#2-ffmpeg入门教程)
@@ -47,26 +46,31 @@
 ## 当前计划
 |序号|计划名字|当前进度|资源链接|
 |-|-|-|-|
-|1|《Object-C基础教程》|![70%](https://progress-bar.dev/70)|[pdf](https://github.com/wlxklyh/book/blob/master/Book/ObjectC/Objective-C%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B.pdf)|
+|1|《Object-C基础教程》|![70%](https://progress-bar.dev/70)|[pdf 已购 ](https://github.com/wlxklyh/book/blob/master/Book/ObjectC/Objective-C%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B.pdf)|
 |2|《从0开发一款iOS App》|![16%](https://progress-bar.dev/16)|[付费视频](https://time.geekbang.org/course/detail/100025901-93482)|
 |3|《Runoob——Swift 教程》|![0%](https://progress-bar.dev/0)|[博客教程](https://www.runoob.com/swift/swift-tutorial.html)|
-
-
+|4|《ios开发进阶》|![0%](https://progress-bar.dev/0)|[pdf 已购](https://github.com/wlxklyh/book/blob/master/Book/ObjectC/%E3%80%8AiOS%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6%E3%80%8B%E5%94%90%E5%B7%A7_%E5%B8%A6%E4%B9%A6%E7%AD%BE%E7%9B%AE%E5%BD%95.pdf)|
+|5|维护博客|![0%](https://progress-bar.dev/0)||
+|6|《Shader入门精要》|![0%](https://progress-bar.dev/0)||
+|7|《LearnOpengl》|![0%](https://progress-bar.dev/0)||
+|8|重温《垃圾回收的算法和实现》|![0%](https://progress-bar.dev/0)||
 
 ## 零、开源项目
-### 欢迎star的项目
+
 
 |序号|项目名字|简介|github链接|
 |-|-|-|-|-|
-|1|个人知识脉络|**记录了看过的书、开源的项目、计算机知识脉络。**|[![](https://img.shields.io/badge/GitHub--yellow.svg?style=social&logo=github)](https://github.com/wlxklyh/book)|
-|2|各平台软渲染器|**零基础入门渲染管线（android开发者、ios开发者、Unity开发者、UE开发者）**|[![](https://img.shields.io/badge/GitHub--yellow.svg?style=social&logo=github)](https://github.com/wlxklyh/SoftRenderer)|
-|3|FFMpeg入门教程|**零基础入门FFmpeg（懂C++即可，下载可运行）**|[![](https://img.shields.io/badge/GitHub--yellow.svg?style=social&logo=github)](https://github.com/wlxklyh/FFMpegStudy)|
+|1|个人知识脉络|**记录了看过的书、开源的项目、计算机知识脉络。**| [![](https://img.shields.io/github/stars/wlxklyh/Book?style=social)]((https://github.com/wlxklyh/book)) [![](https://img.shields.io/github/forks/wlxklyh/Book?style=social)]((https://github.com/wlxklyh/book))|
+|2|各平台软渲染器|**零基础入门渲染管线（android开发者、ios开发者、Unity开发者、UE开发者）**|[![](https://img.shields.io/github/stars/wlxklyh/SoftRenderer?style=social)]((https://github.com/wlxklyh/SoftRenderer)) [![](https://img.shields.io/github/forks/wlxklyh/SoftRenderer?style=social)]((https://github.com/wlxklyh/SoftRenderer))|
+|3|FFMpeg入门教程|**零基础入门FFmpeg（懂C++即可，下载可运行）**|[![](https://img.shields.io/github/stars/wlxklyh/FFMpegStudy?style=social)]((https://github.com/wlxklyh/FFMpegStudy)) [![](https://img.shields.io/github/forks/wlxklyh/FFMpegStudy?style=social)]((https://github.com/wlxklyh/FFMpegStudy))|
+
 
 
 
 ### 1、软渲染器 
-#### 1.0、说明
-如果将一个正方体Mesh8顶点（每个顶点包含顶点坐标、UV坐标、color）转换成一个正方体显示的图片的过程。
+#### 1.0. 说明
+如果将一个正方体Mesh8顶点（每个顶点包含顶点坐标、UV坐标、color）在CPU侧做坐标转换、光栅化然后得到一张显示正方体的图片，这个过程用Opengl、dx就是调用几个接口就可以实现是用GPU渲染出来，软渲染器则是在CPU模拟GPU流水线来渲染到CPU的一个二维像素数组上。
+
 步骤：
 1. 一个立方体分解为画8个面：索引的知识  用索引节省内存 内存和显存
 2. 一个面分解为2个三角形：每个三角形初始化的是模型空间的坐标
@@ -80,7 +84,7 @@
    3. Projection矩阵：GetPerspectiveMat(fov,aspect宽高比,zn,zf)
 4. 顶点着色器：顶点着色器返回的是裁剪空间的坐标
 5. 裁剪 会拆分三角形 这个时候裁剪空间是 [-w,-w,-w] 到 [w,w,w]
-6. 归一化 除以w 
+6. 归一化 除以w 变成
 7. 屏幕投射
 8. 插值初始化 （特别是在纹理采样做透视校正使用 有深度透视的采样）
 9. 光栅化的插值三角形设置之插值 
@@ -90,27 +94,28 @@
 11. 绘制片元 逐像素过程：深度测试 这个时候要取出深度缓冲 和 framebuffer 同时也要写入
 12. 片元绘制 会有片元着色器的过程
     
-#### 1.1 UE4工程 
-给UE Programmer或者C++ Programmer 想了解图形学、渲染管线的coder
-渲染一个正方体的效果
+#### 1.1 UE4 下载即可运行的工程 
+此工程给UE Programmer或者C++ Programmer 想了解图形学、渲染管线的coder 阅读。
+下图是渲染一个正方体的效果
 ![](Img/2020-06-16-18-02-06.png)
+
 UE4工程：https://github.com/wlxklyh/SoftRenderer/tree/master/Unreal
 主代码和注释：https://github.com/wlxklyh/SoftRenderer/blob/master/Unreal/Source/Graphic/SoftRenderer/ScreenDevice.h
 
 
-#### 1.2 Unity工程 
-给Unity Programmer或者C# Programmer 想了解图形学、渲染管线的coder
-渲染一个正方体的效果
+#### 1.2 Unity 下载即可运行的工程 
+此工程给Unity Programmer或者C# Programmer 想了解图形学、渲染管线的coder 阅读。
+下图是渲染一个正方体的效果
 ![](Img/2020-06-24-09-38-53.png)
 工程：https://github.com/wlxklyh/SoftRenderer/tree/master/Unity
 主代码和注释：https://github.com/wlxklyh/SoftRenderer/blob/master/Unity/Assets/MainCode.cs
 
 
 #### 1.3 Android工程 【TODO】
-给Android Programmer或者Java Programmer 想了解图形学、渲染管线的coder
+此工程给Android Programmer或者Java Programmer 想了解图形学、渲染管线的coder 阅读。
 
 #### 1.4 iOS工程 【TODO】
-给iOS Programmer或者oc Programmer 想了解图形学、渲染管线的coder
+此工程给iOS Programmer或者oc Programmer 想了解图形学、渲染管线的coder 阅读。
 
 
 ### 2. FFMpeg入门教程
@@ -126,56 +131,68 @@ https://github.com/wlxklyh/FFMpegStudy
 
 ### Lua
 - OOP
-  C#中GetLuaFileTable（Dostring luafile） 然后这个就是metaTable
-  C#中获取metaTable的New函数（new函数是由 Class(className, classTable, baseClass)里面添加的）
-  通过New函数得到lua的新对象
-  看下New函数会闯入C#里面的对象 
-  简单的继承方法：Shape:new(o)是基类 里面是o = o or {} 子类：o = o or Shape:new(o) 子类的对象内存空间来自父类的new函数的{}
+  Gwgo C#对象和Lua的绑定：C#对象保存一个lua路径 然后就得到lua路径下的table
+  Clash Unlua和lua的绑定：蓝图里面定义个GetLuaModuleName Engine调lua要定义个空的蓝图函数 Lua调Engine则hook __index，判断类型用反射调用实现。
+  clash、Gwgo lua继承：都是将 新建个table retTable = {} 将SuperClass的属性遍历赋值给retTable 返回retTable给子类。
   
 
 ### C++
+- 规范问题char* strcat(char* A,char* B)
+  1. 传入的B应该写成Const 这样不会修改B
+  2. A和B可能没有\0 字符串结束符 导致死循环
+  3. 内存管理问题，外部传进来的里面不能销毁或者内存管理操作
+  4. 代码：
+    ```cpp
+    char* strcat ( char * dst , const char * src )//微软
+    {
+      char * cp = dst;
+      while( *cp )
+      cp++; /* find end of dst */
+      while( *cp++ = *src++ ) ; /* Copy src to end of dst */
+      return( dst ); /* return dst */
+    }
+    ```
 
-- 规范问题
-  char* strcat(char* A,char* B)
 
 - C++序列化问题
-程序数据转化成能被存储并传输的格式称为 序列化
+程序数据转化成能被存储并传输的格式称为 序列化。如果没有反射C++无法对指针序列化，除非用代码生成来做，类似pb和协议的序列化。
 
 - Volatile作用
 类型修饰符 没有使用这个声明的 可能直接从CPU的寄存器里面直接取值 下面b=i的汇编会直接从寄存器里面读取值
 
 变量i 没有关键字Volatile 那么是有编译器优化 1BDh直接把这个值算好在汇编里面
 
-![](Img/2020-05-20-08-14-56.png)
+![](Img/2020-09-01-15-07-46.png)
 
 变量i 有关键字Volatile 那么是无编译器优化 
 
-![](Img/2020-05-20-08-16-41.png)
+![](Img/2020-09-01-15-08-00.png)
 - 虚函数
 1. 构造函数可以是虚函数吗？
 不可以 因为调用虚函数的时候还没构造完这个对象 也就虚指针还没创建好 无法调用
 2. 构造函数中调用虚函数会如何？
-```Cpp
-class A
-{ 
-    A(){fun()};
-    virtual void fun(){cout<<"A fun"}
-}
-class B:public A
-{
-    B(){};
-    virtual void fun(){cout<<"B fun"}
-}
-```
-A的构造函数调用虚函数  输出的是A Fun  先调用A构造函数时输出 再调用B构造函数
-析构函数调用顺序是先子类 后基类  虚函数的多态也会失效，虚表是在构造函数赋值的 基类构造所先赋值了基类的虚表 所以调用的是基类的虚函数  虚函数多态也就失效了虚表在构造基类 子类时绑定
+  ```Cpp
+  class A
+  { 
+      A(){fun()};
+      virtual void fun(){cout<<"A fun"}
+  }
+  class B:public A
+  {
+      B(){};
+      virtual void fun(){cout<<"B fun"}
+  }
+  ```
+  A的构造函数调用虚函数  输出的是A Fun  先调用A构造函数时输出 再调用B构造函数
+  析构函数调用顺序是先子类 后基类  虚函数的多态也会失效，虚表是在构造函数赋值的 基类构造所先赋值了基类的虚表 所以调用的是基类的虚函数  虚函数多态也就失效了虚表在构造基类 子类时绑定
+
 3. 析构函数能够是虚函数
 建议是因为 基类指针析构调用才可以调用到子类的析构函数 不然只调用基类的析构 没有调用子类析构从而子类内存泄露
 
 4. 虚函数实现原理？虚表
     1. 同个类的所有对象的虚表是一样的 虚指针指向的地址一样 是同一张虚表
     2. 多继承才有多个虚指针
-
+    3. 编译的时候 调用虚函数的代码就知道调用的函数地址了 通过虚表索引得到 虚幻存的是函数地址 虚幻编译的时候就知道偏移 程序载入内存得到真正的地址值
 
 5. 虚表是编译时候确定的
    
@@ -184,14 +201,13 @@ A的构造函数调用虚函数  输出的是A Fun  先调用A构造函数时输
 class A(){virtual Afun()}
 class B(){virtual Afun()}
 sizeof(B) = 4
-
 class A(){virtual Afun()}
 class B(){virtual Bfun()}
-sizeof(B) = 4 为什么呢？
+sizeof(B) = 4 为什么呢？虚表指针一个所以是4
 ```
 
 - 智能指针
- 
+
 
 ### Object-c
 - 内存管理
@@ -212,7 +228,7 @@ sizeof(B) = 4 为什么呢？
       2. __bridge_retained:类似转换后 将相关对象引用计数+1   不用时 CFRelease来释放
       3. __bridge_transfer:类型转换后 交给ARC管理  不用时 不需要调用CFRelease释放
 ### 内存池
-[链接](https://github.com/wlxklyh/book/blob/master/interview/%E5%86%85%E5%AD%98%E6%B1%A0/Main.md)
+[代码链接](https://github.com/wlxklyh/book/blob/master/interview/%E5%86%85%E5%AD%98%E6%B1%A0/Main.md)
 1. 见过的方式
 - 对象的内存池：下面的例子，重载new 和 delete 对象池的内存池
 - 内存块的内存池：自己定义PoolMalloc 和 PollFree函数 业务用这两个接口
@@ -228,22 +244,22 @@ using namespace std;
 // 3、Free了FreeNode4 然后FreeNode4 ->next = FreeNode7
 // 4、Free了FreeNode1 然后FreeNode1 ->next = FreeNode4
 // 5、Free链表 则是 FreeNode1 -> FreeNode4 -> FreeNode7 -> FreeNode8
+// 6、再申请Node则会 从Free的链表头得到FreeNode1 接着再申请就是FreeNode4
 //
-//
-//			MemBlock2				MemBlock1			MemBlock0
-//          +---------------+     +--------------+	   +--------------+
-//          |               |     |              |	   |              |
-//   +------+  FreeNode6    |     |  FreeNode3   |	   |  FreeNode0   |
-//   |      |               |     |              |	   |              |
-//   |      +---------------+     +--------------+	   +--------------+
-//   +----->+               |     |              |	   |              |
+//            MemBlock2                MemBlock1            MemBlock0
+//          +---------------+     +--------------+     +--------------+
+//          |               |     |              |     |              |
+//   +------+  FreeNode6    |     |  FreeNode3   |     |  FreeNode0   |
+//   |      |               |     |              |     |              |
+//   |      +---------------+     +--------------+     +--------------+
+//   +----->+               |     |              |     |              |
 //          |  FreeNode7    <-----+  FreeNode4   <-----+  FreeNode1   |
-//   +------+               |     |              |	   |              |
-//   |      +---------------+     +--------------+	   +--------------+
-//   +------>               |     |              |	   |              |
-//          |  FreeNode8    |     |  FreeNode5   |	   |  FreeNode2   |
-//          +               |     |              |	   |              |
-//          +---------------+     +--------------+	   +--------------+
+//   +------+               |     |              |     |              |
+//   |      +---------------+     +--------------+     +--------------+
+//   +------>               |     |              |     |              |
+//          |  FreeNode8    |     |  FreeNode5   |     |  FreeNode2   |
+//          +               |     |              |     |              |
+//          +---------------+     +--------------+     +--------------+
 ```
 
 ### 设计模式
