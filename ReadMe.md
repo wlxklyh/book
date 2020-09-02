@@ -1,5 +1,5 @@
 # 目录
-![](https://img.shields.io/badge/language-C++-brightgreen.svg?style=plastic)  ![](https://img.shields.io/badge/language-ObjectiveC-brightgreen.svg?style=plastic) ![](https://img.shields.io/badge/language-Java-brightgreen.svg?style=plastic) 
+![](https://img.shields.io/badge/language-C++-brightyellow.svg?style=plastic)  ![](https://img.shields.io/badge/language-ObjectiveC-brightgreen.svg?style=plastic) ![](https://img.shields.io/badge/language-Java-brightgreen.svg?style=plastic) 
 <!-- TOC -->
 
 - [目录](#目录)
@@ -38,7 +38,9 @@
     - [对问的问题可以提出疑问 有什么限定有什么场景](#对问的问题可以提出疑问-有什么限定有什么场景)
     - [wshr](#wshr)
   - [四、其他](#四其他)
-    - [Markdown](#markdown)
+    - [Markdown写作](#markdown写作)
+    - [我的互联网付费](#我的互联网付费)
+    - [与人交流](#与人交流)
 
 <!-- /TOC -->
 
@@ -54,6 +56,7 @@
 |6|《Shader入门精要》|![0%](https://progress-bar.dev/0)||
 |7|《LearnOpengl》|![0%](https://progress-bar.dev/0)||
 |8|重温《垃圾回收的算法和实现》|![0%](https://progress-bar.dev/0)||
+|9|谷歌方法论|![57%](https://progress-bar.dev/57)||
 
 |序号|计划名字|当前进度|资源链接|
 |-|-|-|-|
@@ -521,4 +524,22 @@ void qsort(vector<int>vecValues,int start,int end)
 - 了解前沿的知识
 
 ## 四、其他
-### Markdown
+### Markdown写作
+  
+|名字|价格|编辑|图床|公众号|简书|知乎|掘金|CSND|博客园|SegmentFault|开源中国|慕课手记|头条|Spring4All|试用|
+|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|
+|openwrite|199/年|web登录编辑 简单的md支持|付费提供|×|√|√|√|√|√|√|√|√|√|√|付费才能用 因为免费版不能更新文章|
+|微信同步助手|免费|web登录编辑 简单的md支持|无|√|√|√|√|√|√|√|×|×|√|×|有bug|
+|写作助手|免费|下载安装|工具处理图床|×|√|√|√|√|√|√|√|×|×|×|要逐个平台发布 而且没有更新功能|
+
+### 我的互联网付费
+|名字||
+|-|-|
+|1、极客时间|19元买了一门课|
+|2、得到|198元谷歌方法论的课|
+
+### 与人交流
+1. ios app 和 游戏，重要的是买量和渠道 还有跟人多交流
+2. 教育：课程 这个要积累多年  儿童教育
+3. 插件付费
+4. 搬运。
