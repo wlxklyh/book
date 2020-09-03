@@ -49,11 +49,11 @@
 ## 当前计划
 |序号|计划名字|当前进度|资源链接|结论|
 |-|-|-|-|-|
-|1|《Objective-C基础教程》|![70%](https://progress-bar.dev/70)|[pdf 已购 ](https://github.com/wlxklyh/book/blob/master/Book/ObjectC/Objective-C%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B.pdf)|了解语法，细节和进阶需后续再学习|
-|2|《从0开发一款iOS App》|![31%](https://progress-bar.dev/31)|[付费视频](https://time.geekbang.org/course/detail/100025901-93482)|
-|3|《Runoob——Swift 教程》|![0%](https://progress-bar.dev/0)|[博客教程](https://www.runoob.com/swift/swift-tutorial.html)|
+|1|《Objective-C基础教程》|![100%](https://progress-bar.dev/100)|[pdf 已购 ](https://github.com/wlxklyh/book/blob/master/Book/ObjectC/Objective-C%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B.pdf)|了解语法，细节和进阶需后续再学习|
+|2|《从0开发一款iOS App》|![34%](https://progress-bar.dev/34)|[付费视频](https://time.geekbang.org/course/detail/100025901-93482)|
+|3|《Runoob——Swift 教程》|![6%](https://progress-bar.dev/6)|[博客教程](https://www.runoob.com/swift/swift-tutorial.html)|
 |4|《ios开发进阶》|![0%](https://progress-bar.dev/0)|[pdf 已购](https://github.com/wlxklyh/book/blob/master/Book/ObjectC/%E3%80%8AiOS%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6%E3%80%8B%E5%94%90%E5%B7%A7_%E5%B8%A6%E4%B9%A6%E7%AD%BE%E7%9B%AE%E5%BD%95.pdf)|
-|5|维护博客|![0%](https://progress-bar.dev/0)||
+|5|维护博客|![1%](https://progress-bar.dev/1)||
 |6|《Shader入门精要》|![0%](https://progress-bar.dev/0)||
 |7|《LearnOpengl》|![0%](https://progress-bar.dev/0)||
 |8|重温《垃圾回收的算法和实现》|![0%](https://progress-bar.dev/0)||
