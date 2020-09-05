@@ -61,8 +61,8 @@
 
 |序号|计划名字|当前进度|资源链接|结论|
 |-|-|-|-|-|
-|1|多平台同步博客|![100%](https://progress-bar.dev/100)|[工具](https://www.wechatsync.com/#faq)|后面考虑使用同步助手 199元每年|
-|2|Flutter For Android 安装与初体验|![100%](https://progress-bar.dev/100)|km|试过android |
+|1|多平台同步博客|![100%](https://progress-bar.dev/100)|[工具](https://www.wechatsync.com/#faq)|**后面考虑使用**同步助手 199元每年|
+|2|Flutter For Android 安装与初体验|![100%](https://progress-bar.dev/100)|km|完成Android和iOS的hello world工程 https://github.com/wlxklyh/book/blob/master/Book/Flutter/Start/Main.md|
 ## 零、开源项目
 |序号|项目名字|简介|github链接|
 |-|-|-|-|
