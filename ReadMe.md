@@ -66,6 +66,7 @@
 |-|-|-|-|-|
 |1|多平台同步博客|![100%](https://progress-bar.dev/100)|[工具](https://www.wechatsync.com/#faq)|**后面考虑使用**同步助手 199元每年|
 |2|Flutter For Android 安装与初体验|![100%](https://progress-bar.dev/100)|km|完成Android和iOS的hello world工程 [链接](https://github.com/wlxklyh/book/blob/master/Book/Flutter/Start/Main.md)|
+|3|outlook学习怎么高效使用|![0%](https://progress-bar.dev/0)|无 需搜索|写文档|
 ## 零、开源项目
 |序号|项目名字|简介|github链接|
 |-|-|-|-|
@@ -114,14 +115,18 @@ UE4工程：https://github.com/wlxklyh/SoftRenderer/tree/master/Unreal
 
 #### 1.2 Unity 下载即可运行的工程 
 此工程给Unity Programmer或者C# Programmer 想了解图形学、渲染管线的coder 阅读。
-下图是渲染一个正方体的效果
+下图是渲染一个正方体的效果：
 ![](Img/2020-06-24-09-38-53.png)
 工程：https://github.com/wlxklyh/SoftRenderer/tree/master/Unity
 主代码和注释：https://github.com/wlxklyh/SoftRenderer/blob/master/Unity/Assets/MainCode.cs
 
 
-#### 1.3 Android工程 【TODO】
+#### 1.3 Android工程 
 此工程给Android Programmer或者Java Programmer 想了解图形学、渲染管线的coder 阅读。
+下图是渲染一个正方体的效果
+![](img/2020-09-07-15-05-55.png)
+工程位置：https://github.com/wlxklyh/SoftRenderer/tree/master/Ado
+主代码和注释：https://github.com/wlxklyh/SoftRenderer/blob/master/Ado/app/src/main/java/com/wlxklyh/softrenderer/FirstFragment.java
 
 #### 1.4 iOS工程 【TODO】
 此工程给iOS Programmer或者oc Programmer 想了解图形学、渲染管线的coder 阅读。
