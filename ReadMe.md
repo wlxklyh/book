@@ -67,6 +67,12 @@
 |1|多平台同步博客|![100%](https://progress-bar.dev/100)|[工具](https://www.wechatsync.com/#faq)|**后面考虑使用**同步助手 199元每年|
 |2|Flutter For Android 安装与初体验|![100%](https://progress-bar.dev/100)|km|完成Android和iOS的hello world工程 [链接](https://github.com/wlxklyh/book/blob/master/Book/Flutter/Start/Main.md)|
 |3|outlook学习怎么高效使用|![0%](https://progress-bar.dev/0)|无 需搜索|写文档|
+|4|软渲染器开源项目整理 和 完成iOS工程|![0%](https://progress-bar.dev/0)|github |写文档|
+|5|音视频优化|![0%](https://progress-bar.dev/0)|https://zhuanlan.zhihu.com/p/53038472 |写笔记|
+
+
+
+
 ## 零、开源项目
 |序号|项目名字|简介|github链接|
 |-|-|-|-|
