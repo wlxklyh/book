@@ -26,14 +26,14 @@
         - [SQLite](#sqlite)
         - [图形学](#图形学)
         - [音视频流](#音视频流)
-        - [[计算机网络](https://github.com/wlxklyh/book/blob/master/interview/neiwork/Main.md)](#计算机网络httpsgithubcomwlxklyhbookblobmasterinterviewneiworkmainmd)
+        - [计算机网络](#计算机网络)
         - [项目经历](#项目经历)
         - [编程](#编程)
     - [二、书籍](#二书籍)
-        - [计算机网络](#计算机网络)
-            - [[《图解http》](https://github.com/wlxklyh/book/blob/master/Book/GC/Main.md)](#图解httphttpsgithubcomwlxklyhbookblobmasterbookgcmainmd)
+        - [计算机网络](#计算机网络-1)
+            - [《图解http》](#图解http)
         - [GC回收](#gc回收)
-            - [[《垃圾回收的算法和实现》](https://github.com/wlxklyh/book/blob/master/Book/neiwork/Study.md)](#垃圾回收的算法和实现httpsgithubcomwlxklyhbookblobmasterbookneiworkstudymd)
+            - [《垃圾回收的算法和实现》](#垃圾回收的算法和实现)
     - [三、面试总结](#三面试总结)
         - [对项目框架的认识 总体把握](#对项目框架的认识-总体把握)
         - [对问的问题可以提出疑问 有什么限定有什么场景](#对问的问题可以提出疑问-有什么限定有什么场景)
@@ -443,7 +443,8 @@ VR陀螺仪流程：开始初始化的时候把相机角度置为原点 然后�
 - [4、视音频数据处理入门：H.264视频码流解析](https://github.com/wlxklyh/book/blob/master/interview/%E9%9F%B3%E8%A7%86%E9%A2%91%E6%B5%81/Main.md)
 - [5、视音频数据处理入门：AAC音频码流解析](https://github.com/wlxklyh/book/blob/master/interview/%E9%9F%B3%E8%A7%86%E9%A2%91%E6%B5%81/Main.md)
 
-### [计算机网络](https://github.com/wlxklyh/book/blob/master/interview/neiwork/Main.md)
+### 计算机网络
+https://github.com/wlxklyh/book/blob/master/interview/neiwork/Main.md
 
 ### 项目经历
 - 天天炫斗
@@ -524,11 +525,13 @@ void qsort(vector<int>vecValues,int start,int end)
 
 ### 计算机网络
 
-#### [《图解http》](https://github.com/wlxklyh/book/blob/master/Book/GC/Main.md)
+#### 《图解http》
+https://github.com/wlxklyh/book/blob/master/Book/GC/Main.md
 
 ### GC回收
 
-#### [《垃圾回收的算法和实现》](https://github.com/wlxklyh/book/blob/master/Book/neiwork/Study.md)
+#### 《垃圾回收的算法和实现》
+https://github.com/wlxklyh/book/blob/master/Book/neiwork/Study.md
 
 ## 三、面试总结
 ### 对项目框架的认识 总体把握
