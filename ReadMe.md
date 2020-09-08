@@ -132,7 +132,7 @@ UE4工程：https://github.com/wlxklyh/SoftRenderer/tree/master/Unreal
 #### 1.3 Android工程 
 此工程给Android Programmer或者Java Programmer 想了解图形学、渲染管线的coder 阅读。
 下图是渲染一个正方体的效果
-![](img/2020-09-07-15-05-55.png)
+![](Img/2020-09-07-15-05-55.png)
 工程位置：https://github.com/wlxklyh/SoftRenderer/tree/master/Ado
 主代码和注释：https://github.com/wlxklyh/SoftRenderer/blob/master/Ado/app/src/main/java/com/wlxklyh/softrenderer/FirstFragment.java
 
@@ -568,8 +568,10 @@ https://github.com/wlxklyh/book/blob/master/Book/neiwork/Study.md
 ## 五、工具
 ### VSCode插件
 - paste Image
+
 ![](Img/2020-09-08-09-23-56.png)
 - Markdown TOC
+
 ![](Img/2020-09-08-09-23-38.png)
 解决换行问题
 https://blog.csdn.net/u014171091/article/details/89629634
