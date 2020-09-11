@@ -49,20 +49,30 @@
 
 
 ## 当前计划
+- 短期计划（优先级高）
+
+|序号|计划名字|当前进度|资源链接|结论|
+|-|-|-|-|-|
+|1|GPUImage、Grafika|![0%](https://progress-bar.dev/0)||
+
+- 长期计划（优先级中 书籍课程）：
+
 |序号|计划名字|当前进度|资源链接|结论|
 |-|-|-|-|-|
 |1|《Objective-C基础教程》|![100%](https://progress-bar.dev/100)|[pdf 已购 ](https://github.com/wlxklyh/book/blob/master/Book/ObjectC/Objective-C%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B.pdf)|了解语法，细节和进阶需后续再学习|
 |2|《从0开发一款iOS App》|![36%](https://progress-bar.dev/36)|[付费视频](https://time.geekbang.org/course/detail/100025901-93482)|
 |3|《Runoob——Swift 教程》|![6%](https://progress-bar.dev/6)|[博客教程](https://www.runoob.com/swift/swift-tutorial.html)|
 |4|《ios开发进阶》|![0%](https://progress-bar.dev/0)|[pdf 已购](https://github.com/wlxklyh/book/blob/master/Book/ObjectC/%E3%80%8AiOS%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6%E3%80%8B%E5%94%90%E5%B7%A7_%E5%B8%A6%E4%B9%A6%E7%AD%BE%E7%9B%AE%E5%BD%95.pdf)|
-|5|维护博客|![1%](https://progress-bar.dev/1)||
-|6|《Shader入门精要》|![0%](https://progress-bar.dev/0)||
-|7|《LearnOpengl》|![0%](https://progress-bar.dev/0)||
-|8|重温《垃圾回收的算法和实现》|![0%](https://progress-bar.dev/0)||
-|9|谷歌方法论|![57%](https://progress-bar.dev/57)||
-|10|《安卓开发高手》|![6%](https://progress-bar.dev/6)|[付费视频](https://time.geekbang.org/column/article/70602)|
-|11|《Android音视频开发》|![0%](https://progress-bar.dev/0)|已购|
-|12|《音视频开发进阶指南》|![0%](https://progress-bar.dev/0)|已购|
+|5|《Shader入门精要》|![0%](https://progress-bar.dev/0)||
+|6|《LearnOpengl》|![0%](https://progress-bar.dev/0)||
+|7|重温《垃圾回收的算法和实现》|![0%](https://progress-bar.dev/0)||
+|8|《谷歌方法论》|![57%](https://progress-bar.dev/57)||
+|9|《安卓开发高手》|![6%](https://progress-bar.dev/6)|[付费视频](https://time.geekbang.org/column/article/70602)|
+|10|《Android音视频开发》|![0%](https://progress-bar.dev/0)|已购|
+|11|《音视频开发进阶指南》|![0%](https://progress-bar.dev/0)|已购|
+
+
+- 其他计划
 
 |序号|计划名字|当前进度|资源链接|结论|
 |-|-|-|-|-|
@@ -71,7 +81,7 @@
 |3|outlook学习怎么高效使用|![0%](https://progress-bar.dev/0)|无 需搜索|写文档|
 |4|软渲染器开源项目整理 和 完成iOS工程|![0%](https://progress-bar.dev/0)|github |写文档|
 |5|音视频优化|![0%](https://progress-bar.dev/0)|https://zhuanlan.zhihu.com/p/53038472 |写笔记|
-
+|6|维护博客|![1%](https://progress-bar.dev/1)||
 
 
 
