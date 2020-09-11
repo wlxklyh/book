@@ -53,7 +53,9 @@
 
 |序号|计划名字|当前进度|资源链接|结论|
 |-|-|-|-|-|
-|1|GPUImage、Grafika|![0%](https://progress-bar.dev/0)||
+|1|Opengl jni 改成调用android.opengl|![0%](https://progress-bar.dev/0)||
+|2|GPUImage、Grafika|![0%](https://progress-bar.dev/0)||
+
 
 - 长期计划（优先级中 书籍课程）：
 
