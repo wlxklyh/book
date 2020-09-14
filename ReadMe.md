@@ -53,7 +53,7 @@
 
 |序号|计划名字|当前进度|资源链接|结论|
 |-|-|-|-|-|
-|1|Opengl jni 改成调用android.opengl|![0%](https://progress-bar.dev/0)||
+|1|Opengl jni 改成调用android.opengl|![0%](https://progress-bar.dev/0)|https://github.com/wlxklyh/Ado_OpenGLES_3_0|
 |2|GPUImage、Grafika|![0%](https://progress-bar.dev/0)||
 
 
