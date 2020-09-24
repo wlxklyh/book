@@ -44,6 +44,8 @@
         - [与人交流](#与人交流)
     - [五、工具](#五工具)
         - [VSCode插件](#vscode插件)
+        - [snipaste](#snipaste)
+        - [开发环境](#开发环境)
 
 <!-- /TOC -->
 
@@ -587,3 +589,13 @@ https://github.com/wlxklyh/book/blob/master/Book/neiwork/Study.md
 ![](Img/2020-09-08-09-23-38.png)
 解决换行问题
 https://blog.csdn.net/u014171091/article/details/89629634
+
+
+### snipaste
+https://www.snipaste.com/
+
+### 开发环境
+homebrew是包管理库 brew切换源
+SDK路径设置
+NDK路径设置
+cmake安装
