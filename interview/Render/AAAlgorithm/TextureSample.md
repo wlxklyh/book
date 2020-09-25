@@ -46,7 +46,7 @@
 
 
 ### MSAA
-解决的是几何画线的锯齿
+解决的是**几何画线**的锯齿
 ![](Img/2018-12-07-21-44-50.png)
 
 
@@ -59,6 +59,8 @@
 ![](Img/2018-12-07-21-57-58.png)
 
 
+
+
 ### 其他链接
 https://en.wikipedia.org/wiki/Comparison_gallery_of_image_scaling_algorithms
 bicubic interpolation 是什么
@@ -67,5 +69,5 @@ https://blog.csdn.net/puppet_master/article/details/50187291
 
 
 ## 引用
-https://clouard.users.greyc.fr/Pantheon/experiments/rescaling/index-en.html
+上下采样方法：https://clouard.users.greyc.fr/Pantheon/experiments/rescaling/index-en.html
 https://gameinstitute.qq.com/community/detail/115739
