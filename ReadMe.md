@@ -16,6 +16,7 @@
         - [软渲染器渲染引擎（TODO）](#软渲染器渲染引擎todo)
         - [Opengl Glitter开源学习（TODO）](#opengl-glitter开源学习todo)
     - [一、知识](#一知识)
+        - [Java](#java)
         - [js](#js)
         - [Lua](#lua)
         - [C++](#c)
@@ -163,6 +164,12 @@ https://github.com/wlxklyh/FFMpegStudy
 ### Opengl Glitter开源学习（TODO）
 
 ##  一、知识
+### Java
+- final
+1. 修饰类：这个类不能被继承，final类成员根据需要设置 final类的方法默认是final 谨慎使用 后续不能被继承
+2. 修饰方法：避免继承类修改 历史原因（之前final方法会转内嵌提升效率）
+3. 修饰变量：数值在初始化之后不能修改，必须在定义时或者在构造函数的时候赋值。匿名内部类使用的外部变量只能是final变量。
+
 ### js
 
 ### Lua
