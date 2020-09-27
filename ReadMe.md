@@ -57,7 +57,7 @@
 |-|-|-|-|-|-|
 |1|Opengl jni 改成调用android.opengl|![0%](https://progress-bar.dev/0)|https://github.com/wlxklyh/Ado_OpenGLES_3_0||
 |2|GPUImage、Grafika|![0%](https://progress-bar.dev/0)||
-|3|airhockey hello world|![0%](https://progress-bar.dev/0)|https://github.com/learnopengles/airhockey/tree/master/src/platform|2020.9.25|
+|3|airhockey 看learnopengles教程|![0%](https://progress-bar.dev/0)|[链接](https://www.learnopengles.com/developing-a-simple-game-of-air-hockey-using-c-and-opengl-es-2-for-android-ios-and-the-web/)||2020.9.29把hello word搭建|
 
 - 长期计划（优先级中 书籍课程）：
 
