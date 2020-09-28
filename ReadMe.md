@@ -75,8 +75,8 @@
 |9|《安卓开发高手》|![6%](https://progress-bar.dev/6)|[付费视频](https://time.geekbang.org/column/article/70602)|
 |10|《Android音视频开发》|![0%](https://progress-bar.dev/0)|已购|
 |11|《音视频开发进阶指南》|![0%](https://progress-bar.dev/0)|已购|
-
-
+|12|Android-guiimage、audiovideorecordingsample、grafika|![0%](https://progress-bar.dev/0)|[GPUImage源码学习](https://github.com/loyinglin/GPUImage)|
+|11|《在线视频技术精要》|![0%](https://progress-bar.dev/0)|无|
 - 其他计划
 
 |序号|计划名字|当前进度|资源链接|结论|
@@ -169,6 +169,43 @@ https://github.com/wlxklyh/FFMpegStudy
 1. 修饰类：这个类不能被继承，final类成员根据需要设置 final类的方法默认是final 谨慎使用 后续不能被继承
 2. 修饰方法：避免继承类修改 历史原因（之前final方法会转内嵌提升效率）
 3. 修饰变量：数值在初始化之后不能修改，必须在定义时或者在构造函数的时候赋值。匿名内部类使用的外部变量只能是final变量。
+- 线程
+1. Thread
+```
+public class MyThread extends Thread{
+    @Override
+    public void run() {
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        mHandler.sendEmptyMessage(0);
+    }
+}
+new MyThread().start();
+```
+2. Runnable
+···
+ public class MyRunnable implements Runnable{
+    @Override
+    public void run() {
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        mHandler.sendEmptyMessage(0);
+    }
+}
+new Thread(new MyRunnable()).start();
+···
+3. 子线程调用主线程的方法：
+每个线程有个looper API是thread.getlooper() 然后生成handler：mainHandler = new Handler(getMainLooper());
+然后在子线程里面：mainHandler.post(new mybackRunnable())
+
+- View.Post
+
 
 ### js
 
