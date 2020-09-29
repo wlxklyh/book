@@ -8,6 +8,9 @@
 		},
 		{
 			"path": "../HawkProj/SoftRender"
+		},
+		{
+			"path": "../HawkProj/OpenglesStudy"
 		}
 	]
 }
