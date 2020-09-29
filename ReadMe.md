@@ -17,6 +17,7 @@
         - [Opengl Glitter开源学习（TODO）](#opengl-glitter开源学习todo)
     - [一、知识](#一知识)
         - [Java](#java)
+        - [kotlin](#kotlin)
         - [js](#js)
         - [Lua](#lua)
         - [C++](#c)
@@ -204,8 +205,13 @@ new Thread(new MyRunnable()).start();
 每个线程有个looper API是thread.getlooper() 然后生成handler：mainHandler = new Handler(getMainLooper());
 然后在子线程里面：mainHandler.post(new mybackRunnable())
 
-- View.Post
+- View.Post 就是在UI线程中调用
 
+- LiveData
+
+### kotlin
+- lateinit 只用于变量 var，而 lazy 只用于常量 val
+lazy 应用于单例模式(if-null-then-init-else-return)
 
 ### js
 
@@ -643,3 +649,8 @@ homebrew是包管理库 brew切换源
 SDK路径设置
 NDK路径设置
 cmake安装
+
+
+### git
+star管理工具
+https://app.astralapp.com/dashboard
