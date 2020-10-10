@@ -508,6 +508,9 @@ VR陀螺仪流程：开始初始化的时候把相机角度置为原点 然后�
 - [4、视音频数据处理入门：H.264视频码流解析](https://github.com/wlxklyh/book/blob/master/interview/%E9%9F%B3%E8%A7%86%E9%A2%91%E6%B5%81/Main.md)
 - [5、视音频数据处理入门：AAC音频码流解析](https://github.com/wlxklyh/book/blob/master/interview/%E9%9F%B3%E8%A7%86%E9%A2%91%E6%B5%81/Main.md)
 
+- Android 9播放http的要申明权限
+android:usesCleartextTraffic="true"
+
 ### 计算机网络
 https://github.com/wlxklyh/book/blob/master/interview/neiwork/Main.md
 
