@@ -89,6 +89,7 @@
 |4|软渲染器开源项目整理 和 完成iOS工程|![0%](https://progress-bar.dev/0)|github |写文档|
 |5|音视频优化|![0%](https://progress-bar.dev/0)|https://zhuanlan.zhihu.com/p/53038472 |写笔记|
 |6|维护博客|![1%](https://progress-bar.dev/1)||
+|7|AOP|![1%](https://progress-bar.dev/1)||
 
 
 
@@ -621,6 +622,47 @@ https://github.com/wlxklyh/book/blob/master/Book/neiwork/Study.md
 |微信同步助手|免费|web登录编辑 简单的md支持|无|√|√|√|√|√|√|√|×|×|√|×|有bug|
 |写作助手|免费|下载安装|工具处理图床|×|√|√|√|√|√|√|√|×|×|×|要逐个平台发布 而且没有更新功能|
 
+
+我准备入手openwrite了
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+|账户|说明|
+|-|-|
+| SegmentFault | 微信 |
+| CSDN | 微信 |
+| 掘金 | 微信 |
+| 博客园 | 微信 |
+| 简书 | 微信 |
+| 通用类 | 微信 |
+| 知乎 | 微信 |
+| 通用类 | 微信 |
+| 开源中国 | 微信 |
+| Spring4All | github |
+| 今日头条 | 微信 |
+| 通用类 | 微信 |
+| 慕课手记 | 微信 |
+| 微博 | 无 |
+个人简介
+高级开发工程师。
+工作经历：游戏开发工程师（Unity、Unreal、cocos creator），后转音视频开发、安卓、ios终端开发，技术兴趣图形学、音视频。
+欢迎star：https://github.com/wlxklyh/SoftRenderer
+
 ### 我的互联网付费
 |名字||
 |-|-|
@@ -645,6 +687,7 @@ https://github.com/wlxklyh/book/blob/master/Book/neiwork/Study.md
 解决换行问题
 https://blog.csdn.net/u014171091/article/details/89629634
 
+- Shaer Toy
 
 ### snipaste
 https://www.snipaste.com/
