@@ -7,11 +7,6 @@
     - [当前计划](#当前计划)
     - [零、开源项目](#零开源项目)
         - [1、软渲染器](#1软渲染器)
-            - [1.0. 说明](#10-说明)
-            - [1.1 UE4 下载即可运行的工程](#11-ue4-下载即可运行的工程)
-            - [1.2 Unity 下载即可运行的工程](#12-unity-下载即可运行的工程)
-            - [1.3 Android工程](#13-android工程)
-            - [1.4 iOS工程 【TODO】](#14-ios工程-todo)
         - [2. FFMpeg入门教程](#2-ffmpeg入门教程)
         - [软渲染器渲染引擎（TODO）](#软渲染器渲染引擎todo)
         - [Opengl Glitter开源学习（TODO）](#opengl-glitter开源学习todo)
@@ -73,8 +68,8 @@
 |5|《Shader入门精要》|![0%](https://progress-bar.dev/0)||
 |6|《LearnOpengl》|![0%](https://progress-bar.dev/0)||
 |7|重温《垃圾回收的算法和实现》|![0%](https://progress-bar.dev/0)||
-|8|《谷歌方法论》|![57%](https://progress-bar.dev/57)||
-|9|《安卓开发高手》|![6%](https://progress-bar.dev/6)|[付费视频](https://time.geekbang.org/column/article/70602)|
+|8|《谷歌方法论》|![80%](https://progress-bar.dev/80)||
+|9|《安卓开发高手》|![43%](https://progress-bar.dev/43)|[付费视频](https://time.geekbang.org/column/article/70602)|
 |10|《Android音视频开发》|![0%](https://progress-bar.dev/0)|已购|
 |11|《音视频开发进阶指南》|![0%](https://progress-bar.dev/0)|已购|
 |12|Android-guiimage、audiovideorecordingsample、grafika|![0%](https://progress-bar.dev/0)|[GPUImage源码学习](https://github.com/loyinglin/GPUImage)|
@@ -86,10 +81,13 @@
 |1|多平台同步博客|![100%](https://progress-bar.dev/100)|[工具](https://www.wechatsync.com/#faq)|**后面考虑使用**同步助手 199元每年|
 |2|Flutter For Android 安装与初体验|![100%](https://progress-bar.dev/100)|km|完成Android和iOS的hello world工程 [链接](https://github.com/wlxklyh/book/blob/master/Book/Flutter/Start/Main.md)|
 |3|outlook学习怎么高效使用|![0%](https://progress-bar.dev/0)|无 需搜索|写文档|
-|4|软渲染器开源项目整理 和 完成iOS工程|![0%](https://progress-bar.dev/0)|github |写文档|
+|4|软渲染器开源项目整理 和 完成iOS工程|![100%](https://progress-bar.dev/100)|github |写文档|
 |5|音视频优化|![0%](https://progress-bar.dev/0)|https://zhuanlan.zhihu.com/p/53038472 |写笔记|
-|6|维护博客|![1%](https://progress-bar.dev/1)||
-|7|AOP|![1%](https://progress-bar.dev/1)||
+|6|维护博客|![100%](https://progress-bar.dev/100)||
+|7|AOP|![99%](https://progress-bar.dev/99)|差写文档|
+|8|技术群 和 技术资料|![1%](https://progress-bar.dev/1)||
+|9|技术类的引流 和 非技术类的引流|![1%](https://progress-bar.dev/1)||
+
 
 
 
@@ -104,58 +102,23 @@
 
 
 ### 1、软渲染器 
-#### 1.0. 说明
-如果将一个正方体Mesh8顶点（每个顶点包含顶点坐标、UV坐标、color）在CPU侧做坐标转换、光栅化然后得到一张显示正方体的图片，这个过程用Opengl、dx就是调用几个接口就可以实现是用GPU渲染出来，软渲染器则是在CPU模拟GPU流水线来渲染到CPU的一个二维像素数组上。
+**平台和语言：**
+![](https://badgen.net/badge/language/Java/green)![](https://badgen.net/badge/language/C++/green)![](https://badgen.net/badge/language/CSharp/green)
+![](https://badgen.net/badge/Platform/Android/cyan) ![](https://badgen.net/badge/Platform/iOS/cyan) ![](https://badgen.net/badge/Platform/Unity/cyan) ![](https://badgen.net/badge/Platform/Unreal/cyan)
 
-步骤：
-1. 一个立方体分解为画8个面：索引的知识  用索引节省内存 内存和显存
-2. 一个面分解为2个三角形：每个三角形初始化的是模型空间的坐标
-3. 一个三角形绘制前要更新MVP矩阵：
-   1. Transform的旋转矩阵 等于X Y Z旋转矩阵乘法（用四元素效果更高）Transform的位移矩阵、缩放矩阵scale
-   2. View矩阵：GetLookAtMat(camera相机位置,at相机看的位置,up)
-      // Rx Ry Rz 0
-      // Ux Uy Uz 0
-      // Dx Dy Dz 0
-      // 0  0  0  1 
-   3. Projection矩阵：GetPerspectiveMat(fov,aspect宽高比,zn,zf)
-4. 顶点着色器：顶点着色器返回的是裁剪空间的坐标
-5. 裁剪 会拆分三角形 这个时候裁剪空间是 [-w,-w,-w] 到 [w,w,w]
-6. 归一化 除以w 变成
-7. 屏幕投射
-8. 插值初始化 （特别是在纹理采样做透视校正使用 有深度透视的采样）
-9. 光栅化的插值三角形设置之插值 
-   1.  扫描拆分梯形 拆成0-2个梯形  扫描这两个梯形
-   2.  包围盒方法 包围盒扫描，判断点是否在三角形中  
-10. 扫描梯形方法 会得到扫描线 然后绘制扫描线
-11. 绘制片元 逐像素过程：深度测试 这个时候要取出深度缓冲 和 framebuffer 同时也要写入
-12. 片元绘制 会有片元着色器的过程
+**介绍：**
+程序员的三大浪漫，编译原理、图形学、操作系统，所以我也有一种情节，想去学图形学。然后我拿起图形学的书，看完了第一章 似懂非懂，然后书又沾灰了。过了一段时间工作上遇到渲染管线相关的问题，然后又开始去网上看博客，看完之后也是似懂非懂，你是否也有跟我一样的经历了？Opengl的接口背后是什么呢？渲染管线怎么用程序表达。于是我找到一个skywind3000的软渲染器，然后自己再实现一遍，这样之后对渲染管线的理解更加深刻了。
+通过代码来了解渲染管线 不调用图形库，ado、ios、unity、unreal都可以运行 
+
     
-#### 1.1 UE4 下载即可运行的工程 
-此工程给UE Programmer或者C++ Programmer 想了解图形学、渲染管线的coder 阅读。
-下图是渲染一个正方体的效果
-![](Img/2020-06-16-18-02-06.png)
+![](Img/anim.gif)
 
-UE4工程：https://github.com/wlxklyh/SoftRenderer/tree/master/Unreal
-主代码和注释：https://github.com/wlxklyh/SoftRenderer/blob/master/Unreal/Source/Graphic/SoftRenderer/ScreenDevice.h
-
-
-#### 1.2 Unity 下载即可运行的工程 
-此工程给Unity Programmer或者C# Programmer 想了解图形学、渲染管线的coder 阅读。
-下图是渲染一个正方体的效果：
-![](Img/2020-06-24-09-38-53.png)
-工程：https://github.com/wlxklyh/SoftRenderer/tree/master/Unity
-主代码和注释：https://github.com/wlxklyh/SoftRenderer/blob/master/Unity/Assets/MainCode.cs
-
-
-#### 1.3 Android工程 
-此工程给Android Programmer或者Java Programmer 想了解图形学、渲染管线的coder 阅读。
-下图是渲染一个正方体的效果
-![](Img/2020-09-07-15-05-55.png)
-工程位置：https://github.com/wlxklyh/SoftRenderer/tree/master/Ado
-主代码和注释：https://github.com/wlxklyh/SoftRenderer/blob/master/Ado/app/src/main/java/com/wlxklyh/softrenderer/FirstFragment.java
-
-#### 1.4 iOS工程 【TODO】
-此工程给iOS Programmer或者oc Programmer 想了解图形学、渲染管线的coder 阅读。
+|平台|语言|工程路径|效果|
+|-|-|-|-|
+|![](https://badgen.net/badge/Platform/Android/cyan) |![](https://badgen.net/badge/language/Java/green) |https://github.com/wlxklyh/SoftRenderer/tree/master/Ado|![](Img/2020-09-17-12-49-22.png)|
+|![](https://badgen.net/badge/Platform/iOS/cyan) |![](https://badgen.net/badge/language/C++/green) |https://github.com/wlxklyh/SoftRenderer/tree/master/iOS|![](Img/2020-09-17-12-49-30.png)|
+|![](https://badgen.net/badge/Platform/Unity/cyan) |![](https://badgen.net/badge/language/CSharp/green) |https://github.com/wlxklyh/SoftRenderer/tree/master/Unity|![](Img/2020-09-17-12-49-37.png)|
+|![](https://badgen.net/badge/Platform/Unreal/cyan) |![](https://badgen.net/badge/language/C++/green) |https://github.com/wlxklyh/SoftRenderer/tree/master/Unreal|![](Img/2020-09-17-12-49-41.png)|
 
 
 ### 2. FFMpeg入门教程
@@ -639,11 +602,10 @@ https://github.com/wlxklyh/book/blob/master/Book/neiwork/Study.md
 | 通用类 | 微信 |
 | 慕课手记 | 微信 |
 | 微博 | 无 |
-个人简介：
-高级开发工程师，兴趣和领域（Unity、Unreal、cocos creator、安卓终端开发、ios终端开发、音视频开发、图形学），欢迎加W：wlxklyh 探讨问题。
-（广告，欢迎star：https://github.com/wlxklyh/SoftRenderer）
 
-文章底部：
+![](https://raw.githubusercontent.com/wlxklyh/book/master/Tool/Resource/wcgif.gif)
+>个人简介：高级开发工程师，兴趣和领域（Unity、Unreal、cocos creator、安卓终端开发、ios终端开发、音视频开发、图形学），欢迎加W：wlxklyh 探讨问题。（欢迎star：https://github.com/wlxklyh/SoftRenderer）
+
 
 
 ### 我的互联网付费
@@ -661,18 +623,30 @@ https://github.com/wlxklyh/book/blob/master/Book/neiwork/Study.md
 
 ## 五、工具
 ### VSCode插件
-- paste Image
+- 命令：
+1. ctrl（command）+ alt + u 图片上传图床并贴到当前md
+2. ctrl（command）+ alt + v 图片上传相对目录img并贴到当前md
 
+- paste Image
 ![](Img/2020-09-08-09-23-56.png)
 - Markdown TOC
-
 ![](Img/2020-09-08-09-23-38.png)
 解决换行问题
 https://blog.csdn.net/u014171091/article/details/89629634
 
-- Shaer Toy
+- Shader Toy
+![20201015190124](https://raw.githubusercontent.com/wlxklyh/imagebed/master/imageforvscode/20201015190124.png)
 
-
+- setting sync 设置同步神器
+https://www.cnblogs.com/lychee/p/11214032.html
+![20201015190148](https://raw.githubusercontent.com/wlxklyh/imagebed/master/imageforvscode/20201015190148.png)
+- PicGO 图床工具
+https://blog.csdn.net/xxiaobaib/article/details/92801700
+![20201015190214](https://raw.githubusercontent.com/wlxklyh/imagebed/master/imageforvscode/20201015190214.png)
+- snippet
+ctrl+shift+p
+输入命令snippet
+然后看到wlxkllyhsnippet 然后在里面编辑 当然也可以新建一个
 
 
 ### snipaste
@@ -688,3 +662,4 @@ cmake安装
 ### git
 star管理工具
 https://app.astralapp.com/dashboard
+
