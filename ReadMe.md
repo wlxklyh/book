@@ -85,7 +85,7 @@
 |5|音视频优化|![0%](https://progress-bar.dev/0)|https://zhuanlan.zhihu.com/p/53038472 |写笔记|
 |6|维护博客|![100%](https://progress-bar.dev/100)||
 |7|AOP|![99%](https://progress-bar.dev/99)|差写文档|
-|8|技术群 和 技术资料|![1%](https://progress-bar.dev/1)||
+|8|技术群 和 技术资料|![10%](https://progress-bar.dev/10)|尝试抖音讲解|
 |9|技术类的引流 和 非技术类的引流|![1%](https://progress-bar.dev/1)||
 
 
