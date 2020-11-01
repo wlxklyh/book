@@ -49,6 +49,10 @@
 
 
 ## 当前计划
+- 关键字学习
+PC nvenc 硬解 4k
+
+
 - 短期计划（优先级高）
 
 |序号|计划名字|当前进度|资源链接|结论|结束时间|
@@ -606,6 +610,10 @@ https://github.com/wlxklyh/book/blob/master/Book/neiwork/Study.md
 ![](https://raw.githubusercontent.com/wlxklyh/book/master/Tool/Resource/wcgif.gif)
 >个人简介：高级开发工程师，兴趣和领域（Unity、Unreal、cocos creator、安卓终端开发、ios终端开发、音视频开发、图形学），欢迎加W：wlxklyh 探讨问题。（欢迎star：https://github.com/wlxklyh/SoftRenderer）
 
+|写作计划|文字内容|
+|-|-|
+| 1、音视频入门/音视频基础 | ![0%](https://progress-bar.dev/0) |
+| 2、垃圾回收的书籍 | ![0%](https://progress-bar.dev/0) |
 
 
 ### 我的互联网付费
