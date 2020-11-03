@@ -646,6 +646,8 @@ https://blog.csdn.net/u014171091/article/details/89629634
 ![20201015190124](https://raw.githubusercontent.com/wlxklyh/imagebed/master/imageforvscode/20201015190124.png)
 
 - setting sync 设置同步神器
+command+shift+p 输入 sync download setting
+
 https://www.cnblogs.com/lychee/p/11214032.html
 ![20201015190148](https://raw.githubusercontent.com/wlxklyh/imagebed/master/imageforvscode/20201015190148.png)
 - PicGO 图床工具
