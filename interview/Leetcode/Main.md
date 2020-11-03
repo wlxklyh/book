@@ -1,5 +1,5 @@
 # leetcode
-## 零、Java
+## 零、Java刷题用到的接口
 1. int num [];
 num.length 
 int[ ]  arr = new int[5];
@@ -13,8 +13,8 @@ Stack<Integer> stack = new Stack<Integer>();
 stack.push(new Integer(a));
 stack.empty();
 stack.pop();
-
-
+stack.size();
+![20201103233048](https://raw.githubusercontent.com/wlxklyh/imagebed/master/imageforvscode/20201103233048.png)
 ## 一、剑指offer
 题库链接：
 https://leetcode-cn.com/problemset/lcof/
@@ -115,9 +115,7 @@ class Solution {
 示例 1：
 输入：s = "We are happy."
 输出："We%20are%20happy."
-来源：力扣（LeetCode）
-链接：https://leetcode-cn.com/problems/ti-huan-kong-ge-lcof
-著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+
 ```Java
 //这个没什么好说的 但是字符串拼接会消耗这里要注意
 class Solution {
@@ -179,6 +177,189 @@ class Solution {
 
 4. [重建二叉树](https://leetcode-cn.com/problems/zhong-jian-er-cha-shu-lcof/)
 
+输入某二叉树的前序遍历和中序遍历的结果，请重建该二叉树。假设输入的前序遍历和中序遍历的结果中都不含重复的数字。
+例如，给出
+前序遍历 preorder = [3,9,20,15,7]
+中序遍历 inorder = [9,3,15,20,7]
+返回如下的二叉树：
 
+```Java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public TreeNode buildTree(int[] preorder, int[] inorder) {
+        return buildTree(preorder,0,preorder.length-1,inorder,0,inorder.length-1);
+    }
+
+    public TreeNode buildTree(int []preorder,int preStart,int preEnd,int[] inorder,int inStart,int inEnd){
+        if(preStart > preEnd){
+            return null;
+        }
+        if(inStart > inEnd){
+            return null;
+        }
+        if(preStart == preEnd){
+            TreeNode rootNode = new TreeNode();
+            rootNode.val = preorder[preStart];
+            rootNode.left = null;
+            rootNode.right = null;
+            return rootNode;
+        }
+        TreeNode rootNode = new TreeNode();
+        rootNode.val = preorder[preStart];
+        rootNode.left = null;
+        rootNode.right = null;
+        //下面这个for 可以提前遍历记录 快速索引 inorder[indexIn] == preorder[preStart] 加速点位 !!!
+        for(int indexIn = inStart;indexIn <= inEnd;indexIn++){
+            if(inorder[indexIn] == preorder[preStart]){
+                TreeNode leftNode = buildTree(preorder,preStart + 1,preStart+indexIn-inStart,inorder,inStart,indexIn-1);
+                TreeNode rightNode = buildTree(preorder,preStart+indexIn-inStart+1,preEnd,inorder,indexIn+1,inEnd);
+                rootNode.left = leftNode;
+                rootNode.right = rightNode;
+                return rootNode;
+            }
+        }
+        return rootNode;
+    }
+}
+```
+
+
+5. [用两个栈实现队列](https://leetcode-cn.com/problems/yong-liang-ge-zhan-shi-xian-dui-lie-lcof/)
+
+用两个栈实现一个队列。队列的声明如下，请实现它的两个函数 appendTail 和 deleteHead ，分别完成在队列尾部插入整数和在队列头部删除整数的功能。(若队列中没有元素，deleteHead 操作返回 -1 )
+示例 1：
+输入：
+["CQueue","appendTail","deleteHead","deleteHead"]
+[[],[3],[],[]]
+输出：[null,null,3,-1]
+示例 2：
+输入：
+["CQueue","deleteHead","appendTail","appendTail","deleteHead","deleteHead"]
+[[],[],[5],[2],[],[]]
+输出：[null,-1,null,null,5,2]
+
+```Java
+class CQueue {
+    Stack<Integer> stackAppend = new Stack<Integer>();
+    Stack<Integer> stackDelete = new Stack<Integer>();
+    public CQueue() {
+
+    }
+    
+    public void appendTail(int value) {
+        if(stackAppend.size() > 0){
+            stackAppend.push(value);
+        }else{
+            while(stackDelete.size() > 0)
+            {
+                stackAppend.push(stackDelete.pop());
+            }
+            stackAppend.push(value);
+        }
+    }
+    
+    public int deleteHead() {
+        if(stackDelete.size() > 0){
+            return stackDelete.pop();
+        }else{
+            while(stackAppend.size() > 0)
+            {
+                stackDelete.push(stackAppend.pop());
+            }
+            if(stackDelete.empty() == false){
+                return stackDelete.pop();
+            }
+        }
+        return -1;
+    }
+}
+
+/**
+ * Your CQueue object will be instantiated and called as such:
+ * CQueue obj = new CQueue();
+ * obj.appendTail(value);
+ * int param_2 = obj.deleteHead();
+ */
+```
+
+6. [斐波那契数列](https://leetcode-cn.com/problems/fei-bo-na-qi-shu-lie-lcof/)
+
+写一个函数，输入 n ，求斐波那契（Fibonacci）数列的第 n 项。斐波那契数列的定义如下：
+F(0) = 0,   F(1) = 1
+F(N) = F(N - 1) + F(N - 2), 其中 N > 1.
+斐波那契数列由 0 和 1 开始，之后的斐波那契数就是由之前的两数相加而得出。
+答案需要取模 1e9+7（1000000007），如计算初始结果为：1000000008，请返回 1。
+
+```Java
+//解法一：
+class Solution {
+    public int fib(int n) {
+        if(n == 0){
+            return 0;
+        }
+        if(n == 1){
+            return 1;
+        }
+
+        int a = 0;
+        int b = 1;
+        int bBackup = 0;
+        for(int i = 2;i <= n; i++){
+            bBackup = b;
+            b = (a + b)%1000000007;
+            a = bBackup;
+        }
+        return b;
+    }
+}
+//解法二：矩阵快速密
+//解法三：公式法
+```
+
+7.  [青蛙跳台阶问题](https://leetcode-cn.com/problems/qing-wa-tiao-tai-jie-wen-ti-lcof/)
+
+一只青蛙一次可以跳上1级台阶，也可以跳上2级台阶。求该青蛙跳上一个 n 级的台阶总共有多少种跳法。
+
+答案需要取模 1e9+7（1000000007），如计算初始结果为：1000000008，请返回 1。
+示例 1：
+输入：n = 2
+输出：2
+示例 2：
+输入：n = 7
+输出：21
+示例 3：
+输入：n = 0
+输出：1
+
+```Java
+//跟上面一题是一样的
+class Solution {
+    public int numWays(int n) {
+        if(n == 0){
+            return 1;
+        }
+        if(n == 1){
+            return 1;
+        }
+        int a = 1;
+        int b = 1;
+        int bBackup = 1;
+        for(int i = 2;i <= n;i++){
+            bBackup = b;
+            b = (a + b)%1000000007;
+            a = bBackup;
+        }
+        return b;
+    }
+}
+```
 ## 刷
 https://leetcode-cn.com/problemset/lcof/
