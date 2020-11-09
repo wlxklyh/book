@@ -361,5 +361,29 @@ class Solution {
     }
 }
 ```
+
+8. [旋转数组的最小数字](https://leetcode-cn.com/problems/xuan-zhuan-shu-zu-de-zui-xiao-shu-zi-lcof/)
+```Java
+class Solution {
+    public int minArray(int[] numbers) {
+        if(numbers.length == 0){
+            return 0;
+        }
+        int start = 0;
+        int end = numbers.length - 1;
+        while(start < end){
+            int pivot = (start + end) / 2; 
+            if(numbers[pivot] < numbers[end]){
+                end = pivot;
+            }else if(numbers[pivot] > numbers[end]){
+                start = pivot + 1;
+            }else{
+                end = end -1;
+            }
+        }  
+        return numbers[start];
+    }
+}
+```
 ## 刷
 https://leetcode-cn.com/problemset/lcof/
