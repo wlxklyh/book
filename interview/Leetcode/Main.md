@@ -3,10 +3,17 @@
 1. int num [];
 num.length 
 int[ ]  arr = new int[5];
+int num[];
+null;
+
+
 2. String
 String s = "";
 s.length();
 s.charAt(0); 
+
+
+
 3. 栈
 Stack<ListNode> stack = new Stack<ListNode>();
 Stack<Integer> stack = new Stack<Integer>();
@@ -14,6 +21,27 @@ stack.push(new Integer(a));
 stack.empty();
 stack.pop();
 stack.size();
+
+4. Map
+Map<String, Boolean> hash = new HashMap<String,Boolean>();
+hash.put("",false);
+hash.containsKey("");
+
+5. List
+List<String> list = new ArrayList<>();
+ list.add("apple");
+
+
+6. 快速mi
+int ans = 1;
+for (; b != 0; b /= 2) {
+    if (b % 2 == 1)
+        ans = (ans * a) % c;
+    a = (a * a) % c;
+}
+
+7. 快排
+
 ![20201103233048](https://raw.githubusercontent.com/wlxklyh/imagebed/master/imageforvscode/20201103233048.png)
 ## 一、剑指offer
 题库链接：
@@ -385,5 +413,152 @@ class Solution {
     }
 }
 ```
+
+9. [矩阵中的路径](https://leetcode-cn.com/problems/ju-zhen-zhong-de-lu-jing-lcof/)
+```Java
+class Solution {
+    public boolean exist(char[][] board, String word) {
+        if(board.length == 0){
+            return false;
+        }
+        int rows = board.length;
+        int cols = board[0].length;
+
+        boolean [][] pathRecord = new boolean[rows][cols];
+        for (int i = 0;i < rows; i++){
+            for (int j = 0;j < cols;j++){
+                pathRecord[i][j] = false;
+            }
+        }
+
+        for (int i = 0;i < rows; i++){
+            for (int j = 0;j < cols;j++){
+                if(board[i][j] == word.charAt(0)){
+                    pathRecord[i][j] = true;
+                    boolean ret = searchPath(board, pathRecord, word, i, j, 1);
+                    pathRecord[i][j] = false;
+                    if(ret){
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
+    public int dir[][] = {{0,1},{0,-1},{1,0},{-1,0}};
+    public boolean searchPath(char[][] board, boolean pathRecord[][],String word,int nowPosi,int nowPosj,int charIndex) {
+
+        //最后一个字符
+        if(word.length() == charIndex){
+            return true;
+        }
+        for (int dirIndex = 0;dirIndex < 4;dirIndex++){
+            int targetPosI = nowPosi + dir[dirIndex][0];
+            int targetPosJ = nowPosj + dir[dirIndex][1];
+            //越界
+            if(targetPosI < 0 || targetPosI >= board.length){
+                continue;
+            }
+            if(targetPosJ < 0 || targetPosJ >= board[0].length){
+                continue;
+            }
+            //走过了
+            if(pathRecord[targetPosI][targetPosJ] == true){
+                continue;
+            }
+            //字符不等于
+            if(board[targetPosI][targetPosJ] != word.charAt(charIndex)){
+                continue;
+            }
+            //走过
+            pathRecord[targetPosI][targetPosJ] = true;
+            //继续搜索
+            boolean ret = searchPath(board,pathRecord,word,targetPosI,targetPosJ,charIndex+1);
+            if(ret == true){
+                return true;
+            }
+            pathRecord[targetPosI][targetPosJ] = false;
+        }
+        return false;
+    }
+
+}
+```
+
+10. [机器人的运动范围](https://leetcode-cn.com/problems/ji-qi-ren-de-yun-dong-fan-wei-lcof/submissions/)
+```Java 
+class Solution {
+    public int movingCountValue = 0;
+    public int[][] dir = {{0,1},{1,0}};
+    public Map<String,Boolean> alreadyPass = new HashMap<String,Boolean>();
+    public int movingCount(int m, int n, int k) {
+        if(m == 0 || n == 0){
+            return 0;
+        }
+        movingCountValue ++;
+        alreadyPass.put("0-0",true);
+        dfs(m,n,0,0,k);
+        return movingCountValue;
+    }
+
+    public void dfs(int m,int n,int nowPosI,int nowPosJ,int k){
+        for (int dirIndex = 0;dirIndex < 2;dirIndex ++){
+            int nextPosI = nowPosI + dir[dirIndex][0];
+            int nextPosJ = nowPosJ + dir[dirIndex][1];
+            //1 limit
+            if(nextPosI >= m || nextPosJ >= n){
+                continue;
+            }
+            //2 k
+            if(getPosValue(nextPosI,nextPosJ) > k){
+                continue;
+            }
+            //3 pass
+            if(alreadyPass.containsKey(String.valueOf(nextPosI)+"-"+String.valueOf(nextPosJ))){
+                continue;
+            }
+            //4 
+            alreadyPass.put(String.valueOf(nextPosI)+"-"+String.valueOf(nextPosJ),true);
+            movingCountValue++;
+            dfs(m,n,nextPosI,nextPosJ,k);
+        }
+    }
+
+    public int getPosValue(int i,int j){
+        return getIntDigitablSum(i) + getIntDigitablSum(j);
+    }
+
+    public int getIntDigitablSum(int value){
+        int retSum = 0;
+        while(value > 0){
+            retSum += value % 10;
+            value = value / 10;
+        }
+        return retSum;
+    }
+}
+```
+
+
+
+13. [二进制中1的个数](https://leetcode-cn.com/problems/er-jin-zhi-zhong-1de-ge-shu-lcof/)
+```Java
+public class Solution {
+    // you need to treat n as an unsigned value
+    public int hammingWeight(int n) {
+        int retNumOfOne = 0;
+        while(n != 0) {
+            n = n & (n - 1);
+            retNumOfOne++;
+        }
+        return retNumOfOne;
+    }
+}
+```
+
+14. 
+
+
 ## 刷
 https://leetcode-cn.com/problemset/lcof/
