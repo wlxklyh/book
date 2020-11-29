@@ -3,9 +3,11 @@
 1. int num [];
 num.length 
 int[ ]  arr = new int[5];
+int[][] ints = new int[4][2];
 int num[];
 null;
-
+int[] a = {9, 8, 7, 2, 3, 4, 1, 0, 6, 5};
+Arrays.sort(a);【！！！】
 
 2. String
 String s = "";
@@ -22,8 +24,17 @@ stack.empty();
 stack.pop();
 stack.size();
 
-4. Map
-Map<String, Boolean> hash = new HashMap<String,Boolean>();
+3.1. Vector
+Vector v = new Vector(4); 
+v.add("Test0"); 
+v.remove(0); 
+int size = v.size(); 
+v.get(i);
+List<int[]> vec = new ArrayList<int[]>();
+return vec.toArray(new int[vec.size()][]);
+
+4. Map(!!Integer!!)
+Map<Integer, Boolean> hash = new HashMap<Integer,Boolean>();
 hash.put("",false);
 hash.containsKey("");
 
@@ -43,6 +54,45 @@ for (; b != 0; b /= 2) {
 7. 快排
 
 ![20201103233048](https://raw.githubusercontent.com/wlxklyh/imagebed/master/imageforvscode/20201103233048.png)
+
+``` cpp
+int partition(vector<int>vecValues, int start, int end)
+{
+	int compareValue = vecValues[start];
+	while(start < end)
+	{
+		while(start < end && vecValues[end] > compareValue)
+		{
+			end--;
+		}
+		if (start < end)
+		{
+			vecValues[start] = vecValues[end];
+		}
+		while (start < end && vecValues[start] < compareValue)
+		{
+			start++;
+		}
+		if (start < end)
+		{
+			vecValues[end] = vecValues[start];
+		}
+	}
+	vecValues[start] = compareValue;
+	return start;
+}
+void qsort(vector<int>vecValues,int start,int end)
+{
+	if(end<=start)
+	{
+		return;
+	}
+	int index = partition(vecValues, start, end);
+	qsort(vecValues,start, index-1);
+	qsort(vecValues, index+1, end);
+}
+```
+
 ## 一、剑指offer
 题库链接：
 https://leetcode-cn.com/problemset/lcof/
