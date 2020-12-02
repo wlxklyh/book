@@ -653,6 +653,7 @@ https://www.cnblogs.com/lychee/p/11214032.html
 - PicGO 图床工具
 https://blog.csdn.net/xxiaobaib/article/details/92801700
 ![20201015190214](https://raw.githubusercontent.com/wlxklyh/imagebed/master/imageforvscode/20201015190214.png)
+
 - snippet
 ctrl+shift+p
 输入命令snippet

@@ -267,6 +267,27 @@ PKI
 帧同步
 帧同步丢包，丢了就丢了，每个客户端都是以服务器组包结果为准，服务器给回来的包对了那就等待重传，udp冗余三桢
 
+```java
+public static void quick_sort(int arr[], int l, int r) {
+    if(l >= r) {
+        return;
+    }
+    int compareValue = arr[l];
+    int i = l-1;
+    int j = r+1;
+    while(i < j) {
+        do i++;while(arr[i]<p);
+        do j++;while(arr[j]>p);
+        if(i<j) {
+            int temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = arr[i];
+        }
+    }
+    quick_sort(arr,l,j);
+    quick_sort(arr,j+1,r);
+}
+```
 
 https://zhuanlan.zhihu.com/p/31805309
 
