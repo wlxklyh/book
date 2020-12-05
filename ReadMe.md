@@ -182,6 +182,7 @@ new Thread(new MyRunnable()).start();
 - lateinit 只用于变量 var，而 lazy 只用于常量 val
 lazy 应用于单例模式(if-null-then-init-else-return)
 
+
 ### js
 
 ### Lua
@@ -634,6 +635,10 @@ https://github.com/wlxklyh/book/blob/master/Book/neiwork/Study.md
 - 命令：
 1. ctrl（command）+ alt + u 图片上传图床并贴到当前md
 2. ctrl（command）+ alt + v 图片上传相对目录img并贴到当前md
+
+- Draw.io
+![](Img/2020-12-03-17-10-19.png)
+新建.drawio后缀的文件
 
 - paste Image
 ![](Img/2020-09-08-09-23-56.png)
