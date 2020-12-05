@@ -8,12 +8,13 @@ int num[];
 null;
 int[] a = {9, 8, 7, 2, 3, 4, 1, 0, 6, 5};
 Arrays.sort(a);【！！！】
-
+MAX_VALUE
+MIN_VALUE
 2. String
 String s = "";
 s.length();
 s.charAt(0); 
-
+s.replace('o', 'T')
 
 
 3. 栈
@@ -23,7 +24,6 @@ stack.push(new Integer(a));
 stack.empty();
 stack.pop();
 stack.size();
-
 3.1. Vector
 Vector v = new Vector(4); 
 v.add("Test0"); 

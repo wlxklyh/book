@@ -18,6 +18,7 @@
 
 ### 2、视频数据处理(一帧一帧的取数据)(裸数据)
 https://blog.csdn.net/leixiaohua1020/article/details/50534150
+Y是亮度分量、UV是色度分量
 
 1. YUV 420p 256x256x1byte 这个是Y分量亮度  色度U=128x128x1byte V=128x128x1byte 采样密度不一样
 2. YUV 444p 256x256x1byte 这个是Y分量亮度  色度U=256x256x1byte V=256x256x1byte 采样密度一样

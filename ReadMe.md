@@ -8,6 +8,8 @@
     - [零、开源项目](#零开源项目)
         - [1、软渲染器](#1软渲染器)
         - [2. FFMpeg入门教程](#2-ffmpeg入门教程)
+            - [2.1 音视频基础知识入门](#21-音视频基础知识入门)
+            - [2.3 FFMpeg入门](#23-ffmpeg入门)
         - [软渲染器渲染引擎（TODO）](#软渲染器渲染引擎todo)
         - [Opengl Glitter开源学习（TODO）](#opengl-glitter开源学习todo)
     - [一、知识](#一知识)
@@ -126,8 +128,13 @@ PC nvenc 硬解 4k
 
 
 ### 2. FFMpeg入门教程
-
+#### 2.1 音视频基础知识入门
+https://github.com/wlxklyh/book/blob/master/interview/%E9%9F%B3%E8%A7%86%E9%A2%91%E6%B5%81/Main.md
+![20201205162804](https://raw.githubusercontent.com/wlxklyh/imagebed/master/imageforvscode/20201205162804.png)
+#### 2.3 FFMpeg入门
 https://github.com/wlxklyh/FFMpegStudy
+![20201205163539](https://raw.githubusercontent.com/wlxklyh/imagebed/master/imageforvscode/20201205163539.png)
+![20201205163624](https://raw.githubusercontent.com/wlxklyh/imagebed/master/imageforvscode/20201205163624.png)
 
 ### 软渲染器渲染引擎（TODO）
 
