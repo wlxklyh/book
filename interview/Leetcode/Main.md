@@ -19,7 +19,7 @@ String s = "";
 s.length();
 s.charAt(0); 
 s.replace('o', 'T')
-
+s.equals("");
 
 3. 栈
 Stack<ListNode> stack = new Stack<ListNode>();
@@ -38,6 +38,7 @@ List<int[]> vec = new ArrayList<int[]>();
 return vec.toArray(new int[vec.size()][]);
 
 4. Map(!!Integer!!)
+Map<Character,Integer> map
 Map<Integer, Boolean> hash = new HashMap<Integer,Boolean>();
 hash.put("",false);
 hash.containsKey("");
@@ -55,7 +56,30 @@ for (; b != 0; b /= 2) {
     a = (a * a) % c;
 }
 
-7. 快排
+7.  Queue
+Queue<TreeNode> queue = new LinkedList<>();
+queue.add();
+queue.isEmpty();
+queue.poll();
+
+8. Deque
+Deque<Integer> mDeque = new ArrayDeque<Integer>();
+//FIFO
+mDeque.poll()
+mDeque.add()
+mDeque.isEmpty()
+//Stack
+mDeque.push();
+mDeque.pop();
+
+9. PriorityQueue
+PriorityQueue<Integer> queue = new PriorityQueue<Integer>(new Comparator<Integer>() {
+            public int compare(Integer num1, Integer num2) {
+                return num2 - num1;
+            }
+        });
+
+10. 快排
 
 ![20201103233048](https://raw.githubusercontent.com/wlxklyh/imagebed/master/imageforvscode/20201103233048.png)
 
