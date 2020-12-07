@@ -1,5 +1,9 @@
 # leetcode
 ## 零、Java刷题用到的接口
+0. 主函数
+public static void main(String[] args){
+    System.out.println("hello");
+}
 1. int num [];
 num.length 
 int[ ]  arr = new int[5];
