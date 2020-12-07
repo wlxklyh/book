@@ -71,9 +71,9 @@ PC nvenc 硬解 4k
 |2|《从0开发一款iOS App》|![36%](https://progress-bar.dev/36)|[付费视频](https://time.geekbang.org/course/detail/100025901-93482)|
 |3|《Runoob——Swift 教程》|![6%](https://progress-bar.dev/6)|[博客教程](https://www.runoob.com/swift/swift-tutorial.html)|
 |4|《ios开发进阶》|![0%](https://progress-bar.dev/0)|[pdf 已购](https://github.com/wlxklyh/book/blob/master/Book/ObjectC/%E3%80%8AiOS%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6%E3%80%8B%E5%94%90%E5%B7%A7_%E5%B8%A6%E4%B9%A6%E7%AD%BE%E7%9B%AE%E5%BD%95.pdf)|
-|5|《Shader入门精要》|![0%](https://progress-bar.dev/0)||
-|6|《LearnOpengl》|![0%](https://progress-bar.dev/0)||
-|7|重温《垃圾回收的算法和实现》|![0%](https://progress-bar.dev/0)||
+|5|《Shader入门精要》|![25%](https://progress-bar.dev/25)||
+|6|《LearnOpengl》|![10%](https://progress-bar.dev/10)||
+|7|复习《垃圾回收的算法和实现》|![20%](https://progress-bar.dev/20)||
 |8|《谷歌方法论》|![80%](https://progress-bar.dev/80)||
 |9|《安卓开发高手》|![43%](https://progress-bar.dev/43)|[付费视频](https://time.geekbang.org/column/article/70602)|
 |10|《Android音视频开发》|![0%](https://progress-bar.dev/0)|已购|
@@ -126,6 +126,15 @@ PC nvenc 硬解 4k
 |![](https://badgen.net/badge/Platform/Unity/cyan) |![](https://badgen.net/badge/language/CSharp/green) |https://github.com/wlxklyh/SoftRenderer/tree/master/Unity|![](Img/2020-09-17-12-49-37.png)|
 |![](https://badgen.net/badge/Platform/Unreal/cyan) |![](https://badgen.net/badge/language/C++/green) |https://github.com/wlxklyh/SoftRenderer/tree/master/Unreal|![](Img/2020-09-17-12-49-41.png)|
 
+|平台|画布|
+|-|-|
+|安卓|ImageView 然后用Bitmap作为画布|
+|iOS|UIImageView 然后UIImage作为画布 buff转UIImage|
+|Unity|Image 然后Texture2D作为画布 pixel去设置Texture2D|
+|Unreal|UImage 然后UTexture2D作为画布|
+
+看下说明即可：
+https://github.com/wlxklyh/SoftRenderer
 
 ### 2. FFMpeg入门教程
 #### 2.1 音视频基础知识入门
@@ -333,6 +342,7 @@ using namespace std;
 5. 接口隔离：接口拆分
 6. 合成复用：尽量用合成聚合 而不是继承
 https://www.zhihu.com/market/pub/119564625/manuscript/1102535948868382720
+一个单身（单一职责）的里氏（里氏替换原则）拿着一把颠倒（依赖倒置）的半开半闭（开闭原则）的扇子，在看接口分离（接口分离）问题，旁边还有一个米老鼠（迪米特）。
 
 - 工业生产的经验
 1. 尽可能用组合而不是继承： 这样可以代码复用
