@@ -1,5 +1,9 @@
 # leetcode
 ## 零、Java刷题用到的接口
+0. 主函数
+public static void main(String[] args){
+    System.out.println("hello");
+}
 1. int num [];
 num.length 
 int[ ]  arr = new int[5];
@@ -8,13 +12,14 @@ int num[];
 null;
 int[] a = {9, 8, 7, 2, 3, 4, 1, 0, 6, 5};
 Arrays.sort(a);【！！！】
-
+MAX_VALUE
+MIN_VALUE
 2. String
 String s = "";
 s.length();
 s.charAt(0); 
-
-
+s.replace('o', 'T')
+s.equals("");
 
 3. 栈
 Stack<ListNode> stack = new Stack<ListNode>();
@@ -23,7 +28,6 @@ stack.push(new Integer(a));
 stack.empty();
 stack.pop();
 stack.size();
-
 3.1. Vector
 Vector v = new Vector(4); 
 v.add("Test0"); 
@@ -34,6 +38,7 @@ List<int[]> vec = new ArrayList<int[]>();
 return vec.toArray(new int[vec.size()][]);
 
 4. Map(!!Integer!!)
+Map<Character,Integer> map
 Map<Integer, Boolean> hash = new HashMap<Integer,Boolean>();
 hash.put("",false);
 hash.containsKey("");
@@ -51,7 +56,30 @@ for (; b != 0; b /= 2) {
     a = (a * a) % c;
 }
 
-7. 快排
+7.  Queue
+Queue<TreeNode> queue = new LinkedList<>();
+queue.add();
+queue.isEmpty();
+queue.poll();
+
+8. Deque
+Deque<Integer> mDeque = new ArrayDeque<Integer>();
+//FIFO
+mDeque.poll()
+mDeque.add()
+mDeque.isEmpty()
+//Stack
+mDeque.push();
+mDeque.pop();
+
+9. PriorityQueue
+PriorityQueue<Integer> queue = new PriorityQueue<Integer>(new Comparator<Integer>() {
+            public int compare(Integer num1, Integer num2) {
+                return num2 - num1;
+            }
+        });
+
+10. 快排
 
 ![20201103233048](https://raw.githubusercontent.com/wlxklyh/imagebed/master/imageforvscode/20201103233048.png)
 
