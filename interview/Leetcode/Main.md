@@ -13,8 +13,7 @@ int num[];
 null;
 int[] a = {9, 8, 7, 2, 3, 4, 1, 0, 6, 5};
 Arrays.sort(a);【！！！】
-MAX_VALUE
-MIN_VALUE
+
 2. String
 String s = "";
 s.length();

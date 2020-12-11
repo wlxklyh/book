@@ -198,6 +198,7 @@ new Thread(new MyRunnable()).start();
 - lateinit 只用于变量 var，而 lazy 只用于常量 val
 lazy 应用于单例模式(if-null-then-init-else-return)
 
+
 ### js
 
 ### Lua
@@ -652,6 +653,10 @@ https://github.com/wlxklyh/book/blob/master/Book/neiwork/Study.md
 1. ctrl（command）+ alt + u 图片上传图床并贴到当前md
 2. ctrl（command）+ alt + v 图片上传相对目录img并贴到当前md
 
+- Draw.io
+![](Img/2020-12-03-17-10-19.png)
+新建.drawio后缀的文件
+
 - paste Image
 ![](Img/2020-09-08-09-23-56.png)
 - Markdown TOC
@@ -670,6 +675,7 @@ https://www.cnblogs.com/lychee/p/11214032.html
 - PicGO 图床工具
 https://blog.csdn.net/xxiaobaib/article/details/92801700
 ![20201015190214](https://raw.githubusercontent.com/wlxklyh/imagebed/master/imageforvscode/20201015190214.png)
+
 - snippet
 ctrl+shift+p
 输入命令snippet
