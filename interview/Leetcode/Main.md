@@ -1,6 +1,7 @@
 # leetcode
 ## 零、Java刷题用到的接口
 0. 主函数
+import java.util.*;
 public static void main(String[] args){
     System.out.println("hello");
 }
