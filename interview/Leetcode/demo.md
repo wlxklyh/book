@@ -1,3 +1,4 @@
+```java
 import java.util.*;
 public class ShowMeBug {
   public static void main(String[] args) {
@@ -83,3 +84,4 @@ public class ShowMeBug {
     System.out.println("10 .PriorityQueue  " + Pqueue.poll());
   } 
 }
+```

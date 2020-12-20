@@ -1,83 +1,93 @@
 # leetcode
 ## 零、Java刷题用到的接口
-0. 主函数
+```java
+
 import java.util.*;
-public static void main(String[] args){
-    System.out.println("hello");
+public class ShowMeBug {
+  public static void main(String[] args) {
+    //1.
+    System.out.println("1.Hello");
+    
+    //2.
+    int[] nums = new int[2];
+    int[] testCase = {12,12,21};
+    Arrays.sort(nums);
+    System.out.println("2.nums.length:" + nums.length);
+    int[][] arr = new int[2][2];
+    System.out.println("2.arr.length:" + arr.length);
+    
+    //3.
+    String str = "sss";
+    System.out.println("3.str.length:" + str.length());
+    str = str.replace('s','a');
+    System.out.println("3.str.charAt():" + str.charAt(0));
+    System.out.println("3.str.equals():" + str.equals("aaa"));
+    
+    //4.
+    Stack stack = new Stack();
+    stack.push(12);stack.push(13);
+    int temp = (int)stack.pop();
+    System.out.println("4.stack.peek():" + stack.peek());
+    System.out.println("4.stack.size():" + stack.size());
+    
+    //5.
+    Vector v = new Vector(4);
+    v.add("Test0");
+    v.add("Test1");
+    v.remove(0);
+    int size = v.size();
+    System.out.println("4.v.get(0):" + v.get(0));
+    List<int[]> vec = new ArrayList<int[]>();
+    vec.toArray(new int[vec.size()][]);
+    
+    
+    //6.
+    Map<Character,Integer> map = new HashMap<Character,Integer>();
+    Map<Integer, Boolean> hash = new HashMap<Integer,Boolean>();
+    hash.put(12,false);
+    hash.containsKey("");
+    for (Integer key : hash.keySet()) {
+        System.out.println("6. Key = " + key);
+        System.out.println("6 .value = " + hash.get(key));
+    }
+    
+    //7.List
+    List list = new ArrayList<>();
+    list.add("apple");
+    list.add("apple");
+    System.out.println("7 .list = " + list.size());
+    
+    //8.  Queue
+    Queue queue = new LinkedList<>();
+    queue.add(1);
+    queue.add(2);
+    queue.add(3);
+    queue.isEmpty();
+    queue.poll();
+    System.out.println("8 .queue  " + queue.peek());
+    
+    //9.Deque
+    Deque mDeque = new ArrayDeque();
+    //FIFO
+    mDeque.add(1);
+    mDeque.add(2);
+    mDeque.add(3);
+    mDeque.poll();
+    mDeque.add(3);
+    mDeque.isEmpty();
+    //Stack
+    mDeque.push(111);
+    System.out.println("9 .Deque  " + mDeque.pop());
+    
+    //10. 最小
+    PriorityQueue Pqueue = new PriorityQueue();
+    Pqueue.offer(1);
+    Pqueue.offer(2);
+    Pqueue.offer(3);
+    System.out.println("10 .PriorityQueue  " + Pqueue.poll());
+  } 
 }
-1. int num [];
-num.length 
-int[ ]  arr = new int[5];
-int[][] ints = new int[4][2];
-int num[];
-null;
-int[] a = {9, 8, 7, 2, 3, 4, 1, 0, 6, 5};
-Arrays.sort(a);【！！！】
-
-2. String
-String s = "";
-s.length();
-s.charAt(0); 
-s.replace('o', 'T')
-s.equals("");
-
-3. 栈
-Stack<ListNode> stack = new Stack<ListNode>();
-Stack<Integer> stack = new Stack<Integer>();
-stack.push(new Integer(a));
-stack.empty();
-stack.pop();
-stack.size();
-3.1. Vector
-Vector v = new Vector(4); 
-v.add("Test0"); 
-v.remove(0); 
-int size = v.size(); 
-v.get(i);
-List<int[]> vec = new ArrayList<int[]>();
-return vec.toArray(new int[vec.size()][]);
-
-4. Map(!!Integer!!)
-Map<Character,Integer> map
-Map<Integer, Boolean> hash = new HashMap<Integer,Boolean>();
-hash.put("",false);
-hash.containsKey("");
-
-5. List
-List<String> list = new ArrayList<>();
- list.add("apple");
-
-
-6. 快速mi
-int ans = 1;
-for (; b != 0; b /= 2) {
-    if (b % 2 == 1)
-        ans = (ans * a) % c;
-    a = (a * a) % c;
-}
-
-7.  Queue
-Queue<TreeNode> queue = new LinkedList<>();
-queue.add();
-queue.isEmpty();
-queue.poll();
-
-8. Deque
-Deque<Integer> mDeque = new ArrayDeque<Integer>();
-//FIFO
-mDeque.poll()
-mDeque.add()
-mDeque.isEmpty()
-//Stack
-mDeque.push();
-mDeque.pop();
-
-9. PriorityQueue
-PriorityQueue<Integer> queue = new PriorityQueue<Integer>(new Comparator<Integer>() {
-            public int compare(Integer num1, Integer num2) {
-                return num2 - num1;
-            }
-        });
+```
 
 10. 快排
 
