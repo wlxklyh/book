@@ -580,9 +580,14 @@ void qsort(vector<int>vecValues,int start,int end)
 ## 二、书籍
 
 ### 计算机网络
+网络优化
+https://www.zhihu.com/lives/803253724087742464
+锁
+https://tech.meituan.com/2018/11/15/java-lock.html
 
 #### 《图解http》
 https://github.com/wlxklyh/book/blob/master/Book/GC/Main.md
+
 
 ### GC回收
 
