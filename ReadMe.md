@@ -703,3 +703,7 @@ cmake安装
 star管理工具
 https://app.astralapp.com/dashboard
 
+
+### mac 工具
+mac录音 同时录制媒体和麦克风
+https://www.zhihu.com/question/26032781
