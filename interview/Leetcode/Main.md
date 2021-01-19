@@ -89,7 +89,7 @@ public class ShowMeBug {
 }
 ```
 
-10. 快排
+快排
 
 ![20201103233048](https://raw.githubusercontent.com/wlxklyh/imagebed/master/imageforvscode/20201103233048.png)
 
