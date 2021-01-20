@@ -27,6 +27,8 @@
         - [开发环境](#开发环境)
         - [git](#git)
         - [mac 工具](#mac-工具)
+    - [adb](#adb)
+    - [ffmpeg：](#ffmpeg)
 
 <!-- /TOC -->
 
@@ -256,3 +258,21 @@ https://app.astralapp.com/dashboard
 ### mac 工具
 mac录音 同时录制媒体和麦克风
 https://www.zhihu.com/question/26032781
+
+多开
+open -n /Applications/WeChat.app/Contents/MacOS/WeChat
+
+Mac软件权限：
+sudo spctl --master-disable
+## adb
+内存：adb shell dumpsys meminfo com.tencent.weishi
+
+adb shell dumpsys dropbox data_app_crash --print
+adb shell dumpsys dropbox --print
+
+## ffmpeg：
+1、psnr 
+ffmpeg -i 1.mp4 -i 5.mp4 -lavfi psnr="stats_file=psnr.log" -f null -
+ffmpeg -i test_20.mp4  -i test_20Record.mp4  -lavfi ssim="stats_file=ssim.log" -f null -
+2、获取信息
+ffprobe url
