@@ -1,7 +1,7 @@
-#iChannel0 "file://qiaoben.jpg"
 
-
-void mainImage(out vec4 fragColor,int vec2 fragCoord)
+void main()
 {
-    fragColor =  vec4(0.0, 0.0, 0.0, 1.0);;
+	vec2 st = gl_FragCoord.xy/iResolution.xy;
+	gl_FragColor = vec4(st.x,st.y,cos(iTime),1.0);
+    gl_FragColor = vec4(1.0, 0.0, 0.0, 0.1);
 }

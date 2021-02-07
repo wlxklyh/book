@@ -21,7 +21,7 @@ https://blog.csdn.net/leixiaohua1020/article/details/50534150
 Y是亮度分量、UV是色度分量
 
 1. YUV 420p 256x256x1byte 这个是Y分量亮度  色度U=128x128x1byte V=128x128x1byte 采样密度不一样
-2. YUV 444p 256x256x1byte 这个是Y分量亮度  色度U=256x256x1byte V=256x256x1byte 采样密度一样
+2. YUV 444p 256x256x1byte 这个是Y分量亮度  色度U=256x256x1byte µV=256x256x1byte 采样密度一样
 3. YUV 420p去掉颜色 memset(pic+wxh,128,wxh/2); 色度分量取值0至255，无色对应的就是128
 4. YUV420P像素数据的亮度减半 取出Y 然后除以2
 5. YUV420P格式的灰阶测试图 就是生成YUV（0，128,128）、（28，128,128）....（255，128,128）
