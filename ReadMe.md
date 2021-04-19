@@ -35,36 +35,31 @@
 http://naotu.baidu.com/file/59a6fa3446a1b17ae96f1ec62560fa7d?token=cb4ca26ad9b4b980
 
 ## 当前计划
-- 关键字学习
-PC nvenc 硬解 4k
 
+- 已完成计划
+
+|序号|计划名字|当前进度|资源链接|结论|结束时间|
+|-|-|-|-|-|-|
+|1|《谷歌方法论》|![100%](https://progress-bar.dev/100)||
+|2|《垃圾回收的算法和实现》|![100%](https://progress-bar.dev/100)||
+|3|《Objective-C基础教程》|![100%](https://progress-bar.dev/100)|[pdf 已购 ](https://github.com/wlxklyh/book/blob/master/Book/ObjectC/Objective-C%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B.pdf)|了解语法，细节和进阶需后续再学习|
 
 - 短期计划（优先级高）
 
 |序号|计划名字|当前进度|资源链接|结论|结束时间|
 |-|-|-|-|-|-|
-|1|Opengl jni 改成调用android.opengl|![0%](https://progress-bar.dev/0)|https://github.com/wlxklyh/Ado_OpenGLES_3_0||
-|2|GPUImage、Grafika|![0%](https://progress-bar.dev/0)||
-|3|airhockey 看learnopengles教程|![0%](https://progress-bar.dev/0)|[链接](https://www.learnopengles.com/developing-a-simple-game-of-air-hockey-using-c-and-opengl-es-2-for-android-ios-and-the-web/)||2020.9.29把hello word搭建|
-|4| 逆向|![0%](https://progress-bar.dev/0)|[链接](https://www.jianshu.com/p/c04ac36c6641)||Hopper Disassembler 反编译so、readelf、objdump|
+|1| |![0%](https://progress-bar.dev/0)||
+
 
 - 长期计划（优先级中 书籍课程）：
 
 |序号|计划名字|当前进度|资源链接|结论|
 |-|-|-|-|-|
-|1|《Objective-C基础教程》|![100%](https://progress-bar.dev/100)|[pdf 已购 ](https://github.com/wlxklyh/book/blob/master/Book/ObjectC/Objective-C%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B.pdf)|了解语法，细节和进阶需后续再学习|
-|2|《从0开发一款iOS App》|![36%](https://progress-bar.dev/36)|[付费视频](https://time.geekbang.org/course/detail/100025901-93482)|
-|3|《Runoob——Swift 教程》|![6%](https://progress-bar.dev/6)|[博客教程](https://www.runoob.com/swift/swift-tutorial.html)|
-|4|《ios开发进阶》|![0%](https://progress-bar.dev/0)|[pdf 已购](https://github.com/wlxklyh/book/blob/master/Book/ObjectC/%E3%80%8AiOS%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6%E3%80%8B%E5%94%90%E5%B7%A7_%E5%B8%A6%E4%B9%A6%E7%AD%BE%E7%9B%AE%E5%BD%95.pdf)|
-|5|《Shader入门精要》|![25%](https://progress-bar.dev/25)||
-|6|《LearnOpengl》|![10%](https://progress-bar.dev/10)||
-|7|复习《垃圾回收的算法和实现》|![20%](https://progress-bar.dev/20)||
-|8|《谷歌方法论》|![80%](https://progress-bar.dev/80)||
+|1|《Shader入门精要》|![25%](https://progress-bar.dev/25)||
+|2|《LearnOpengl》|![10%](https://progress-bar.dev/10)||
+|3|复习《垃圾回收的算法和实现》|![20%](https://progress-bar.dev/20)||
 |9|《安卓开发高手》|![43%](https://progress-bar.dev/43)|[付费视频](https://time.geekbang.org/column/article/70602)|
-|10|《Android音视频开发》|![0%](https://progress-bar.dev/0)|已购|
-|11|《音视频开发进阶指南》|![0%](https://progress-bar.dev/0)|已购|
-|12|Android-guiimage、audiovideorecordingsample、grafika|![0%](https://progress-bar.dev/0)|[GPUImage源码学习](https://github.com/loyinglin/GPUImage)|
-|11|《在线视频技术精要》|![0%](https://progress-bar.dev/0)|无|
+
 - 其他计划
 
 |序号|计划名字|当前进度|资源链接|结论|
@@ -73,15 +68,33 @@ PC nvenc 硬解 4k
 |2|Flutter For Android 安装与初体验|![100%](https://progress-bar.dev/100)|km|完成Android和iOS的hello world工程 [链接](https://github.com/wlxklyh/book/blob/master/Book/Flutter/Start/Main.md)|
 |3|outlook学习怎么高效使用|![0%](https://progress-bar.dev/0)|无 需搜索|写文档|
 |4|软渲染器开源项目整理 和 完成iOS工程|![100%](https://progress-bar.dev/100)|github |写文档|
-|5|音视频优化|![0%](https://progress-bar.dev/0)|https://zhuanlan.zhihu.com/p/53038472 |写笔记|
 |6|维护博客|![100%](https://progress-bar.dev/100)||
 |7|AOP|![99%](https://progress-bar.dev/99)|差写文档|
 |8|技术群 和 技术资料|![10%](https://progress-bar.dev/10)|尝试抖音讲解|
 |9|技术类的引流 和 非技术类的引流|![1%](https://progress-bar.dev/1)||
 
 
+- 历史计划（搁置计划）
 
+|序号|计划名字|当前进度|资源链接|结论|
+|-|-|-|-|-|
+|1|Opengl jni 改成调用android.opengl|![0%](https://progress-bar.dev/0)|https://github.com/wlxklyh/Ado_OpenGLES_3_0|重要性低|
+|2|GPUImage、Grafika|![0%](https://progress-bar.dev/0)||重要性低|
+|3|airhockey 看learnopengles教程|![0%](https://progress-bar.dev/0)|[链接](https://www.learnopengles.com/developing-a-simple-game-of-air-hockey-using-c-and-opengl-es-2-for-android-ios-and-the-web/)|重要性低|
 
+|序号|计划名字|当前进度|资源链接|结论|
+|-|-|-|-|-|
+|1|《从0开发一款iOS App》|![100%](https://progress-bar.dev/36)|[付费视频](https://time.geekbang.org/course/detail/100025901-93482)|
+|2|《Runoob——Swift 教程》|![6%](https://progress-bar.dev/6)|[博客教程](https://www.runoob.com/swift/swift-tutorial.html)|
+|3|《ios开发进阶》|![0%](https://progress-bar.dev/0)|[pdf 已购](https://github.com/wlxklyh/book/blob/master/Book/ObjectC/%E3%80%8AiOS%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6%E3%80%8B%E5%94%90%E5%B7%A7_%E5%B8%A6%E4%B9%A6%E7%AD%BE%E7%9B%AE%E5%BD%95.pdf)|
+
+|序号|计划名字|当前进度|资源链接|结论|
+|-|-|-|-|-|
+|1|《Android音视频开发》|![0%](https://progress-bar.dev/0)|已购|
+|2|《音视频开发进阶指南》|![0%](https://progress-bar.dev/0)|已购|
+|3|Android-guiimage、audiovideorecordingsample、grafika|![0%](https://progress-bar.dev/0)|[GPUImage源码学习](https://github.com/loyinglin/GPUImage)|
+|4|《在线视频技术精要》|![0%](https://progress-bar.dev/0)|无|
+|5|音视频优化|![0%](https://progress-bar.dev/0)|https://zhuanlan.zhihu.com/p/53038472 |写笔记|
 ## 零、开源项目
 |序号|项目名字|简介|github链接|
 |-|-|-|-|
