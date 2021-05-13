@@ -39,3 +39,6 @@ CUDA是个异构模型 CPU GPU协同工作。CUDA中 host和device是两个重�
 
 CUDA内存模型
 ![](Img/2021-05-11-14-57-12.png)
+
+
+## 3、cuda 显存OOM
