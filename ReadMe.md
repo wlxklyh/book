@@ -43,6 +43,7 @@ http://naotu.baidu.com/file/59a6fa3446a1b17ae96f1ec62560fa7d?token=cb4ca26ad9b4b
 |1|《谷歌方法论》|![100%](https://progress-bar.dev/100)||
 |2|《垃圾回收的算法和实现》|![100%](https://progress-bar.dev/100)||
 |3|《Objective-C基础教程》|![100%](https://progress-bar.dev/100)|[pdf 已购 ](https://github.com/wlxklyh/book/blob/master/Book/ObjectC/Objective-C%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B.pdf)|了解语法，细节和进阶需后续再学习|
+|4|《GAMES101》|![100%](https://progress-bar.dev/100)|[视频](https://www.bilibili.com/video/BV1X7411F744/?spm_id_from=333.788.recommend_more_video.0)|
 
 - 短期计划（优先级高）
 
@@ -58,7 +59,9 @@ http://naotu.baidu.com/file/59a6fa3446a1b17ae96f1ec62560fa7d?token=cb4ca26ad9b4b
 |1|《Shader入门精要》|![25%](https://progress-bar.dev/25)||
 |2|《LearnOpengl》|![10%](https://progress-bar.dev/10)||
 |3|复习《垃圾回收的算法和实现》|![20%](https://progress-bar.dev/20)||
-|9|《安卓开发高手》|![43%](https://progress-bar.dev/43)|[付费视频](https://time.geekbang.org/column/article/70602)|
+|4|《安卓开发高手》|![43%](https://progress-bar.dev/43)|[付费视频](https://time.geekbang.org/column/article/70602)|
+|5|《GAMES202》|![0%](https://progress-bar.dev/0)||
+|6|《GAMES102》|![0%](https://progress-bar.dev/0)||
 
 - 其他计划
 
