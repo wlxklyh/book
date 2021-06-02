@@ -1,5 +1,6 @@
 # 球面采样
 https://000ddd00dd0d.github.io/2019/04/07/Spherical-Sampling/
+http://corysimon.github.io/articles/uniformdistn-on-sphere/
 
 ## 1、轴向均匀采样
 ```cpp
