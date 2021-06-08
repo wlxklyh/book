@@ -49,7 +49,7 @@ http://naotu.baidu.com/file/59a6fa3446a1b17ae96f1ec62560fa7d?token=cb4ca26ad9b4b
 
 |序号|计划名字|当前进度|资源链接|结论|结束时间|
 |-|-|-|-|-|-|
-|1| |![0%](https://progress-bar.dev/0)||
+|1| 《GAMES202》 P1 P2 P3 P4没看 P5 P6|![0%](https://progress-bar.dev/0)||
 
 
 - 长期计划（优先级中 书籍课程）：
