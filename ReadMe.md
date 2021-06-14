@@ -24,6 +24,7 @@
         - [如何学习？](#如何学习)
     - [三、工具](#三工具)
         - [VSCode插件](#vscode插件)
+        - [PicGo](#picgo)
         - [snipaste](#snipaste)
         - [开发环境](#开发环境)
         - [git](#git)
@@ -261,6 +262,11 @@ ctrl+shift+p
 输入命令snippet  
 然后看到wlxkllyhsnippet 然后在里面编辑 当然也可以新建一个  
 
+### PicGo
+![](Img/2021-06-14-22-31-22.png)
+![](Img/2021-06-14-22-31-04.png)
+sm.ms 测试
+![t](https://i.loli.net/2021/06/14/rkAwfZ9KHCl5EeX.png)
 
 ### snipaste  
 截图工具  
