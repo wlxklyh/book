@@ -26,6 +26,7 @@
         - [VSCode插件](#vscode插件)
         - [PicGo](#picgo)
         - [snipaste](#snipaste)
+        - [gifcam录制](#gifcam录制)
         - [开发环境](#开发环境)
         - [git](#git)
         - [mac 工具](#mac-工具)
@@ -271,6 +272,10 @@ sm.ms 测试
 ### snipaste  
 截图工具  
 https://www.snipaste.com/  
+
+### gifcam录制
+gif 录制
+https://gifcam.softonic.cn/
 
 ### 开发环境  
 homebrew是包管理库 brew切换源  
