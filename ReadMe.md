@@ -233,63 +233,62 @@ https://github.com/wlxklyh/book/blob/master/Book/neiwork/Study.md
 1. ctrl（command）+ alt + u 图片上传图床并贴到当前md
 2. ctrl（command）+ alt + v 图片上传相对目录img并贴到当前md
 
-- Draw.io
-![](Img/2020-12-03-17-10-19.png)
-新建.drawio后缀的文件
+- Draw.io  
+![](Img/2020-12-03-17-10-19.png)  
+新建.drawio后缀的文件  
 
-- paste Image
-![](Img/2020-09-08-09-23-56.png)
+- paste Image  
+![](Img/2020-09-08-09-23-56.png)  
 
-- Markdown TOC
-![](Img/2020-09-08-09-23-38.png)
-解决换行问题
-https://blog.csdn.net/u014171091/article/details/89629634
+- Markdown TOC  
+![](Img/2020-09-08-09-23-38.png)  
+解决换行问题  
+https://blog.csdn.net/u014171091/article/details/89629634  
 
-- Shader Toy
-![20201015190124](https://raw.githubusercontent.com/wlxklyh/imagebed/master/imageforvscode/20201015190124.png)
+- Shader Toy  
+![20201015190124](https://raw.githubusercontent.com/wlxklyh/imagebed/master/imageforvscode/20201015190124.png)  
 
-- setting sync 设置同步神器
-command+shift+p 输入 sync download setting
-https://www.cnblogs.com/lychee/p/11214032.html
+- setting sync 设置同步神器  
+command+shift+p 输入 sync download setting  
+https://www.cnblogs.com/lychee/p/11214032.html  
 ![20201015190148](https://raw.githubusercontent.com/wlxklyh/imagebed/master/imageforvscode/20201015190148.png)
-- PicGO 图床工具
-https://blog.csdn.net/xxiaobaib/article/details/92801700
-![20201015190214](https://raw.githubusercontent.com/wlxklyh/imagebed/master/imageforvscode/20201015190214.png)
+- PicGO 图床工具  
+https://blog.csdn.net/xxiaobaib/article/details/92801700  
+![20201015190214](https://raw.githubusercontent.com/wlxklyh/imagebed/master/imageforvscode/20201015190214.png)  
 
-- snippet
-ctrl+shift+p
-输入命令snippet
-然后看到wlxkllyhsnippet 然后在里面编辑 当然也可以新建一个
-
-
-### snipaste
-截图工具
-https://www.snipaste.com/
-
-### 开发环境
-homebrew是包管理库 brew切换源
-SDK路径设置
-NDK路径设置
-cmake安装
+- snippet  
+ctrl+shift+p  
+输入命令snippet  
+然后看到wlxkllyhsnippet 然后在里面编辑 当然也可以新建一个  
 
 
-### git
-star管理工具
-https://app.astralapp.com/dashboard
+### snipaste  
+截图工具  
+https://www.snipaste.com/  
+
+### 开发环境  
+homebrew是包管理库 brew切换源  
+SDK路径设置  
+NDK路径设置  
+cmake安装  
 
 
-### mac 工具
-mac录音 同时录制媒体和麦克风
-https://www.zhihu.com/question/26032781
+### git  
+star管理工具  
+https://app.astralapp.com/dashboard  
 
-多开
-open -n /Applications/WeChat.app/Contents/MacOS/WeChat
+
+### mac 工具  
+mac录音 同时录制媒体和麦克风  
+https://www.zhihu.com/question/26032781  
+
+多开  
+open -n /Applications/WeChat.app/Contents/MacOS/WeChat  
 
 Mac软件权限：
 sudo spctl --master-disable
 ## adb
 内存：adb shell dumpsys meminfo com.tencent.weishi
-
 adb shell dumpsys dropbox data_app_crash --print
 adb shell dumpsys dropbox --print
 
