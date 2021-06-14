@@ -21,6 +21,7 @@
         - [Markdown写作](#markdown写作)
         - [我的互联网付费](#我的互联网付费)
         - [与人交流](#与人交流)
+        - [如何学习？](#如何学习)
     - [三、工具](#三工具)
         - [VSCode插件](#vscode插件)
         - [snipaste](#snipaste)
@@ -49,7 +50,7 @@ http://naotu.baidu.com/file/59a6fa3446a1b17ae96f1ec62560fa7d?token=cb4ca26ad9b4b
 
 |序号|计划名字|当前进度|资源链接|结论|结束时间|
 |-|-|-|-|-|-|
-|1| 《GAMES202》 P1 P2 P3 P4没看 P5 P6|![0%](https://progress-bar.dev/0)||
+|1| 《GAMES202》 P4没看 P7 P8 P9没看 |![0%](https://progress-bar.dev/0)||
 
 
 - 长期计划（优先级中 书籍课程）：
@@ -60,8 +61,8 @@ http://naotu.baidu.com/file/59a6fa3446a1b17ae96f1ec62560fa7d?token=cb4ca26ad9b4b
 |2|《LearnOpengl》|![10%](https://progress-bar.dev/10)||
 |3|复习《垃圾回收的算法和实现》|![20%](https://progress-bar.dev/20)||
 |4|《安卓开发高手》|![43%](https://progress-bar.dev/43)|[付费视频](https://time.geekbang.org/column/article/70602)|
-|5|《GAMES202》|![0%](https://progress-bar.dev/0)||
-|6|《GAMES102》|![0%](https://progress-bar.dev/0)||
+|5|《GAMES202》|![80%](https://progress-bar.dev/80)||
+|6|《GAMES102》|![100%](https://progress-bar.dev/100)||
 
 - 其他计划
 
@@ -73,24 +74,25 @@ http://naotu.baidu.com/file/59a6fa3446a1b17ae96f1ec62560fa7d?token=cb4ca26ad9b4b
 |4|软渲染器开源项目整理 和 完成iOS工程|![100%](https://progress-bar.dev/100)|github |写文档|
 |6|维护博客|![100%](https://progress-bar.dev/100)||
 |7|AOP|![99%](https://progress-bar.dev/99)|差写文档|
-|8|技术群 和 技术资料|![10%](https://progress-bar.dev/10)|尝试抖音讲解|
+|8|技术群 和 技术资料|![100%](https://progress-bar.dev/100)|尝试抖音讲解|
 |9|技术类的引流 和 非技术类的引流|![1%](https://progress-bar.dev/1)||
 
 
 - 历史计划（搁置计划）
+如何学习
 
 |序号|计划名字|当前进度|资源链接|结论|
 |-|-|-|-|-|
 |1|Opengl jni 改成调用android.opengl|![0%](https://progress-bar.dev/0)|https://github.com/wlxklyh/Ado_OpenGLES_3_0|重要性低|
 |2|GPUImage、Grafika|![0%](https://progress-bar.dev/0)||重要性低|
 |3|airhockey 看learnopengles教程|![0%](https://progress-bar.dev/0)|[链接](https://www.learnopengles.com/developing-a-simple-game-of-air-hockey-using-c-and-opengl-es-2-for-android-ios-and-the-web/)|重要性低|
-
+iOS相关的
 |序号|计划名字|当前进度|资源链接|结论|
 |-|-|-|-|-|
 |1|《从0开发一款iOS App》|![100%](https://progress-bar.dev/36)|[付费视频](https://time.geekbang.org/course/detail/100025901-93482)|
 |2|《Runoob——Swift 教程》|![6%](https://progress-bar.dev/6)|[博客教程](https://www.runoob.com/swift/swift-tutorial.html)|
 |3|《ios开发进阶》|![0%](https://progress-bar.dev/0)|[pdf 已购](https://github.com/wlxklyh/book/blob/master/Book/ObjectC/%E3%80%8AiOS%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6%E3%80%8B%E5%94%90%E5%B7%A7_%E5%B8%A6%E4%B9%A6%E7%AD%BE%E7%9B%AE%E5%BD%95.pdf)|
-
+音视频相关的
 |序号|计划名字|当前进度|资源链接|结论|
 |-|-|-|-|-|
 |1|《Android音视频开发》|![0%](https://progress-bar.dev/0)|已购|
@@ -220,6 +222,10 @@ https://github.com/wlxklyh/book/blob/master/Book/neiwork/Study.md
 3. 插件付费
 4. 搬运。
 
+### 如何学习？
+1. 思维导图思路记录关键词 一定要简介
+2. 有道词典设置查过的单词进入单词本
+3. 
 
 ## 三、工具
 ### VSCode插件
@@ -233,6 +239,7 @@ https://github.com/wlxklyh/book/blob/master/Book/neiwork/Study.md
 
 - paste Image
 ![](Img/2020-09-08-09-23-56.png)
+
 - Markdown TOC
 ![](Img/2020-09-08-09-23-38.png)
 解决换行问题
@@ -243,7 +250,6 @@ https://blog.csdn.net/u014171091/article/details/89629634
 
 - setting sync 设置同步神器
 command+shift+p 输入 sync download setting
-
 https://www.cnblogs.com/lychee/p/11214032.html
 ![20201015190148](https://raw.githubusercontent.com/wlxklyh/imagebed/master/imageforvscode/20201015190148.png)
 - PicGO 图床工具
@@ -257,6 +263,7 @@ ctrl+shift+p
 
 
 ### snipaste
+截图工具
 https://www.snipaste.com/
 
 ### 开发环境
