@@ -52,8 +52,9 @@ http://naotu.baidu.com/file/59a6fa3446a1b17ae96f1ec62560fa7d?token=cb4ca26ad9b4b
 
 |序号|计划名字|当前进度|资源链接|结论|结束时间|
 |-|-|-|-|-|-|
-|1| 《GAMES202》 P4没看 P7 P8 P9没看 |![0%](https://progress-bar.dev/0)||
-
+|1| 《GAMES202》 P4没看 P7 P8 P9没看 |![60%](https://progress-bar.dev/60)||
+|2| 《CUDA教程》 |![20%](https://progress-bar.dev/20)|[视频](https://www.bilibili.com/video/BV1kx411m7Fk?p=11)||一天一集 6.28结束|
+|3|《大象无形》|![1%](https://progress-bar.dev/0)|[pdf](book\Book\UEStudy\大象无形：虚幻引擎程序设计浅析.pdf)||目前看完第四章|
 
 - 长期计划（优先级中 书籍课程）：
 
@@ -63,8 +64,7 @@ http://naotu.baidu.com/file/59a6fa3446a1b17ae96f1ec62560fa7d?token=cb4ca26ad9b4b
 |2|《LearnOpengl》|![10%](https://progress-bar.dev/10)||
 |3|复习《垃圾回收的算法和实现》|![20%](https://progress-bar.dev/20)||
 |4|《安卓开发高手》|![43%](https://progress-bar.dev/43)|[付费视频](https://time.geekbang.org/column/article/70602)|
-|5|《GAMES202》|![80%](https://progress-bar.dev/80)||
-|6|《GAMES102》|![100%](https://progress-bar.dev/100)||
+|5|《GAMES102》|![100%](https://progress-bar.dev/100)||
 
 - 其他计划
 
@@ -94,14 +94,7 @@ iOS相关的
 |1|《从0开发一款iOS App》|![100%](https://progress-bar.dev/36)|[付费视频](https://time.geekbang.org/course/detail/100025901-93482)|
 |2|《Runoob——Swift 教程》|![6%](https://progress-bar.dev/6)|[博客教程](https://www.runoob.com/swift/swift-tutorial.html)|
 |3|《ios开发进阶》|![0%](https://progress-bar.dev/0)|[pdf 已购](https://github.com/wlxklyh/book/blob/master/Book/ObjectC/%E3%80%8AiOS%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6%E3%80%8B%E5%94%90%E5%B7%A7_%E5%B8%A6%E4%B9%A6%E7%AD%BE%E7%9B%AE%E5%BD%95.pdf)|
-音视频相关的
-|序号|计划名字|当前进度|资源链接|结论|
-|-|-|-|-|-|
-|1|《Android音视频开发》|![0%](https://progress-bar.dev/0)|已购|
-|2|《音视频开发进阶指南》|![0%](https://progress-bar.dev/0)|已购|
-|3|Android-guiimage、audiovideorecordingsample、grafika|![0%](https://progress-bar.dev/0)|[GPUImage源码学习](https://github.com/loyinglin/GPUImage)|
-|4|《在线视频技术精要》|![0%](https://progress-bar.dev/0)|无|
-|5|音视频优化|![0%](https://progress-bar.dev/0)|https://zhuanlan.zhihu.com/p/53038472 |写笔记|
+
 ## 零、开源项目
 |序号|项目名字|简介|github链接|
 |-|-|-|-|
