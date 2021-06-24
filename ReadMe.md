@@ -4,6 +4,7 @@
 <!-- TOC -->
 
 - [目录](#目录)
+    - [已完成计划](#已完成计划)
     - [当前计划](#当前计划)
     - [零、开源项目](#零开源项目)
         - [1、软渲染器](#1软渲染器)
@@ -37,10 +38,8 @@
 
 http://naotu.baidu.com/file/59a6fa3446a1b17ae96f1ec62560fa7d?token=cb4ca26ad9b4b980
 
-## 当前计划
 
-- 已完成计划
-
+## 已完成计划
 |序号|计划名字|当前进度|资源链接|结论|结束时间|
 |-|-|-|-|-|-|
 |1|《谷歌方法论》|![100%](https://progress-bar.dev/100)||
@@ -48,23 +47,22 @@ http://naotu.baidu.com/file/59a6fa3446a1b17ae96f1ec62560fa7d?token=cb4ca26ad9b4b
 |3|《Objective-C基础教程》|![100%](https://progress-bar.dev/100)|[pdf 已购 ](https://github.com/wlxklyh/book/blob/master/Book/ObjectC/Objective-C%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B.pdf)|了解语法，细节和进阶需后续再学习|
 |4|《GAMES101》|![100%](https://progress-bar.dev/100)|[视频](https://www.bilibili.com/video/BV1X7411F744/?spm_id_from=333.788.recommend_more_video.0)|
 
+## 当前计划
 - 短期计划（优先级高）
 
 |序号|计划名字|当前进度|资源链接|结论|结束时间|
 |-|-|-|-|-|-|
 |1| 《GAMES202》 P4没看 P7 P8 P9没看 |![60%](https://progress-bar.dev/60)||
-|2| 《CUDA教程》 |![20%](https://progress-bar.dev/20)|[视频](https://www.bilibili.com/video/BV1kx411m7Fk?p=11)||一天一集 6.28结束|
-|3|《大象无形》|![1%](https://progress-bar.dev/0)|[pdf](book\Book\UEStudy\大象无形：虚幻引擎程序设计浅析.pdf)||目前看完第四章|
+|3|《大象无形》|![40%](https://progress-bar.dev/40)|[pdf](book\Book\UEStudy\大象无形：虚幻引擎程序设计浅析.pdf)||目前看完第8章|
 
 - 长期计划（优先级中 书籍课程）：
-
 |序号|计划名字|当前进度|资源链接|结论|
 |-|-|-|-|-|
 |1|《Shader入门精要》|![25%](https://progress-bar.dev/25)||
 |2|《LearnOpengl》|![10%](https://progress-bar.dev/10)||
 |3|复习《垃圾回收的算法和实现》|![20%](https://progress-bar.dev/20)||
 |4|《安卓开发高手》|![43%](https://progress-bar.dev/43)|[付费视频](https://time.geekbang.org/column/article/70602)|
-|5|《GAMES102》|![100%](https://progress-bar.dev/100)||
+|5|《GAMES102》|![1%](https://progress-bar.dev/1)||
 
 - 其他计划
 
@@ -81,19 +79,23 @@ http://naotu.baidu.com/file/59a6fa3446a1b17ae96f1ec62560fa7d?token=cb4ca26ad9b4b
 
 
 - 历史计划（搁置计划）
-如何学习
 
+游戏开发相关的
 |序号|计划名字|当前进度|资源链接|结论|
 |-|-|-|-|-|
-|1|Opengl jni 改成调用android.opengl|![0%](https://progress-bar.dev/0)|https://github.com/wlxklyh/Ado_OpenGLES_3_0|重要性低|
-|2|GPUImage、Grafika|![0%](https://progress-bar.dev/0)||重要性低|
-|3|airhockey 看learnopengles教程|![0%](https://progress-bar.dev/0)|[链接](https://www.learnopengles.com/developing-a-simple-game-of-air-hockey-using-c-and-opengl-es-2-for-android-ios-and-the-web/)|重要性低|
-iOS相关的
+|1| 《CUDA教程》 |![40%](https://progress-bar.dev/40)|[视频](https://www.bilibili.com/video/BV1kx411m7Fk?p=11)||看到11集 后面的优化以后再看|
+
+
+移动开发相关的
 |序号|计划名字|当前进度|资源链接|结论|
 |-|-|-|-|-|
 |1|《从0开发一款iOS App》|![100%](https://progress-bar.dev/36)|[付费视频](https://time.geekbang.org/course/detail/100025901-93482)|
 |2|《Runoob——Swift 教程》|![6%](https://progress-bar.dev/6)|[博客教程](https://www.runoob.com/swift/swift-tutorial.html)|
 |3|《ios开发进阶》|![0%](https://progress-bar.dev/0)|[pdf 已购](https://github.com/wlxklyh/book/blob/master/Book/ObjectC/%E3%80%8AiOS%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6%E3%80%8B%E5%94%90%E5%B7%A7_%E5%B8%A6%E4%B9%A6%E7%AD%BE%E7%9B%AE%E5%BD%95.pdf)|
+|4|Opengl jni 改成调用android.opengl|![0%](https://progress-bar.dev/0)|https://github.com/wlxklyh/Ado_OpenGLES_3_0|重要性低|
+|5|GPUImage、Grafika|![0%](https://progress-bar.dev/0)||重要性低|
+|6|airhockey 看learnopengles教程|![0%](https://progress-bar.dev/0)|[链接](https://www.learnopengles.com/developing-a-simple-game-of-air-hockey-using-c-and-opengl-es-2-for-android-ios-and-the-web/)|重要性低|
+
 
 ## 零、开源项目
 |序号|项目名字|简介|github链接|
