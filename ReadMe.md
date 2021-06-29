@@ -46,6 +46,7 @@ http://naotu.baidu.com/file/59a6fa3446a1b17ae96f1ec62560fa7d?token=cb4ca26ad9b4b
 |2|《垃圾回收的算法和实现》|![100%](https://progress-bar.dev/100)||
 |3|《Objective-C基础教程》|![100%](https://progress-bar.dev/100)|[pdf 已购 ](https://github.com/wlxklyh/book/blob/master/Book/ObjectC/Objective-C%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B.pdf)|了解语法，细节和进阶需后续再学习|
 |4|《GAMES101》|![100%](https://progress-bar.dev/100)|[视频](https://www.bilibili.com/video/BV1X7411F744/?spm_id_from=333.788.recommend_more_video.0)|
+|5|《大象无形》|![100%](https://progress-bar.dev/100)|[pdf](book\Book\UEStudy\大象无形：虚幻引擎程序设计浅析.pdf)||目前看完第8章|
 
 ## 当前计划
 - 短期计划（优先级高）
@@ -53,9 +54,10 @@ http://naotu.baidu.com/file/59a6fa3446a1b17ae96f1ec62560fa7d?token=cb4ca26ad9b4b
 |序号|计划名字|当前进度|资源链接|结论|结束时间|
 |-|-|-|-|-|-|
 |1| 《GAMES202》 P4没看 P7 P8 P9没看 |![60%](https://progress-bar.dev/60)||
-|3|《大象无形》|![40%](https://progress-bar.dev/40)|[pdf](book\Book\UEStudy\大象无形：虚幻引擎程序设计浅析.pdf)||目前看完第8章|
 
-- 长期计划（优先级中 书籍课程）：
+
+- 长期计划（优先级中 书籍课程）： 
+
 |序号|计划名字|当前进度|资源链接|结论|
 |-|-|-|-|-|
 |1|《Shader入门精要》|![25%](https://progress-bar.dev/25)||

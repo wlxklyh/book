@@ -41,7 +41,15 @@ if (Rules.bTreatAsEngineModule)//这里得看 build.cs文件
 这里没细看 应该大部分模块都是有这个定义
 
 ```
+### Build.cs
 
-## C++技巧
+
+
+## C++
+
+## 技巧
+
+mklink /J E:\ue_4.25\Engine\Intermediate C:\UEBuild\Intermediate 
+mklink /J E:\ue_4.25\Engine\Source C:\UEBuild\Source
 
 
