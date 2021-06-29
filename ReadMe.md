@@ -4,8 +4,9 @@
 <!-- TOC -->
 
 - [目录](#目录)
-    - [已完成计划](#已完成计划)
+    - [已完成](#已完成)
     - [当前计划](#当前计划)
+    - [搁置计划](#搁置计划)
     - [零、开源项目](#零开源项目)
         - [1、软渲染器](#1软渲染器)
         - [2. FFMpeg入门教程](#2-ffmpeg入门教程)
@@ -39,34 +40,34 @@
 http://naotu.baidu.com/file/59a6fa3446a1b17ae96f1ec62560fa7d?token=cb4ca26ad9b4b980
 
 
-## 已完成计划
-|序号|计划名字|当前进度|资源链接|结论|结束时间|
-|-|-|-|-|-|-|
-|1|《谷歌方法论》|![100%](https://progress-bar.dev/100)||
-|2|《垃圾回收的算法和实现》|![100%](https://progress-bar.dev/100)||
-|3|《Objective-C基础教程》|![100%](https://progress-bar.dev/100)|[pdf 已购 ](https://github.com/wlxklyh/book/blob/master/Book/ObjectC/Objective-C%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B.pdf)|了解语法，细节和进阶需后续再学习|
+## 已完成
+|序号|计划名字|当前进度|资源链接|结论|
+|-|-|-|-|-|
+|1|《谷歌方法论》|![100%](https://progress-bar.dev/100)|[视频](https://www.igetget.com/course/%E7%A1%85%E8%B0%B7%E6%9D%A5%E4%BF%A1%C2%B2%C2%B7%E8%B0%B7%E6%AD%8C%E6%96%B9%E6%B3%95%E8%AE%BA?param=kZ5hknT2fn9&token=1AZ5y8e6DLQwVn5SnKNYB0qMG7golO)||
+|2|《垃圾回收的算法和实现》|![100%](https://progress-bar.dev/100)|[书籍 ](https://github.com/wlxklyh/book/blob/master/Book/ObjectC/Objective-C%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B.pdf)||
+|3|《Objective-C基础教程》|![100%](https://progress-bar.dev/100)|[书籍 ](https://github.com/wlxklyh/book/blob/master/Book/ObjectC/Objective-C%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B.pdf)|
 |4|《GAMES101》|![100%](https://progress-bar.dev/100)|[视频](https://www.bilibili.com/video/BV1X7411F744/?spm_id_from=333.788.recommend_more_video.0)|
-|5|《大象无形》|![100%](https://progress-bar.dev/100)|[pdf](book\Book\UEStudy\大象无形：虚幻引擎程序设计浅析.pdf)||目前看完第8章|
+|5|《大象无形》|![100%](https://progress-bar.dev/100)|[书籍](https://github.com/wlxklyh/awesome-gamedev)||目前看完第8章|
+|6| 《CUDA教程》 |![40%](https://progress-bar.dev/40)|[视频](https://www.bilibili.com/video/BV1kx411m7Fk?p=11)|后面的机器学习相关的没看|
 
 ## 当前计划
-- 短期计划（优先级高）
+- **短期计划（优先级高）**
 
 |序号|计划名字|当前进度|资源链接|结论|结束时间|
 |-|-|-|-|-|-|
 |1| 《GAMES202》 P4没看 P7 P8 P9没看 |![60%](https://progress-bar.dev/60)||
 
 
-- 长期计划（优先级中 书籍课程）： 
+- **长期计划（优先级中 书籍课程）：** 
 
 |序号|计划名字|当前进度|资源链接|结论|
 |-|-|-|-|-|
 |1|《Shader入门精要》|![25%](https://progress-bar.dev/25)||
 |2|《LearnOpengl》|![10%](https://progress-bar.dev/10)||
 |3|复习《垃圾回收的算法和实现》|![20%](https://progress-bar.dev/20)||
-|4|《安卓开发高手》|![43%](https://progress-bar.dev/43)|[付费视频](https://time.geekbang.org/column/article/70602)|
 |5|《GAMES102》|![1%](https://progress-bar.dev/1)||
 
-- 其他计划
+- **其他计划**
 
 |序号|计划名字|当前进度|资源链接|结论|
 |-|-|-|-|-|
@@ -80,15 +81,15 @@ http://naotu.baidu.com/file/59a6fa3446a1b17ae96f1ec62560fa7d?token=cb4ca26ad9b4b
 |9|技术类的引流 和 非技术类的引流|![1%](https://progress-bar.dev/1)||
 
 
-- 历史计划（搁置计划）
+## 搁置计划  
 
-游戏开发相关的
+- **游戏开发相关的**  
+
 |序号|计划名字|当前进度|资源链接|结论|
 |-|-|-|-|-|
-|1| 《CUDA教程》 |![40%](https://progress-bar.dev/40)|[视频](https://www.bilibili.com/video/BV1kx411m7Fk?p=11)||看到11集 后面的优化以后再看|
 
+- **移动开发相关的**
 
-移动开发相关的
 |序号|计划名字|当前进度|资源链接|结论|
 |-|-|-|-|-|
 |1|《从0开发一款iOS App》|![100%](https://progress-bar.dev/36)|[付费视频](https://time.geekbang.org/course/detail/100025901-93482)|
@@ -97,7 +98,7 @@ http://naotu.baidu.com/file/59a6fa3446a1b17ae96f1ec62560fa7d?token=cb4ca26ad9b4b
 |4|Opengl jni 改成调用android.opengl|![0%](https://progress-bar.dev/0)|https://github.com/wlxklyh/Ado_OpenGLES_3_0|重要性低|
 |5|GPUImage、Grafika|![0%](https://progress-bar.dev/0)||重要性低|
 |6|airhockey 看learnopengles教程|![0%](https://progress-bar.dev/0)|[链接](https://www.learnopengles.com/developing-a-simple-game-of-air-hockey-using-c-and-opengl-es-2-for-android-ios-and-the-web/)|重要性低|
-
+|7|《安卓开发高手》|![43%](https://progress-bar.dev/43)|[付费视频](https://time.geekbang.org/column/article/70602)|
 
 ## 零、开源项目
 |序号|项目名字|简介|github链接|
