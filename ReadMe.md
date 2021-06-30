@@ -7,33 +7,26 @@
     - [已完成](#已完成)
     - [当前计划](#当前计划)
     - [搁置计划](#搁置计划)
-    - [零、开源项目](#零开源项目)
+    - [一、开源项目](#一开源项目)
         - [1、软渲染器](#1软渲染器)
         - [2. FFMpeg入门教程](#2-ffmpeg入门教程)
             - [2.1 音视频基础知识入门](#21-音视频基础知识入门)
             - [2.3 FFMpeg入门](#23-ffmpeg入门)
         - [软渲染器渲染引擎（TODO）](#软渲染器渲染引擎todo)
         - [Opengl Glitter开源学习（TODO）](#opengl-glitter开源学习todo)
-    - [一、书籍](#一书籍)
-        - [计算机网络](#计算机网络)
-            - [《图解http》](#图解http)
-        - [GC回收](#gc回收)
-            - [《垃圾回收的算法和实现》](#垃圾回收的算法和实现)
     - [二、其他](#二其他)
         - [Markdown写作](#markdown写作)
         - [我的互联网付费](#我的互联网付费)
+    - [三、工具](#三工具)
+        - [VSCode插件和命令](#vscode插件和命令)
+        - [Windows](#windows)
+        - [mac](#mac)
+        - [git](#git)
+        - [adb](#adb)
+        - [ffmpeg](#ffmpeg)
+    - [四、思考](#四思考)
         - [与人交流](#与人交流)
         - [如何学习？](#如何学习)
-    - [三、工具](#三工具)
-        - [VSCode插件](#vscode插件)
-        - [PicGo](#picgo)
-        - [snipaste](#snipaste)
-        - [gifcam录制](#gifcam录制)
-        - [开发环境](#开发环境)
-        - [git](#git)
-        - [mac 工具](#mac-工具)
-    - [adb](#adb)
-    - [ffmpeg：](#ffmpeg)
 
 <!-- /TOC -->
 
@@ -100,7 +93,7 @@ http://naotu.baidu.com/file/59a6fa3446a1b17ae96f1ec62560fa7d?token=cb4ca26ad9b4b
 |6|airhockey 看learnopengles教程|![0%](https://progress-bar.dev/0)|[链接](https://www.learnopengles.com/developing-a-simple-game-of-air-hockey-using-c-and-opengl-es-2-for-android-ios-and-the-web/)|重要性低|
 |7|《安卓开发高手》|![43%](https://progress-bar.dev/43)|[付费视频](https://time.geekbang.org/column/article/70602)|
 
-## 零、开源项目
+## 一、开源项目
 |序号|项目名字|简介|github链接|
 |-|-|-|-|
 |1|个人知识脉络|**记录了看过的书、开源的项目、计算机知识脉络。**| [![](https://img.shields.io/github/stars/wlxklyh/Book?style=social)](https://github.com/wlxklyh/book) [![](https://img.shields.io/github/forks/wlxklyh/Book?style=social)](https://github.com/wlxklyh/book)|
@@ -153,26 +146,6 @@ https://github.com/wlxklyh/FFMpegStudy
 ### Opengl Glitter开源学习（TODO）
 
 
-
-## 一、书籍
-
-### 计算机网络
-网络优化
-https://www.zhihu.com/lives/803253724087742464
-锁
-https://tech.meituan.com/2018/11/15/java-lock.html
-
-#### 《图解http》
-https://github.com/wlxklyh/book/blob/master/Book/GC/Main.md
-
-
-### GC回收
-
-#### 《垃圾回收的算法和实现》
-https://github.com/wlxklyh/book/blob/master/Book/neiwork/Study.md
-
-
-
 ## 二、其他
 ### Markdown写作
 
@@ -204,17 +177,84 @@ https://github.com/wlxklyh/book/blob/master/Book/neiwork/Study.md
 ![](https://raw.githubusercontent.com/wlxklyh/book/master/Tool/Resource/wcgif.gif)
 >个人简介：高级开发工程师，兴趣和领域（Unity、Unreal、cocos creator、安卓终端开发、ios终端开发、音视频开发、图形学），欢迎加W：wlxklyh 探讨问题。（欢迎star：https://github.com/wlxklyh/SoftRenderer）
 
-|写作计划|文字内容|
-|-|-|
-| 1、音视频入门/音视频基础 | ![0%](https://progress-bar.dev/0) |
-| 2、垃圾回收的书籍 | ![0%](https://progress-bar.dev/0) |
-
 
 ### 我的互联网付费
 |名字||
 |-|-|
 |1、极客时间|19元买了一门课|
 |2、得到|198元谷歌方法论的课|
+|3、梯子 http://ss.yunyunyun.top/auth/login|1282836127@ P:Scut 客服Q:2206128889|
+
+
+
+## 三、工具
+### VSCode插件和命令
+
+|名字|说明|备注|
+|-|-|-|
+|上传图片|ctrl（command）+ alt + u 图片上传图床并贴到当前md||
+|上传图片|ctrl（command）+ alt + v 图片上传相对目录img并贴到当前md||
+|Draw.io|新建.drawio后缀的文件 |![](Img/2020-12-03-17-10-19.png)  |
+|paste Image||![](Img/2020-09-08-09-23-56.png)|
+|Markdown TOC|解决换行问题:https://blog.csdn.net/u014171091/article/details/89629634|![](Img/2020-09-08-09-23-38.png)  |
+|Shader Toy||![20201015190124](https://raw.githubusercontent.com/wlxklyh/imagebed/master/imageforvscode/20201015190124.png)  | 
+|setting sync| 设置同步神器 command+shift+p 输入 sync download setting  https://www.cnblogs.com/lychee/p/11214032.html  |![20201015190148](https://raw.githubusercontent.com/wlxklyh/imagebed/master/imageforvscode/20201015190148.png)|
+|PicGO| 图床工具https://blog.csdn.net/xxiaobaib/article/details/92801700  |![20201015190214](https://raw.githubusercontent.com/wlxklyh/imagebed/master/imageforvscode/20201015190214.png)  |
+|snippet|ctrl+shift+p   输入命令snippet   然后看到wlxkllyhsnippet 然后在里面编辑 当然也可以新建一个  ||
+
+
+
+
+### Windows
+|名字|说明|备注|
+|-|-|-|
+|PicGo |图床工具 pic-migrater是图床切换的插件 可以转换图床||
+|snipaste|截图工具|https://www.snipaste.com/  |
+|gifcam| gif录制|https://gifcam.softonic.cn/|
+|yunyunyun|梯子|http://ss.yunyunyun.top/auth/login|
+
+### mac  
+
+- 工具
+
+|名字|说明|备注|
+|-|-|-|
+|homebrew|包管理库 brew切换源||
+
+
+- 技巧
+
+|名字|说明|备注|
+|-|-|-|
+|mac录音|mac录音 同时录制媒体和麦克风|https://www.zhihu.com/question/26032781  |
+|mac多开|open -n /Applications/WeChat.app/Contents/MacOS/WeChat  ||
+|mac|sudo spctl --master-disable  Mac软件权限问题||
+
+### git  
+|名字|说明|备注|
+|-|-|-|
+|astralapp|star管理工具|https://app.astralapp.com/dashboard|
+
+
+### adb
+
+|命令|说明|备注|
+|-|-|-|
+|adb shell dumpsys meminfo com.tencent.weishi|内存||
+|adb shell dumpsys dropbox data_app_crash --print|内存||
+|adb shell dumpsys dropbox --print|内存||
+
+
+### ffmpeg
+
+|命令|说明|备注|
+|-|-|-|
+|ffmpeg -i 1.mp4 -i 5.mp4 -lavfi psnr="stats_file=psnr.log" -f null -|psnr |
+|ffmpeg -i test_20.mp4  -i test_20Record.mp4  -lavfi ssim="stats_file=ssim.log" -f null -|psnr |
+|ffprobe url|获取信息||
+
+
+## 四、思考
 
 ### 与人交流
 1. ios app 和 游戏，重要的是买量和渠道 还有跟人多交流
@@ -226,84 +266,3 @@ https://github.com/wlxklyh/book/blob/master/Book/neiwork/Study.md
 1. 思维导图思路记录关键词 一定要简介
 2. 有道词典设置查过的单词进入单词本
 3. 
-
-## 三、工具
-### VSCode插件
-- 命令：
-1. ctrl（command）+ alt + u 图片上传图床并贴到当前md
-2. ctrl（command）+ alt + v 图片上传相对目录img并贴到当前md
-
-- Draw.io  
-![](Img/2020-12-03-17-10-19.png)  
-新建.drawio后缀的文件  
-
-- paste Image  
-![](Img/2020-09-08-09-23-56.png)  
-
-- Markdown TOC  
-![](Img/2020-09-08-09-23-38.png)  
-解决换行问题  
-https://blog.csdn.net/u014171091/article/details/89629634  
-
-- Shader Toy  
-![20201015190124](https://raw.githubusercontent.com/wlxklyh/imagebed/master/imageforvscode/20201015190124.png)  
-
-- setting sync 设置同步神器  
-command+shift+p 输入 sync download setting  
-https://www.cnblogs.com/lychee/p/11214032.html  
-![20201015190148](https://raw.githubusercontent.com/wlxklyh/imagebed/master/imageforvscode/20201015190148.png)
-- PicGO 图床工具  
-https://blog.csdn.net/xxiaobaib/article/details/92801700  
-![20201015190214](https://raw.githubusercontent.com/wlxklyh/imagebed/master/imageforvscode/20201015190214.png)  
-
-- snippet  
-ctrl+shift+p  
-输入命令snippet  
-然后看到wlxkllyhsnippet 然后在里面编辑 当然也可以新建一个  
-
-### PicGo
-![](Img/2021-06-14-22-31-22.png)
-![](Img/2021-06-14-22-31-04.png)
-sm.ms 测试
-![t](https://i.loli.net/2021/06/14/rkAwfZ9KHCl5EeX.png)
-
-### snipaste  
-截图工具  
-https://www.snipaste.com/  
-
-### gifcam录制
-gif 录制
-https://gifcam.softonic.cn/
-
-### 开发环境  
-homebrew是包管理库 brew切换源  
-SDK路径设置  
-NDK路径设置  
-cmake安装  
-
-
-### git  
-star管理工具  
-https://app.astralapp.com/dashboard  
-
-
-### mac 工具  
-mac录音 同时录制媒体和麦克风  
-https://www.zhihu.com/question/26032781  
-
-多开  
-open -n /Applications/WeChat.app/Contents/MacOS/WeChat  
-
-Mac软件权限：
-sudo spctl --master-disable
-## adb
-内存：adb shell dumpsys meminfo com.tencent.weishi
-adb shell dumpsys dropbox data_app_crash --print
-adb shell dumpsys dropbox --print
-
-## ffmpeg：
-1、psnr 
-ffmpeg -i 1.mp4 -i 5.mp4 -lavfi psnr="stats_file=psnr.log" -f null -
-ffmpeg -i test_20.mp4  -i test_20Record.mp4  -lavfi ssim="stats_file=ssim.log" -f null -
-2、获取信息
-ffprobe url
