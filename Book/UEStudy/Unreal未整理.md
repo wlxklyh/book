@@ -48,8 +48,12 @@ if (Rules.bTreatAsEngineModule)//这里得看 build.cs文件
 ## C++
 
 ## 技巧
-
+- 编译加速 link
 mklink /J E:\ue_4.25\Engine\Intermediate C:\UEBuild\Intermediate 
 mklink /J E:\ue_4.25\Engine\Source C:\UEBuild\Source
 
-
+- setup加速 多线程、cache、exclude
+exclude:Setup.bat -exclude=WinRT -exclude=Linux -exclude=Linux32 -exclude=osx64 -exclude=IOS --cache=D:\Temp
+多线程：https://gameinstitute.qq.com/community/detail/122148
+exclude：https://forums.unrealengine.com/t/tutorial-how-to-use-setup-bat-and-how-to-reduce-download-size/17640
+这些目录都是下载的 /Engine/Binaries/ThirdParty
