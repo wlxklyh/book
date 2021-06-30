@@ -183,7 +183,7 @@ https://github.com/wlxklyh/FFMpegStudy
 |-|-|
 |1、极客时间|19元买了一门课|
 |2、得到|198元谷歌方法论的课|
-|3、梯子 http://ss.yunyunyun.top/auth/login|1282836127@ P:Scut 客服Q:2206128889|
+|3、梯子 http://ss.yunyunyun.top/auth/login|1282836127@qq.com P:Scut 客服Q:2206128889 https://dy.sublink.cyou/auth/register|
 
 
 
