@@ -18,6 +18,7 @@
         - [Markdown写作](#markdown写作)
         - [我的互联网付费](#我的互联网付费)
     - [三、工具](#三工具)
+        - [程序员工具账号](#程序员工具账号)
         - [VSCode插件和命令](#vscode插件和命令)
         - [Windows](#windows)
         - [mac](#mac)
@@ -186,8 +187,12 @@ https://github.com/wlxklyh/FFMpegStudy
 |3、梯子 http://ss.yunyunyun.top/auth/login|1282836127@ P:Scut 客服Q:2206128889|
 
 
-
 ## 三、工具
+### 程序员工具账号 
+||说明|账户和密码|
+|-|-|-|
+|JetBrains | 可以看下QQ邮箱的邮件|wlxklyh linyanhou@qq.com Scut|
+
 ### VSCode插件和命令
 
 |名字|说明|备注|
@@ -206,12 +211,31 @@ https://github.com/wlxklyh/FFMpegStudy
 
 
 ### Windows
+
+- 工具
+
 |名字|说明|备注|
 |-|-|-|
 |PicGo |图床工具 pic-migrater是图床切换的插件 可以转换图床||
 |snipaste|截图工具|https://www.snipaste.com/  |
 |gifcam| gif录制|https://gifcam.softonic.cn/|
 |yunyunyun|梯子|http://ss.yunyunyun.top/auth/login|
+
+- MyWorkSpace
+```cpp
+1、微云目录
+
+2、github
+    book
+    proj
+        awesome-gamedev
+        UnrealEngine
+        pbrt-3
+    other
+```
+
+
+
 
 ### mac  
 
@@ -230,10 +254,14 @@ https://github.com/wlxklyh/FFMpegStudy
 |mac多开|open -n /Applications/WeChat.app/Contents/MacOS/WeChat  ||
 |mac|sudo spctl --master-disable  Mac软件权限问题||
 
+- 目录 
+
+
 ### git  
 |名字|说明|备注|
 |-|-|-|
 |astralapp|star管理工具|https://app.astralapp.com/dashboard|
+|** /Intermediate/ * !**/Intermediate/ProjectFiles|忽略技巧|
 
 
 ### adb
