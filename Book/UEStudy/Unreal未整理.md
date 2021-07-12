@@ -44,7 +44,8 @@ if (Rules.bTreatAsEngineModule)//这里得看 build.cs文件
 
 
 
-- 
+- 设置编译  
+VCToolChain.cs里面设置忽略告警 Arguments.Add("/ignore:4199");
 
 
 ### Build.cs
