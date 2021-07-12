@@ -220,7 +220,8 @@ https://github.com/wlxklyh/FFMpegStudy
 |snipaste|截图工具|https://www.snipaste.com/  |
 |gifcam| gif录制|https://gifcam.softonic.cn/|
 |yunyunyun|梯子|http://ss.yunyunyun.top/auth/login|
-
+|Todo|备忘|linyanhou@qq.com |
+|Quixel Brige|Unreal资源查找和导入的神器|https://quixel.com/bridge|
 - MyWorkSpace
 ```cpp
 1、微云目录
@@ -233,7 +234,6 @@ https://github.com/wlxklyh/FFMpegStudy
         pbrt-3
     other
 ```
-
 
 
 
