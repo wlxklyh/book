@@ -41,6 +41,13 @@ if (Rules.bTreatAsEngineModule)//这里得看 build.cs文件
 这里没细看 应该大部分模块都是有这个定义
 
 ```
+
+
+
+- 设置编译  
+VCToolChain.cs里面设置忽略告警 Arguments.Add("/ignore:4199");
+
+
 ### Build.cs
 
 
@@ -53,6 +60,7 @@ mklink /J E:\ue_4.25\Engine\Intermediate C:\UEBuild\Intermediate
 mklink /J E:\ue_4.25\Engine\Source C:\UEBuild\Source
 
 - setup加速 多线程、cache、exclude
+Setup.bat --cache=D:\Temp
 exclude:Setup.bat -exclude=WinRT -exclude=Linux -exclude=Linux32 -exclude=osx64 -exclude=IOS --cache=D:\Temp
 多线程：https://gameinstitute.qq.com/community/detail/122148
 exclude：https://forums.unrealengine.com/t/tutorial-how-to-use-setup-bat-and-how-to-reduce-download-size/17640

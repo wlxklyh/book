@@ -191,7 +191,8 @@ https://github.com/wlxklyh/FFMpegStudy
 ### 程序员工具账号 
 ||说明|账户和密码|
 |-|-|-|
-|JetBrains | 可以看下QQ邮箱的邮件|wlxklyh linyanhou@qq.com Scut|
+|JetBrains | 可以看下QQ邮箱的邮件|wlxklyh linyanhou@qq.com S|
+|Epic Games||wlxklyh2 1282836127@qq.com S|
 
 ### VSCode插件和命令
 
